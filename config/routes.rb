@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'user/index'
+  get 'user/gravatar'
+  devise_for :users
   root 'static_pages#home'
   get  '/help',    to: 'static_pages#help'
 

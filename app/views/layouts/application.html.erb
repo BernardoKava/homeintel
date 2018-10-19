@@ -12,8 +12,14 @@
 <%= render 'layouts/header' %>
 
 <div class="container">
+  <% if current_user %>
+    <%= render 'user/gravatar'%>
+  <% else %>
+
+  <% end %>
+  <p class="alert"><%= alert %></p>
   <%= yield %>
-  <%=image_tag("front.png", alt: "Rails logo", :size => "1140x600") %>
+  <%=image_tag("front.png", alt: "Rails logo", :size => "1140x400") %>
   <%= render 'layouts/footer' %>
 </div>
 </body>

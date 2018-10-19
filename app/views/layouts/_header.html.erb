@@ -1,11 +1,74 @@
+
+
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Home Intel", '#', id: "logo" %>
+    <%= link_to "Home Intel", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
-        <li><%= link_to "Help",   help_path %></li>
-        <li><%= link_to "Log in", '#' %></li>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Help", help_path %></li>
+        <% if current_user %>
+
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Data Pools <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Base Items pool", '#'%></li>
+              <li class="divider"></li>
+              <li><%= link_to "Departments Pools", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Address Pool", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Employer Pool", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Expense Type Pool", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Income Type Pool", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Post Item Type Pool", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Bank Account Pool", '#' %></li>
+            </ul>
+          </li>
+
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Tools <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Inventory", '#'%></li>
+              <li class="divider"></li>
+              <li><%= link_to "People", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Budget", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Deliveries", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Savings", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Actuals", '#' %></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              My Home Intel <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", edit_user_registration_path %></li>
+
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out",  destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
