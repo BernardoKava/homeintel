@@ -4,8 +4,10 @@
       <h1>
         <%= image_tag current_user.gravatar_url %>
         <%= current_user.email %>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <div class = "notification">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
       </h1>
     </section>
   </aside>

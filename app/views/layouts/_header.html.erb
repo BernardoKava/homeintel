@@ -5,51 +5,51 @@
     <%= link_to "Home Intel", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to "Home", root_path, class: 'fa fa-home' %></li>
+        <li><%= link_to "Help", help_path, class: 'fa fa-question-circle' %></li>
         <% if current_user %>
 
-
+          <% if current_user.admin %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Data Pools <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Base Items pool", '#'%></li>
+              <li><%= link_to "Base Items pool", '#', class: 'fa fa-hdd-o'%></li>
               <li class="divider"></li>
-              <li><%= link_to "Departments Pools", '#' %></li>
+              <li><%= link_to "Departments Pools", '#', class: 'fa fa-hdd-o' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Address Pool", '#' %></li>
+              <li><%= link_to "Address Pool", '#', class: 'fa fa-hdd-o' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Employer Pool", '#' %></li>
+              <li><%= link_to "Employer Pool", '#', class: 'fa fa-hdd-o' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Expense Type Pool", '#' %></li>
+              <li><%= link_to "Expense Type Pool", '#', class: 'fa fa-hdd-o' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Income Type Pool", '#' %></li>
+              <li><%= link_to "Income Type Pool", '#', class: 'fa fa-hdd-o' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Post Item Type Pool", '#' %></li>
+              <li><%= link_to "Post Item Type Pool", '#', class: 'fa fa-hdd-o' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Bank Account Pool", '#' %></li>
+              <li><%= link_to "Bank Account Pool", '#', class: 'fa fa-hdd-o' %></li>
             </ul>
           </li>
-
+          <% end %>
 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Tools <b class="caret"></b>
+             System Tools <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Inventory", '#'%></li>
+              <li><%= link_to "Inventory", '#', class: 'fa fa-database'%></li>
               <li class="divider"></li>
-              <li><%= link_to "People", '#' %></li>
+              <li><%= link_to "People", '#' , class: 'fa fa-database'%></li>
               <li class="divider"></li>
-              <li><%= link_to "Budget", '#' %></li>
+              <li><%= link_to "Budget", '#' , class: 'fa fa-database'%></li>
               <li class="divider"></li>
-              <li><%= link_to "Deliveries", '#' %></li>
+              <li><%= link_to "Deliveries", '#' , class: 'fa fa-database'%></li>
               <li class="divider"></li>
-              <li><%= link_to "Savings", '#' %></li>
+              <li><%= link_to "Savings", '#' , class: 'fa fa-database'%></li>
               <li class="divider"></li>
-              <li><%= link_to "Actuals", '#' %></li>
+              <li><%= link_to "Actuals", '#' , class: 'fa fa-database'%></li>
             </ul>
           </li>
 
@@ -58,16 +58,16 @@
               My Home Intel <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", edit_user_registration_path %></li>
+              <li><%= link_to "Profile", edit_user_registration_path, class:'fa fa-cog' %></li>
 
               <li class="divider"></li>
               <li>
-                <%= link_to "Log out",  destroy_user_session_path, method: :delete %>
+                <%= link_to "Log out",  destroy_user_session_path, method: :delete, class:'fa fa-sign-in' %>
               </li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", new_user_session_path %></li>
+          <li><%= link_to "Log in", new_user_session_path, class:'fa fa-sign-out' %></li>
         <% end %>
       </ul>
     </nav>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
   get 'user/index'
   get 'user/gravatar'
   devise_for :users
