@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_124714) do
+ActiveRecord::Schema.define(version: 2018_10_21_150047) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "inventory_id"
+    t.integer "user_id"
+    t.text "commentary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inventory_id"], name: "index_comments_on_inventory_id"
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.string "department"
+    t.boolean "active"
+    t.integer "user_id"
+    t.date "period_from"
+    t.date "period_to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer "inventory_id"
+    t.string "item"
+    t.text "description"
+    t.decimal "quantity"
+    t.decimal "value"
+    t.string "owner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inventory_id"], name: "index_items_on_inventory_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

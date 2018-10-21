@@ -131,3 +131,11 @@ aside {
   background-color: #66b3ff;
 
 }
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+

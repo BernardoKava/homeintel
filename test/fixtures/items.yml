@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inventory: one
+  item: MyString
+  description: MyText
+  quantity: 
+  value: 
+  owner: MyString
+
+two:
+  inventory: two
+  item: MyString
+  description: MyText
+  quantity: 
+  value: 
+  owner: MyString

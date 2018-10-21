@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :inventories
   get 'dashboard/index'
   get 'user/index'
   get 'user/gravatar'

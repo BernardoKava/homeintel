@@ -1,0 +1,74 @@
+
+
+<hr>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+
+
+  <%= form_for @inventory do |f| %>
+
+
+    <% if inventory.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
+
+        <ul>
+          <% inventory.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+          <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Inventory Details</h2></strong>
+    <div class="field">
+      <%= f.label :department %>
+      <%= f.text_field :department , class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :active %>
+      <%= f.check_box :active %>
+    </div>
+
+
+    <%= f.hidden_field :user_id , class: 'form-control', value: current_user.id %>
+
+
+    <div class="field">
+      <%= f.label :period_from %>
+      <%= f.date_select :period_from , class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :period_to %>
+      <%= f.date_select :period_to, class: 'form-control'  %>
+    </div>
+    <hr/>
+    <hr/>
+          <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Items</h2></strong>
+    <div class="nested_fields">
+      <%= link_to_add_association 'Add', f, :items, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+      <%= f.fields_for :items do |item| %>
+        <%= render 'item_fields', :f => item %>
+      <% end %>
+    </div>
+
+          <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Comments</h2></strong>
+    <div class="nested-fields">
+      <%= link_to_add_association 'Add', f, :comments, class:'fa fa-plus',style:"font-size:15px;color:green"%>
+      <%= f.fields_for :comments do |comment| %>
+        <%= render 'comment_fields', :f => comment %>
+      <% end %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+
+
+
+      </div>
+    </div>
