@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :base_items
+  resources :departments
   resources :inventories
   get 'dashboard/index'
   get 'user/index'

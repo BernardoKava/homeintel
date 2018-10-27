@@ -15,8 +15,7 @@ class InventoriesController < ApplicationController
   # GET /inventories/new
   def new
     @inventory = Inventory.new
-    @inventory.items.build
-    @inventory.comments.build
+
   end
 
   # GET /inventories/1/edit
@@ -71,8 +70,9 @@ class InventoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inventory_params
-      params.require(:inventory).permit(:department, :active, :user_id, :period_from, :period_to,
-                                        items_attributes:[:id,:item,:quantity,:description, :value, :owner, :_destroy] ,
-      items_attributes:[:id, :commentary, :user_id, :_destroy]  )
+      params.require(:inventory).permit(:department, :active, :user_id, :period_from, :period_to,:department_id,
+                                        items_attributes:[:id,:item,:quantity,:description, :value, :owner,:base_item_id,
+                                                          :_destroy] ,
+      comments_attributes:[:id, :commentary, :user_id, :_destroy] )
     end
 end

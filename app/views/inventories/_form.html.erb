@@ -20,47 +20,64 @@
       </div>
     <% end %>
           <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Inventory Details</h2></strong>
-    <div class="field">
-      <%= f.label :department %>
-      <%= f.text_field :department , class: 'form-control' %>
-    </div>
 
-    <div class="field">
-      <%= f.label :active %>
-      <%= f.check_box :active %>
-    </div>
+          <div class="jumbotron">
+
+            <div class="control-group">
+              <%= f.label :department_id, "Department",class: 'control-label' %>
+              <div class ="controls">
+                <%= f.collection_select :department_id, Department.order(:name), :id, :name, include_blank: true %>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= f.label :active %>
+              <%= f.check_box :active %>
+            </div>
 
 
-    <%= f.hidden_field :user_id , class: 'form-control', value: current_user.id %>
+            <%= f.hidden_field :user_id , class: 'form-control', value: current_user.id %>
 
 
-    <div class="field">
-      <%= f.label :period_from %>
-      <%= f.date_select :period_from , class: 'form-control' %>
-    </div>
+            <div class="field">
+              <%= f.label :period_from %>
+              <%= f.date_select :period_from , class: 'form-control' %>
+            </div>
 
-    <div class="field">
-      <%= f.label :period_to %>
-      <%= f.date_select :period_to, class: 'form-control'  %>
-    </div>
+            <div class="field">
+              <%= f.label :period_to %>
+              <%= f.date_select :period_to, class: 'form-control'  %>
+            </div>
+
+
+          </div>
+
     <hr/>
     <hr/>
           <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Items</h2></strong>
-    <div class="nested_fields">
-      <%= link_to_add_association 'Add', f, :items, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
-      <%= f.fields_for :items do |item| %>
-        <%= render 'item_fields', :f => item %>
-      <% end %>
-    </div>
+          <div class="jumbotron">
+            <div class="nested_fields">
+              <%= link_to_add_association 'Add', f, :items, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+              <%= f.fields_for :items do |item| %>
+                <%= render 'item_fields', :f => item %>
+              <% end %>
+            </div>
+          </div>
+          <hr/>
+          <hr/>
 
           <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Comments</h2></strong>
-    <div class="nested-fields">
-      <%= link_to_add_association 'Add', f, :comments, class:'fa fa-plus',style:"font-size:15px;color:green"%>
-      <%= f.fields_for :comments do |comment| %>
-        <%= render 'comment_fields', :f => comment %>
-      <% end %>
-    </div>
 
+          <div class="jumbotron">
+            <div class="nested-fields">
+              <%= link_to_add_association 'Add', f, :comments, class:'fa fa-plus',style:"font-size:15px;color:green"%>
+              <%= f.fields_for :comments do |comment| %>
+                <%= render 'comment_fields', :f => comment %>
+              <% end %>
+            </div>
+          </div>
+          <br>
+          <hr>
 
     <div class="actions">
       <%= f.submit %>

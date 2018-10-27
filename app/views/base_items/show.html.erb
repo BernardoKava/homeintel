@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @base_item.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @base_item.description %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @base_item.owner %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @base_item.active %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @base_item.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_base_item_path(@base_item) %> |
+<%= link_to 'Back', base_items_path %>

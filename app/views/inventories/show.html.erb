@@ -2,17 +2,7 @@
 
 <p>
   <strong>Department:</strong>
-  <%= @inventory.department %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @inventory.active %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @inventory.user_id %>
+  <%= @inventory.department.name %>
 </p>
 
 <p>
@@ -25,5 +15,48 @@
   <%= @inventory.period_to %>
 </p>
 
-<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
-<%= link_to 'Back', inventories_path %>
+<hr>
+
+<div>
+  <% for item in @inventory.items %>
+    <p>
+      <strong>Item:</strong>
+      <%=h item.item %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= item.description %>
+    </p>
+
+    <p>
+      <strong>Quantity:</strong>
+      <%= item.quantity %>
+    </p>
+    <p>
+      <strong>Value:</strong>
+      <%= item.value %>
+    </p>
+    <p>
+      <strong>Owner:</strong>
+      <%= item.owner %>
+    </p>
+ <% end %>
+</div>
+<hr/>
+<div>
+  <% for comment in @inventory.comments %>
+    <p>
+      <strong>comment:</strong>
+      <%= comment.commentary %>
+    </p>
+  <% end %>
+</div>
+<br>
+<hr/>
+<div class="links">
+
+  <%= link_to 'Edit', edit_inventory_path(@inventory), class: 'fa fa-edit' %> |
+  <%= link_to 'Back', inventories_path , class: 'fa fa-caret-square-o-left'%>
+
+</div>

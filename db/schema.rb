@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_150047) do
+ActiveRecord::Schema.define(version: 2018_10_22_085220) do
+
+  create_table "base_items", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "owner"
+    t.boolean "active"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer "inventory_id"
@@ -21,6 +31,16 @@ ActiveRecord::Schema.define(version: 2018_10_21_150047) do
     t.index ["inventory_id"], name: "index_comments_on_inventory_id"
   end
 
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "owner"
+    t.boolean "active"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "inventories", force: :cascade do |t|
     t.string "department"
     t.boolean "active"
@@ -29,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_10_21_150047) do
     t.date "period_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "department_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -40,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_10_21_150047) do
     t.string "owner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "base_item_id"
     t.index ["inventory_id"], name: "index_items_on_inventory_id"
   end
 

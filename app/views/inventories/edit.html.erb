@@ -1,6 +1,10 @@
-<h1>Editing Inventory</h1>
+<h1 style="font-size: 30px;color: goldenrod" >Editing Inventory</h1>
 
 <%= render 'form', inventory: @inventory %>
 
-<%= link_to 'Show', @inventory %> |
-<%= link_to 'Back', inventories_path %>
+<div class="links">
+  <%= link_to 'Show', @inventory ,class: 'fa fa-eye'%> |
+  <%= link_to 'Back', inventories_path, class: 'fa fa-caret-square-o-left' %>
+
+</div>
+
