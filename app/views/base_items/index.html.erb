@@ -2,14 +2,13 @@
 
 <h1>Base Items</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
       <th>Description</th>
       <th>Owner</th>
-      <th>Active</th>
-      <th>User</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,14 +16,13 @@
   <tbody>
     <% @base_items.each do |base_item| %>
       <tr>
-        <td><%= base_item.name %></td>
+        <td><%= link_to base_item.name, base_item %></td>
         <td><%= base_item.description %></td>
         <td><%= base_item.owner %></td>
-        <td><%= base_item.active %></td>
-        <td><%= base_item.user_id %></td>
-        <td><%= link_to 'Show', base_item %></td>
-        <td><%= link_to 'Edit', edit_base_item_path(base_item) %></td>
-        <td><%= link_to 'Destroy', base_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><%= link_to 'View', base_item, class:'fa fa-eye' %></td>
+        <td><%= link_to 'Edit', edit_base_item_path(base_item), class:'fa fa-edit' %></td>
+        <td><%= link_to 'Delete', base_item, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-remove' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +30,6 @@
 
 <br>
 
-<%= link_to 'New Base Item', new_base_item_path %>
+<div class="links">
+<%= link_to 'New Base Item', new_base_item_path, class:'fa fa-plus' %>
+</div>

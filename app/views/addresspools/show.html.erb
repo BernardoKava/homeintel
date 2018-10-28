@@ -1,19 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @addresspool.address %>
-</p>
 
-<p>
-  <strong>Active:</strong>
-  <%= @addresspool.active %>
-</p>
+<div class="jumbotron">
+  <strong>Address:</strong><br><br>
+  <p class="show_page_data"><%= @addresspool.address %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @addresspool.user_id %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_addresspool_path(@addresspool) %> |
-<%= link_to 'Back', addresspools_path %>
+<div class="jumbotron">
+  <strong>Active:</strong><br><br>
+  <p class="show_page_data"> <%= @addresspool.active %>
+  </p>
+
+
+</div>
+
+
+
+
+
+
+<div class="links">
+  <%= link_to 'Edit', edit_addresspool_path(@addresspool), class:'fa fa-edit' %> |
+  <%= link_to 'Back', addresspools_path, class:'fa fa-arrow-left' %>
+</div>
+

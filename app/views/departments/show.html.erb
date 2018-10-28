@@ -1,29 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @department.name %>
-</p>
+<div class="jumbotron">
+  <strong>Name:</strong><br><br>
+  <p class="show_page_data"><%= @department.name %>
+  </p>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @department.description %>
-</p>
+<div class="jumbotron">
+  <strong>Description:</strong><br><br>
+  <p class="show_page_data"><%= @department.description %>
+  </p>
+</div>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @department.owner %>
-</p>
 
-<p>
-  <strong>Active:</strong>
-  <%= @department.active %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @department.user_id %>
-</p>
+<div class="jumbotron">
+  <strong>Owner:</strong><br><br>
+  <p class="show_page_data"> <%= @department.owner %>
+  </p>
+</div>
 
-<%= link_to 'Edit', edit_department_path(@department) %> |
-<%= link_to 'Back', departments_path %>
+<div class="jumbotron">
+  <strong>Active:</strong><br><br>
+  <p class="show_page_data"> <%= @department.active %>
+  </p>
+</div>
+
+
+
+
+
+<div class="links">
+  <%= link_to 'Edit', edit_department_path(@department) , class:'fa fa-edit'%> |
+  <%= link_to 'Back', departments_path  , class:'fa fa-arrow-left'%>
+</div>
+

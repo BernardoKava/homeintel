@@ -81,6 +81,8 @@ class PeopleController < ApplicationController
                                                                 :school,:from, :to, :grade, :user_id,:_destroy],
                                      employments_attributes:[:id, :company,
                                                              :position, :from, :to,
-                                                             :terminationreason,:actve,:user_id,:_destroy])
+                                                             :terminationreason,:actve,:user_id,:_destroy],references_attributes:
+                                     [:id,:active, :employer,:referee,:telephone,:email,:details,:user_id,:_destroy],
+                                     comments_attributes:[:id, :commentary, :user_id, :_destroy])
     end
 end

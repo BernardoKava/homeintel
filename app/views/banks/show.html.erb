@@ -1,0 +1,97 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="jumbotron">
+
+  <strong>Name:</strong><br><br>
+  <p class="show_page_data">  <%= @bank.name %>
+  </p>
+
+
+</div>
+
+
+
+
+
+<div class="jumbotron">
+
+  <strong>Address:</strong><br><br>
+  <p class="show_page_data"> <%= @bank.address %>
+  </p>
+
+
+</div>
+
+
+
+
+
+<div class="jumbotron">
+
+  <strong>User:</strong><br><br>
+  <p class="show_page_data"><%= @bank.user_id %>
+  </p>
+
+</div>
+
+
+
+
+
+<div class="jumbotron">
+
+  <strong>Iban:</strong><br><br>
+  <p class="show_page_data"><%= @bank.iban %>
+  </p>
+
+</div>
+
+
+
+
+
+
+<div class="jumbotron">
+  <strong>Bic:</strong><br><br>
+  <p class="show_page_data"> <%= @bank.bic %>
+  </p>
+
+</div>
+
+
+
+
+
+<div class="jumbotron">
+
+
+  <strong>Accessibility:</strong><br><br>
+  <p class="show_page_data"> <%= @bank.accessibility %>
+  </p>
+
+</div>
+
+
+
+
+
+<div class="jumbotron">
+
+
+  <strong>Active:</strong><br><br>
+  <p class="show_page_data">  <%= @bank.active %>
+  </p>
+
+
+</div>
+
+
+
+<div class="links">
+
+  <%= link_to 'Edit', edit_bank_path(@bank), class:'fa fa-edit' %> |
+  <%= link_to 'Back', banks_path , class:'fa fa-arrow-left'%>
+
+
+</div>

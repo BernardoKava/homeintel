@@ -2,7 +2,7 @@
 
 <h1>Departments</h1>
 
-<table>
+<table class=" table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -17,14 +17,14 @@
   <tbody>
     <% @departments.each do |department| %>
       <tr>
-        <td><%= department.name %></td>
+        <td><%= link_to department.name, department %></td>
         <td><%= department.description %></td>
         <td><%= department.owner %></td>
         <td><%= department.active %></td>
         <td><%= department.user_id %></td>
-        <td><%= link_to 'Show', department %></td>
-        <td><%= link_to 'Edit', edit_department_path(department) %></td>
-        <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View', department, class:'fa fa-eye' %></td>
+        <td><%= link_to 'Edit', edit_department_path(department), class:'fa fa-edit'  %></td>
+        <td><%= link_to 'Delete', department, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-remove'  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,7 @@
 
 <br>
 
-<%= link_to 'New Department', new_department_path %>
+<div class="links">
+  <%= link_to 'New Department', new_department_path, class:'fa fa-plus' %>
+</div>
+

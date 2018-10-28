@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :banks
+  resources :schools
+  resources :references
   resources :employerpools
   resources :addresspools
   resources :employers

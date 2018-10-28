@@ -1,29 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @base_item.name %>
-</p>
+<div class="jumbotron">
+  <strong>Name:</strong><br><br>
+  <p class="show_page_data"> <%= @base_item.name %>
+  </p>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @base_item.description %>
-</p>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @base_item.owner %>
-</p>
+<div class="jumbotron">
+  <strong>Description:</strong><br><br>
+  <p class="show_page_data">  <%= @base_item.description %>
+  </p>
+</div>
 
-<p>
-  <strong>Active:</strong>
-  <%= @base_item.active %>
-</p>
+<div class="jumbotron">
+  <strong>Owner:</strong><br><br>
+  <p class="show_page_data"> <%= @base_item.owner %>
+  </p>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @base_item.user_id %>
-</p>
+<div class="jumbotron">
+  <strong>Active:</strong><br><br>
+  <p class="show_page_data"> <%= @base_item.active %>
+  </p>
+</div>
 
-<%= link_to 'Edit', edit_base_item_path(@base_item) %> |
-<%= link_to 'Back', base_items_path %>
+
+<div class="links">
+
+  <%= link_to 'Edit', edit_base_item_path(@base_item), class:'fa fa-edit' %> |
+  <%= link_to 'Back', base_items_path, class:'fa fa-arrow-left' %>
+
+</div>
+

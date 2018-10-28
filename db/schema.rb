@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_27_225821) do
+ActiveRecord::Schema.define(version: 2018_10_28_124219) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -19,12 +19,25 @@ ActiveRecord::Schema.define(version: 2018_10_27_225821) do
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "addrespool_id"
   end
 
   create_table "addresspools", force: :cascade do |t|
     t.string "address"
     t.boolean "active"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "banks", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "user_id"
+    t.string "iban"
+    t.string "bic"
+    t.text "accessibility"
+    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_10_27_225821) do
     t.text "commentary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "person_id"
     t.index ["inventory_id"], name: "index_comments_on_inventory_id"
   end
 
@@ -74,6 +88,9 @@ ActiveRecord::Schema.define(version: 2018_10_27_225821) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "email"
+    t.string "telephone"
   end
 
   create_table "employers", force: :cascade do |t|
@@ -142,6 +159,30 @@ ActiveRecord::Schema.define(version: 2018_10_27_225821) do
     t.boolean "active"
     t.integer "person_id"
     t.integer "user_id"
+  end
+
+  create_table "references", force: :cascade do |t|
+    t.string "employer"
+    t.string "referee"
+    t.string "telephone"
+    t.string "email"
+    t.text "details"
+    t.integer "person_id"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "email"
+    t.string "telephone"
+    t.integer "user_id"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "telephones", force: :cascade do |t|

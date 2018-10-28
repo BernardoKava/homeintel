@@ -2,5 +2,11 @@
 
 <%= render 'form', addresspool: @addresspool %>
 
-<%= link_to 'Show', @addresspool %> |
-<%= link_to 'Back', addresspools_path %>
+
+
+
+<div class="links">
+  <%= link_to 'View', @addresspool , class: 'fa fa-eye'%> |
+  <%= link_to 'Back', addresspools_path, class:'fa fa-arrow-left' %>
+</div>
+
