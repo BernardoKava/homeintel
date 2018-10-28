@@ -10,10 +10,11 @@ class BudgetsController < ApplicationController
   # GET /budgets/1
   # GET /budgets/1.json
   def show
-    @totalincome = Income.sum(:amount)
-    @totalexpense = Expense.sum(:amount)
-    @incomes = Income.all
-    @expenses = Expense.all
+    @ref = @budget.id
+    @totalincome = Income.where(budget_id: @ref).sum(:amount)
+    @totalexpense = Expense.where(budget_id: @ref).sum(:amount)
+    @incomes = Income.where(budget_id: @ref)
+    @expenses = Expense.where(budget_id: @ref)
   end
 
   # GET /budgets/new
