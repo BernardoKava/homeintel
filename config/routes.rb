@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :employerpools
+  resources :addresspools
+  resources :employers
+  resources :employments
+  resources :qualifications
+  resources :addresses
+  resources :telephones
+  resources :emails
+  resources :people
   resources :base_items
   resources :departments
   resources :inventories

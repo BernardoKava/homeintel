@@ -2,11 +2,10 @@
 
 <h1>Inventories</h1>
 
-<table class="table table-striped">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Department</th>
-      <th>Active</th>
       <th>Period from</th>
       <th>Period to</th>
       <th colspan="3"></th>
@@ -16,8 +15,7 @@
   <tbody>
     <% @inventories.each do |inventory| %>
       <tr>
-        <td><%= inventory.department %></td>
-        <td><%= inventory.active %></td>
+        <td><%= link_to inventory.department.name, inventory %></td>
         <td><%= inventory.period_from %></td>
         <td><%= inventory.period_to %></td>
         <td><%= link_to 'View', inventory ,class:'fa fa-eye'%></td>
@@ -30,6 +28,6 @@
 
 <br>
 <div class="links">
-  <%= link_to 'New Inventory', new_inventory_path, class:'fa fa-pencil' %>
+  <%= link_to 'New Inventory', new_inventory_path, class:'fa fa-plus' %>
 </div>
 

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employer:</strong>
+  <%= @employerpool.employer %>
+</p>
+
+<p>
+  <strong>Sector:</strong>
+  <%= @employerpool.sector %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @employerpool.user_id %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @employerpool.active %>
+</p>
+
+<%= link_to 'Edit', edit_employerpool_path(@employerpool) %> |
+<%= link_to 'Back', employerpools_path %>

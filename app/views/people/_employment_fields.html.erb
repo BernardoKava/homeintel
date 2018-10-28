@@ -1,0 +1,15 @@
+<div class="nested-fields">
+
+  <div class="form-inputs">
+    <%= f.input :company %>
+    <%= f.input :position %>
+    <%= f.input :from %>
+    <%= f.input :to %>
+    <%= f.input :terminationreason, label: 'Termination Reason' %>
+    <%= f.input :actve %>
+    <%= f.input :user_id ,:as => :hidden, :input_html => { :value => current_user.id}%>
+  </div>
+
+  <%= link_to_remove_association 'Remove', f ,class: 'fa fa-close', style:"font-size:15px;color:red"%>
+
+</div>

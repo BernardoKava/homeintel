@@ -1,8 +1,6 @@
 
 <div class="nested-fields">
-  <div class="field">
-    <%= link_to_remove_association 'Remove', f ,class: 'fa fa-close', style:"font-size:15px;color:red"%>
-  </div>
+
 
   <div class="field">
 
@@ -13,5 +11,6 @@
     <%= f.label  "Commentary:"  %>
     <%= f.text_area :commentary , class: 'form-control'%>
   </div>
+  <%= link_to_remove_association 'Remove', f ,class: 'fa fa-close', style:"font-size:15px;color:red"%>
 </div>
 

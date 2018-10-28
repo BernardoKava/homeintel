@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @qualification.name %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @qualification.school %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @qualification.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @qualification.to %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @qualification.grade %>
+</p>
+
+<%= link_to 'Edit', edit_qualification_path(@qualification) %> |
+<%= link_to 'Back', qualifications_path %>

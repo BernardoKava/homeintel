@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employer: MyString
+  sector: MyString
+  user_id: 1
+  active: false
+
+two:
+  employer: MyString
+  sector: MyString
+  user_id: 1
+  active: false

@@ -1,0 +1,195 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="jumbotron">
+
+    <strong>Name:</strong><br><br>
+    <%= @person.name %>
+
+
+</div>
+
+<div class="jumbotron">
+
+
+    <strong>Surname:</strong><br><br>
+    <%= @person.surname %>
+
+</div>
+
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Emails</strong></h2></div>
+<br>
+<div>
+
+  <% for email in @person.emails %>
+
+    <div class="jumbotron">
+
+      <div>
+        <strong>Email:</strong><br><br>
+        <%=h email.email %>
+      </div>
+      <br>
+
+      <div>
+        <strong>Active:</strong><br><br>
+        <%=h email.active  %>
+      </div>
+      <br>
+    </div>
+
+  <% end %>
+
+</div>
+
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 2: Telephones</strong></h2></div>
+<br>
+
+<div>
+
+  <% for telephone in @person.telephones %>
+
+    <div class="jumbotron">
+
+        <div>
+          <strong>Telephone:</strong><br><br>
+          <%=h telephone.phone %>
+        </div>
+      <br>
+      <div>
+        <strong>Active:</strong><br><br>
+        <%=h telephone.active %>
+      </div>
+      <br>
+    </div>
+
+
+  <% end %>
+
+</div>
+
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 3: Postal Address</strong></h2></div>
+<br>
+
+<div>
+
+  <% for address in @person.addresses %>
+
+    <div class="jumbotron">
+
+      <div>
+        <strong>Address:</strong><br><br>
+        <%=h address.address %>
+      </div>
+      <br>
+      <div>
+        <strong>Active:</strong><br><br>
+        <%=h address.active %>
+      </div>
+      <br>
+
+    </div>
+
+
+  <% end %>
+
+</div>
+
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 4: Education</strong></h2></div>
+<br>
+
+<div>
+
+  <% for qualification in @person.qualifications %>
+
+    <div class="jumbotron">
+
+      <div>
+        <strong>Name:</strong><br><br>
+        <%=h qualification.name %>
+      </div>
+      <br>
+      <div>
+        <strong>School:</strong><br><br>
+        <%=h qualification.school %>
+      </div>
+      <br>
+      <div>
+        <strong>From:</strong><br><br>
+        <%=h qualification.from %>
+      </div>
+      <br>
+      <div>
+        <strong>To:</strong>
+        <%=h qualification.to %><br><br>
+      </div>
+      <br>
+
+      <div>
+        <strong>Grade:</strong><br><br>
+        <%=h qualification.grade %>
+      </div>
+      <br>
+      <div>
+        <strong>Active:</strong><br><br>
+        <%=h qualification.active %>
+      </div>
+      <br>
+
+    </div>
+  <% end %>
+
+</div>
+
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 5: Employment</strong></h2></div>
+<br>
+
+<div>
+
+  <% for job in @person.employments %>
+
+    <div class="jumbotron">
+
+      <div>
+        <strong>Company:</strong><br><br>
+        <%=h job.company %>
+      </div>
+      <br>
+      <div>
+        <strong>Position:</strong><br><br>
+        <%=h job.position %>
+      </div>
+      <br>
+      <div>
+        <strong>From:</strong><br><br>
+        <%=h job.from %>
+      </div>
+      <br>
+      <div>
+        <strong>To:</strong><br><br>
+        <%=h job.to %>
+      </div>
+      <br>
+
+      <div>
+        <strong>Termination Reason:</strong><br><br>
+        <%=h job.terminationreason %>
+      </div>
+      <br>
+      <div>
+        <strong>Active:</strong><br><br>
+        <%=h job.actve %>
+      </div>
+      <br>
+
+    </div>
+  <% end %>
+
+</div>
+
+<div class="links">
+  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
+  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
+
+</div>
+

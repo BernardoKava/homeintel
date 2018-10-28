@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_085220) do
+ActiveRecord::Schema.define(version: 2018_10_27_225821) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "address"
+    t.integer "user_id"
+    t.boolean "active"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "addresspools", force: :cascade do |t|
+    t.string "address"
+    t.boolean "active"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "base_items", force: :cascade do |t|
     t.string "name"
@@ -41,6 +58,46 @@ ActiveRecord::Schema.define(version: 2018_10_22_085220) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "emails", force: :cascade do |t|
+    t.string "email"
+    t.integer "user_id"
+    t.boolean "active"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employerpools", force: :cascade do |t|
+    t.string "employer"
+    t.string "sector"
+    t.integer "user_id"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employers", force: :cascade do |t|
+    t.string "name"
+    t.string "sector"
+    t.integer "user_id"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employments", force: :cascade do |t|
+    t.string "company"
+    t.string "position"
+    t.date "from"
+    t.date "to"
+    t.text "terminationreason"
+    t.boolean "actve"
+    t.integer "person_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "inventories", force: :cascade do |t|
     t.string "department"
     t.boolean "active"
@@ -63,6 +120,37 @@ ActiveRecord::Schema.define(version: 2018_10_22_085220) do
     t.datetime "updated_at", null: false
     t.integer "base_item_id"
     t.index ["inventory_id"], name: "index_items_on_inventory_id"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.string "fullname"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "qualifications", force: :cascade do |t|
+    t.string "name"
+    t.string "school"
+    t.date "from"
+    t.date "to"
+    t.string "grade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "active"
+    t.integer "person_id"
+    t.integer "user_id"
+  end
+
+  create_table "telephones", force: :cascade do |t|
+    t.string "phone"
+    t.integer "user_id"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "person_id"
   end
 
   create_table "users", force: :cascade do |t|

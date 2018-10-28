@@ -1,0 +1,2 @@
+class Addresspool < ApplicationRecord
+end

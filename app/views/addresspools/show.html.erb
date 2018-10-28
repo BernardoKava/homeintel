@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @addresspool.address %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @addresspool.active %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @addresspool.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_addresspool_path(@addresspool) %> |
+<%= link_to 'Back', addresspools_path %>

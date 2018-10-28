@@ -1,0 +1,2 @@
+class Employerpool < ApplicationRecord
+end

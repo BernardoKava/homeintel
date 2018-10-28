@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Addresspools</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Active</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addresspools.each do |addresspool| %>
+      <tr>
+        <td><%= addresspool.address %></td>
+        <td><%= addresspool.active %></td>
+        <td><%= addresspool.user_id %></td>
+        <td><%= link_to 'Show', addresspool %></td>
+        <td><%= link_to 'Edit', edit_addresspool_path(addresspool) %></td>
+        <td><%= link_to 'Destroy', addresspool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Addresspool', new_addresspool_path %>

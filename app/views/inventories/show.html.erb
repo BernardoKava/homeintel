@@ -1,46 +1,99 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Department:</strong>
-  <%= @inventory.department.name %>
-</p>
+<div class="jumbotron">
 
-<p>
-  <strong>Period from:</strong>
-  <%= @inventory.period_from %>
-</p>
 
-<p>
-  <strong>Period to:</strong>
-  <%= @inventory.period_to %>
-</p>
+    <strong>Department:</strong>
+    <%= @inventory.department.name %>
+
+
+</div>
+
+<div class="jumbotron">
+
+
+    <strong>Period from:</strong>
+    <%= @inventory.period_from %>
+
+
+</div>
+
+
+
+<div class="jumbotron">
+
+    <strong>Period to:</strong>
+    <%= @inventory.period_to %>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
 <hr>
 
 <div>
   <% for item in @inventory.items %>
-    <p>
-      <strong>Item:</strong>
-      <%=h item.item %>
-    </p>
 
-    <p>
-      <strong>Description:</strong>
-      <%= item.description %>
-    </p>
+    <div class="jumbotron">
+      <p>
+        <strong>Item:</strong>
+        <%=h item.item %>
+      </p>
 
-    <p>
-      <strong>Quantity:</strong>
-      <%= item.quantity %>
-    </p>
-    <p>
-      <strong>Value:</strong>
-      <%= item.value %>
-    </p>
-    <p>
-      <strong>Owner:</strong>
-      <%= item.owner %>
-    </p>
+
+    </div>
+
+
+
+    <div class="jumbotron">
+
+      <p>
+        <strong>Description:</strong>
+        <%= item.description %>
+      </p>
+
+    </div>
+
+    <div class="jumbotron">
+
+
+      <p>
+        <strong>Quantity:</strong>
+        <%= item.quantity %>
+      </p>
+
+    </div>
+
+    <div class="jumbotron">
+      <p>
+        <strong>Value:</strong>
+        <%= item.value %>
+      </p>
+
+
+    </div>
+
+    <div class="jumbotron">
+      <p>
+        <strong>Owner:</strong>
+        <%= item.owner %>
+      </p>
+
+
+    </div>
+
  <% end %>
 </div>
 <hr/>
