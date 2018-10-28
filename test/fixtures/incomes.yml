@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: MyString
+  type: 
+  amount: 
+  details: MyText
+  user_id: 1
+  budget_id: 1
+
+two:
+  owner: MyString
+  type: 
+  amount: 
+  details: MyText
+  user_id: 1
+  budget_id: 1

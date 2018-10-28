@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_164018) do
+ActiveRecord::Schema.define(version: 2018_10_28_190826) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 2018_10_28_164018) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "budgets", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "month"
+    t.string "year"
+    t.date "budget_date"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer "inventory_id"
     t.integer "user_id"
@@ -61,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_10_28_164018) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "person_id"
+    t.integer "budget_id"
     t.index ["inventory_id"], name: "index_comments_on_inventory_id"
   end
 
@@ -95,6 +106,28 @@ ActiveRecord::Schema.define(version: 2018_10_28_164018) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "expenses", force: :cascade do |t|
+    t.string "owner"
+    t.decimal "amount"
+    t.string "expense_type"
+    t.integer "user_id"
+    t.integer "budget_id"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "incomes", force: :cascade do |t|
+    t.string "owner"
+    t.decimal "amount"
+    t.text "details"
+    t.integer "user_id"
+    t.integer "budget_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "income_type"
   end
 
   create_table "inventories", force: :cascade do |t|

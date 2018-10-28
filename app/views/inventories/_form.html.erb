@@ -55,26 +55,30 @@
     <hr/>
     <hr/>
           <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Items</h2></strong>
-          <div class="jumbotron">
+
             <div class="nested_fields">
               <%= link_to_add_association 'Add', f, :items, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
               <%= f.fields_for :items do |item| %>
+                <div class="jumbotron">
                 <%= render 'item_fields', :f => item %>
+                </div>
               <% end %>
-            </div>
+
           </div>
           <hr/>
           <hr/>
 
           <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Comments</h2></strong>
 
-          <div class="jumbotron">
+
             <div class="nested-fields">
               <%= link_to_add_association 'Add', f, :comments, class:'fa fa-plus',style:"font-size:15px;color:green"%>
               <%= f.fields_for :comments do |comment| %>
+                <div class="jumbotron">
                 <%= render 'comment_fields', :f => comment %>
+                </div>
               <% end %>
-            </div>
+
           </div>
           <br>
           <hr>

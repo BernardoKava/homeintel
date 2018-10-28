@@ -12,86 +12,98 @@
   <hr/>
   <hr/>
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Email(s)</h2></strong>
-  <div class="jumbotron">
+
     <div class="nested_fields">
       <%= link_to_add_association 'Add', f, :emails, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
       <%= f.simple_fields_for :emails do |email| %>
+        <div class="jumbotron">
         <%= render 'email_fields', :f => email %>
+        </div>
       <% end %>
-    </div>
   </div>
   <hr/>
   <hr/>
 
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Telephone(s)</h2></strong>
-  <div class="jumbotron">
+
     <div class="nested_fields">
       <%= link_to_add_association 'Add', f, :telephones, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
       <%= f.simple_fields_for :telephones do |phone| %>
+        <div class="jumbotron">
         <%= render 'telephone_fields', :f => phone %>
+        </div>
       <% end %>
-    </div>
+
   </div>
   <hr/>
   <hr/>
 
 
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Address</h2></strong>
-  <div class="jumbotron">
+
     <div class="nested_fields">
       <%= link_to_add_association 'Add', f, :addresses, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
       <%= f.simple_fields_for :addresses do |address| %>
+        <div class="jumbotron">
         <%= render 'address_fields', :f => address %>
+        </div>
       <% end %>
     </div>
-  </div>
+
   <hr/>
   <hr/>
 
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Qualifications</h2></strong>
-  <div class="jumbotron">
+
     <div class="nested_fields">
       <%= link_to_add_association 'Add', f, :qualifications, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
       <%= f.simple_fields_for :qualifications do |qualification| %>
+        <div class="jumbotron">
         <%= render 'qualification_fields', :f =>  qualification%>
+        </div>
       <% end %>
-    </div>
   </div>
   <hr/>
   <hr/>
 
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Employment History</h2></strong>
-  <div class="jumbotron">
+
     <div class="nested_fields">
       <%= link_to_add_association 'Add', f, :employments, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
       <%= f.simple_fields_for :employments do |job| %>
+        <div class="jumbotron">
         <%= render 'employment_fields', :f =>  job%>
+        </div>
       <% end %>
-    </div>
+
   </div>
   <hr/>
   <hr/>
 
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">References</h2></strong>
-  <div class="jumbotron">
+
     <div class="nested_fields">
       <%= link_to_add_association 'Add', f, :references, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
       <%= f.simple_fields_for :references do |reference| %>
+        <div class="jumbotron">
         <%= render 'reference_fields', :f =>  reference%>
+        </div>
       <% end %>
-    </div>
+
   </div>
   <hr/>
   <hr/>
 
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Comments</h2></strong>
-  <div class="jumbotron">
+
     <div class="nested_fields">
       <%= link_to_add_association 'Add', f, :comments, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
       <%= f.simple_fields_for :comments do |comment| %>
+        <div class="jumbotron">
         <%= render 'comment_fields', :f =>  comment%>
+        </div>
       <% end %>
-    </div>
+
   </div>
   <hr/>
   <hr/>
