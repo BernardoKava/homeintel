@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  month: MyString
+  year: MyString
+  accounting_date: 2018-10-28
+  name: MyString
+  user_id: 1
+
+two:
+  month: MyString
+  year: MyString
+  accounting_date: 2018-10-28
+  name: MyString
+  user_id: 1

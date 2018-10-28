@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cashflows
   resources :budgets
   resources :banks
   resources :schools

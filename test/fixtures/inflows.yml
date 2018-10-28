@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: MyString
+  amount: 
+  details: MyText
+  flow_type: MyString
+  user_id: 1
+  cashflow_id: 1
+
+two:
+  owner: MyString
+  amount: 
+  details: MyText
+  flow_type: MyString
+  user_id: 1
+  cashflow_id: 1

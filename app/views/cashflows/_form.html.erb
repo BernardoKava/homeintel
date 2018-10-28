@@ -1,0 +1,65 @@
+
+<%= simple_form_for(@cashflow) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :month %>
+    <%= f.input :year %>
+    <%= f.input :accounting_date %>
+    <%= f.input :name %>
+    <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
+  </div>
+
+
+  <hr/>
+  <hr/>
+
+  <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Inflows</h2></strong>
+
+  <div class="nested_fields">
+    <%= link_to_add_association 'Add', f, :inflows, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+    <%= f.simple_fields_for :inflows do |cash| %>
+      <div class="jumbotron">
+        <%= render 'inflow_fields', :f =>  cash %>
+      </div>
+    <% end %>
+
+  </div>
+  <hr/>
+  <hr/>
+
+  <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">outflows</h2></strong>
+
+  <div class="nested_fields">
+    <%= link_to_add_association 'Add', f, :outflows, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+    <%= f.simple_fields_for :outflows do |cash| %>
+      <div class="jumbotron">
+        <%= render 'outflow_fields', :f =>  cash %>
+      </div>
+    <% end %>
+
+  </div>
+  <hr/>
+  <hr/>
+
+  <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Comments</h2></strong>
+
+  <div class="nested_fields">
+    <%= link_to_add_association 'Add', f, :comments, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+    <%= f.simple_fields_for :comments do |cash| %>
+      <div class="jumbotron">
+        <%= render 'comment_fields', :f =>  cash %>
+      </div>
+    <% end %>
+
+  </div>
+  <hr/>
+  <hr/>
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+<br>
