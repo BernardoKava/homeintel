@@ -5,13 +5,11 @@
     <%= link_to_remove_association 'Remove', f, class: 'fa fa-close', style:"font-size:15px;color:red"%>
   </div>
 
-
   <div class="field">
-    <%= f.label :base_item_id, "Name",class: 'control-label' %>
-    <div class="form-control">
-      <%= f.collection_select :base_item_id, BaseItem.order(:name), :id, :name, include_blank: true, style: 'width: 100px;' %>
-    </div>
+    <%= f.label  "Item:"  %>
+    <%= f.text_field :item, class: 'form-control' %>
   </div>
+
 
   <div class="field">
     <%= f.label  "Description:"  %>

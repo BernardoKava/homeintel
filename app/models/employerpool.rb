@@ -1,2 +1,0 @@
-class Employerpool < ApplicationRecord
-end

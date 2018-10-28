@@ -7,9 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Owner</th>
       <th>Active</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,9 +17,7 @@
       <tr>
         <td><%= link_to department.name, department %></td>
         <td><%= department.description %></td>
-        <td><%= department.owner %></td>
         <td><%= department.active %></td>
-        <td><%= department.user_id %></td>
         <td><%= link_to 'View', department, class:'fa fa-eye' %></td>
         <td><%= link_to 'Edit', edit_department_path(department), class:'fa fa-edit'  %></td>
         <td><%= link_to 'Delete', department, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-remove'  %></td>

@@ -2,16 +2,13 @@ Rails.application.routes.draw do
   resources :banks
   resources :schools
   resources :references
-  resources :employerpools
   resources :addresspools
-  resources :employers
   resources :employments
   resources :qualifications
   resources :addresses
   resources :telephones
   resources :emails
   resources :people
-  resources :base_items
   resources :departments
   resources :inventories
   get 'dashboard/index'

@@ -27,17 +27,6 @@
 
 
 
-<div class="jumbotron">
-
-  <strong>User:</strong><br><br>
-  <p class="show_page_data"><%= @bank.user_id %>
-  </p>
-
-</div>
-
-
-
-
 
 <div class="jumbotron">
 
@@ -86,6 +75,18 @@
 
 </div>
 
+
+<div class="jumbotron">
+
+
+  <strong>Owner:</strong><br><br>
+  <p class="show_page_data">  <%= @bank.person.name %>
+    <%= @bank.person.surname %>
+
+  </p>
+
+
+</div>
 
 
 <div class="links">

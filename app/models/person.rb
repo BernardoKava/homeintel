@@ -6,7 +6,8 @@ class Person < ApplicationRecord
   has_many :employments
   has_many :references
   has_many :comments
-
+  has_many :departments
+  has_many :banks
 
   accepts_nested_attributes_for :emails, allow_destroy: true
   accepts_nested_attributes_for :telephones, allow_destroy: true

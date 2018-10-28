@@ -16,7 +16,8 @@
 
 <div class="jumbotron">
   <strong>Owner:</strong><br><br>
-  <p class="show_page_data"> <%= @department.owner %>
+  <p class="show_page_data"> <%= @department.person.name %>
+    <%= @department.person.surname %>
   </p>
 </div>
 

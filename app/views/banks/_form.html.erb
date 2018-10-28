@@ -10,6 +10,17 @@
     <%= f.input :iban %>
     <%= f.input :bic %>
     <%= f.input :accessibility %>
+
+
+
+
+    <%= f.label :person_id, "Owner" %>
+
+    <%= f.collection_select :person_id, Person.order(:name), :id, :name, include_blank: true %>
+
+
+    <br>
+    <br>
     <%= f.input :active %>
   </div>
 

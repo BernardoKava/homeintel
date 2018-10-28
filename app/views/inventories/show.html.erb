@@ -3,8 +3,8 @@
 <div class="jumbotron">
 
 
-    <strong>Department:</strong>
-    <%= @inventory.department.name %>
+    <strong>Department:</strong><br><br>
+  <textarea rows="4" cols="80" readonly>   <%= @inventory.department.name %></textarea>
 
 
 </div>
@@ -12,8 +12,8 @@
 <div class="jumbotron">
 
 
-    <strong>Period from:</strong>
-    <%= @inventory.period_from %>
+    <strong>Period from:</strong><br><br>
+  <textarea rows="4" cols="80" readonly>      <%= @inventory.period_from %></textarea>
 
 
 </div>
@@ -22,8 +22,8 @@
 
 <div class="jumbotron">
 
-    <strong>Period to:</strong>
-    <%= @inventory.period_to %>
+    <strong>Period to:</strong><br><br>
+  <textarea rows="4" cols="80" readonly>   <%= @inventory.period_to %></textarea>
 
 
 
@@ -38,7 +38,8 @@
 
 
 
-
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Items</strong></h2></div>
+<br>
 
 
 <hr>
@@ -46,63 +47,75 @@
 <div>
   <% for item in @inventory.items %>
 
-    <div class="jumbotron">
-      <p>
-        <strong>Item:</strong>
-        <%=h item.item %>
-      </p>
+<div class="jumbotron">
+
+  <div>
+
+    <strong>Item:</strong><br><br>
+      <textarea rows="4" cols="80" readonly>    <%=h item.item %></textarea>
+  </div>
+
+  <div>
+
+    <strong>Description:</strong><br><br>
+    <textarea rows="4" cols="80" readonly>       <%= item.description %></textarea>
+
+  </div>
 
 
-    </div>
+
+
+  <div>
+
+    <strong>Quantity:</strong><br><br>
+    <textarea rows="4" cols="80" readonly>    <%= item.quantity %></textarea>
+
+  </div>
+
+
+  <div>
+
+    <strong>Value:</strong><br><br>
+    <textarea rows="4" cols="80" readonly>   <%= item.value %>
+    </textarea>
+
+  </div>
+
+
+  <div>
+
+    <strong>Owner:</strong><br><br>
+    <textarea rows="4" cols="80" readonly> <%= item.owner %></textarea>
+    </textarea>
+
+
+  </div>
 
 
 
-    <div class="jumbotron">
 
-      <p>
-        <strong>Description:</strong>
-        <%= item.description %>
-      </p>
-
-    </div>
-
-    <div class="jumbotron">
+</div>
 
 
-      <p>
-        <strong>Quantity:</strong>
-        <%= item.quantity %>
-      </p>
 
-    </div>
-
-    <div class="jumbotron">
-      <p>
-        <strong>Value:</strong>
-        <%= item.value %>
-      </p>
-
-
-    </div>
-
-    <div class="jumbotron">
-      <p>
-        <strong>Owner:</strong>
-        <%= item.owner %>
-      </p>
-
-
-    </div>
 
  <% end %>
 </div>
 <hr/>
 <div>
+
+
+  <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 2: Comments</strong></h2></div>
+  <br>
   <% for comment in @inventory.comments %>
-    <p>
-      <strong>comment:</strong>
-      <%= comment.commentary %>
-    </p>
+<div class="jumbotron">
+
+  <strong>Comment:</strong><br><br>
+  <textarea rows="4" cols="80" readonly>  <%= comment.commentary %></textarea>
+
+
+</div>
+
   <% end %>
 </div>
 <br>
@@ -110,6 +123,6 @@
 <div class="links">
 
   <%= link_to 'Edit', edit_inventory_path(@inventory), class: 'fa fa-edit' %> |
-  <%= link_to 'Back', inventories_path , class: 'fa fa-caret-square-o-left'%>
+  <%= link_to 'Back', inventories_path , class: 'fa fa-arrow-left'%>
 
 </div>
