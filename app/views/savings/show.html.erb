@@ -1,23 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+
 <div class="jumbotron">
   <strong>Month:</strong><br><br>
-  <textarea rows="1" cols="80" readonly><%= @cashflow.month %></textarea>
+  <textarea rows="1" cols="80" readonly> <%= @saving.month %></textarea>
 </div>
 
 <div class="jumbotron">
   <strong>Year:</strong><br><br>
-  <textarea rows="1" cols="80" readonly><%= @cashflow.year %></textarea>
+  <textarea rows="1" cols="80" readonly> <%= @saving.year %></textarea>
 </div>
 
 <div class="jumbotron">
-  <strong>Accounting date:</strong><br><br>
-  <textarea rows="1" cols="80" readonly> <%= @cashflow.accounting_date %></textarea>
+  <strong>Saving date:</strong><br><br>
+  <textarea rows="1" cols="80" readonly> <%= @saving.saving_date %></textarea>
 </div>
 
 <div class="jumbotron">
   <strong>Name:</strong><br><br>
-  <textarea rows="1" cols="80" readonly><%= @cashflow.name %></textarea>
+  <textarea rows="1" cols="80" readonly>  <%= @saving.name %></textarea>
 </div>
 
 
@@ -25,19 +26,19 @@
 
   <stong> Total Income (€): </stong><br><br>
 
-  <p> <%= @totalinflow %></p><br>
+  <p> <%= @totallodgement %></p><br>
 
 
   <stong> Total Expenses (€): </stong><br><br>
 
-  <p> <%= @totaloutflow %></p>
+  <p> <%= @totalwithdrawal %></p>
 
   <stong> Balance (€): </stong><br><br>
 
   <p> <%= @balance %></p>
 
 
-  <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Income Summary:</strong></h2></div>
+  <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Lodgement Summary:</strong></h2></div>
 
   <table class="table table-hover">
     <thead>
@@ -46,22 +47,24 @@
       <th>Details </th>
       <th>Owner</th>
       <th>Amount(€)</th>
+      <th>Institution</th>
     </tr>
     </thead>
 
     <tbody>
-    <% @inflows.each do |income| %>
+    <% @lodgments.each do |income| %>
       <tr>
         <td><%= income.created_at.strftime("%d %b. %Y")%></td>
         <td><%= income.details %></td>
         <td><%= income.owner %></td>
         <td><%= income.amount %></td>
+        <td><%= income.institution %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
 
-  <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Expenses Summary:</strong></h2></div>
+  <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Withdrawal Summary:</strong></h2></div>
 
   <table class="table table-hover">
     <thead>
@@ -70,16 +73,18 @@
       <th>Details </th>
       <th>Owner</th>
       <th>Amount(€)</th>
+      <th>Institution</th>
     </tr>
     </thead>
 
     <tbody>
-    <% @outflows.each do |expense| %>
+    <% @withdrawals.each do |expense| %>
       <tr>
         <td><%= expense.created_at.strftime("%d %b. %Y")%></td>
         <td><%= expense.details %></td>
         <td><%= expense.owner %></td>
         <td><%= expense.amount %></td>
+        <td><%= expense.institution %></td>
       </tr>
     <% end %>
     </tbody>
@@ -89,11 +94,11 @@
 
 
 
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong> Inflows</strong></h2></div>
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Lodgements</strong></h2></div>
 <br>
 <div>
 
-  <% for cash in @cashflow.inflows %>
+  <% for cash in @saving.lodgements %>
 
     <div class="jumbotron">
 
@@ -104,7 +109,7 @@
       <br>
       <div>
         <strong>Type:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h cash.flow_type %> </textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h cash.institution %> </textarea>
       </div>
       <br>
       <div>
@@ -128,11 +133,11 @@
 </div>
 
 
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong> Outflows</strong></h2></div>
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong> Withdrawals</strong></h2></div>
 <br>
 <div>
 
-  <% for cash in @cashflow.outflows %>
+  <% for cash in @saving.withdrawals %>
 
     <div class="jumbotron">
 
@@ -143,7 +148,7 @@
       <br>
       <div>
         <strong>Type:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h cash.flow_type %> </textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h cash.institution %> </textarea>
       </div>
       <br>
       <div>
@@ -169,7 +174,7 @@
 <br>
 <div>
 
-  <% for comment in @cashflow.comments %>
+  <% for comment in @saving.comments %>
 
     <div class="jumbotron">
 
@@ -188,9 +193,14 @@
 </div>
 
 
-<div class="links">
-  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
-  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
 
+
+
+
+
+
+<div class="links">
+  <%= link_to 'Edit', edit_saving_path(@saving), class:'fa fa-edit' %> |
+  <%= link_to 'Back', savings_path, class:'fa fa-arrow-left' %>
 </div>
 

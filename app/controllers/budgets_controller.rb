@@ -16,6 +16,7 @@ class BudgetsController < ApplicationController
     @incomes = Income.where(budget_id: @ref)
     @expenses = Expense.where(budget_id: @ref)
     @balance = (@totalincome - @totalexpense)
+
   end
 
   # GET /budgets/new

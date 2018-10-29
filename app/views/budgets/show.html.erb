@@ -54,7 +54,7 @@
     <tbody>
     <% @incomes.each do |income| %>
       <tr>
-        <td><%= income.created_at%></td>
+        <td><%= income.created_at.strftime("%d %b. %Y")%></td>
         <td><%= income.details %></td>
         <td><%= income.owner %></td>
         <td><%= income.amount %></td>
@@ -78,7 +78,7 @@
     <tbody>
     <% @expenses.each do |expense| %>
       <tr>
-        <td><%= expense.created_at%></td>
+        <td><%= expense.created_at.strftime("%d %b. %Y") %></td>
         <td><%= expense.details %></td>
         <td><%= expense.owner %></td>
         <td><%= expense.amount %></td>
@@ -113,6 +113,11 @@
       <strong>Type:</strong><br><br>
       <textarea rows="1" cols="80" readonly>  <%= income.income_type %></textarea>
     </div>
+    <br>
+    <div>
+      Registered on:
+      <%=h income.created_at.strftime("%d %b. %Y") %>
+    </div>
   </div>
 
 <% end %>
@@ -142,6 +147,11 @@
       <strong>Type:</strong><br><br>
       <textarea rows="1" cols="80" readonly>  <%= expense.expense_type %></textarea>
     </div>
+    <br>
+    <div>
+      Registered on:
+      <%=h expense.created_at.strftime("%d %b. %Y") %>
+    </div>
   </div>
 
 <% end %>
@@ -153,6 +163,11 @@
     <div>
       <strong>Comment:</strong><br><br>
       <textarea rows="1" cols="80" readonly>  <%= comment.commentary %></textarea>
+    </div>
+    <br>
+    <div>
+      Registered on:
+      <%=h comment.created_at.strftime("%d %b. %Y") %>
     </div>
   </div>
 

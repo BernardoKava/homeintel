@@ -36,6 +36,11 @@
         <textarea rows="4" cols="80" readonly><%=h email.active  %></textarea>
       </div>
       <br>
+      <br>
+      <div>
+        Registered on:
+        <%=h email.created_at.strftime("%d %b. %Y") %>
+      </div>
     </div>
 
   <% end %>
@@ -61,6 +66,11 @@
         <textarea rows="4" cols="80" readonly>  <%=h telephone.active %></textarea>
       </div>
       <br>
+      <br>
+      <div>
+        Registered on:
+        <%=h telephone.created_at.strftime("%d %b. %Y") %>
+      </div>
     </div>
 
 
@@ -88,6 +98,11 @@
         <textarea rows="4" cols="80" readonly>   <%=h address.active %></textarea>
       </div>
       <br>
+      <br>
+      <div>
+        Registered on:
+        <%=h address.created_at.strftime("%d %b. %Y") %>
+      </div>
 
     </div>
 
@@ -136,6 +151,11 @@
         <textarea rows="4" cols="80" readonly>   <%=h qualification.active %> </textarea>
       </div>
       <br>
+      <br>
+      <div>
+        Registered on:
+        <%=h qualification.created_at.strftime("%d %b. %Y") %>
+      </div>
 
     </div>
   <% end %>
@@ -182,6 +202,11 @@
         <textarea rows="4" cols="80" readonly>    <%=h job.actve %> </textarea>
       </div>
       <br>
+      <br>
+      <div>
+        Registered on:
+        <%=h job.created_at.strftime("%d %b. %Y") %>
+      </div>
 
     </div>
   <% end %>
@@ -229,7 +254,11 @@
         <textarea rows="4" cols="80" readonly>   <%=h reference.active %> </textarea>
       </div>
       <br>
-
+      <br>
+      <div>
+        Registered on:
+        <%=h reference.created_at.strftime("%d %b. %Y") %>
+      </div>
     </div>
   <% end %>
 
@@ -251,6 +280,11 @@
         <textarea rows="4" cols="80" readonly>      <%=h comment.commentary %></textarea>
       </div>
       <br>
+      <br>
+      <div>
+        Registered on:
+        <%=h comment.created_at.strftime("%d %b. %Y") %>
+      </div>
     </div>
   <% end %>
 

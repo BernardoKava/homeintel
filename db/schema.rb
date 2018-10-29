@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_225645) do
+ActiveRecord::Schema.define(version: 2018_10_29_012714) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2018_10_28_225645) do
     t.integer "person_id"
     t.integer "budget_id"
     t.integer "cashflow_id"
+    t.integer "saving_id"
     t.index ["inventory_id"], name: "index_comments_on_inventory_id"
   end
 
@@ -175,6 +176,17 @@ ActiveRecord::Schema.define(version: 2018_10_28_225645) do
     t.index ["inventory_id"], name: "index_items_on_inventory_id"
   end
 
+  create_table "lodgements", force: :cascade do |t|
+    t.string "owner"
+    t.decimal "amount"
+    t.text "details"
+    t.integer "user_id"
+    t.integer "saving_id"
+    t.string "institution"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "outflows", force: :cascade do |t|
     t.string "owner"
     t.decimal "amount"
@@ -221,6 +233,16 @@ ActiveRecord::Schema.define(version: 2018_10_28_225645) do
     t.integer "user_id"
   end
 
+  create_table "savings", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "month"
+    t.string "year"
+    t.date "saving_date"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "schools", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -252,6 +274,17 @@ ActiveRecord::Schema.define(version: 2018_10_28_225645) do
     t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "withdrawals", force: :cascade do |t|
+    t.string "owner"
+    t.decimal "amount"
+    t.text "details"
+    t.integer "user_id"
+    t.integer "saving_id"
+    t.string "institution"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
