@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_012714) do
+ActiveRecord::Schema.define(version: 2018_10_31_223229) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_012714) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "balance"
   end
 
   create_table "cashflows", force: :cascade do |t|
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_012714) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "balance"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -129,6 +131,8 @@ ActiveRecord::Schema.define(version: 2018_10_29_012714) do
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "month"
+    t.string "year"
   end
 
   create_table "incomes", force: :cascade do |t|
@@ -140,6 +144,8 @@ ActiveRecord::Schema.define(version: 2018_10_29_012714) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "income_type"
+    t.string "year"
+    t.string "month"
   end
 
   create_table "inflows", force: :cascade do |t|
@@ -151,6 +157,8 @@ ActiveRecord::Schema.define(version: 2018_10_29_012714) do
     t.integer "cashflow_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "year"
+    t.string "month"
   end
 
   create_table "inventories", force: :cascade do |t|
@@ -176,6 +184,21 @@ ActiveRecord::Schema.define(version: 2018_10_29_012714) do
     t.index ["inventory_id"], name: "index_items_on_inventory_id"
   end
 
+  create_table "ledgers", force: :cascade do |t|
+    t.string "month"
+    t.string "year"
+    t.date "ledger_date"
+    t.string "name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "annual_budget_bal"
+    t.decimal "annual_cashflow_bal"
+    t.decimal "annual_saving_bal"
+    t.decimal "annual_total_income"
+    t.decimal "annual_total_expenditure"
+  end
+
   create_table "lodgements", force: :cascade do |t|
     t.string "owner"
     t.decimal "amount"
@@ -185,6 +208,8 @@ ActiveRecord::Schema.define(version: 2018_10_29_012714) do
     t.string "institution"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "year"
+    t.string "month"
   end
 
   create_table "outflows", force: :cascade do |t|
@@ -196,6 +221,8 @@ ActiveRecord::Schema.define(version: 2018_10_29_012714) do
     t.integer "cashflow_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "month"
+    t.string "year"
   end
 
   create_table "people", force: :cascade do |t|
@@ -241,6 +268,8 @@ ActiveRecord::Schema.define(version: 2018_10_29_012714) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "balance"
+    t.integer "ledger_id"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -285,6 +314,8 @@ ActiveRecord::Schema.define(version: 2018_10_29_012714) do
     t.string "institution"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "month"
+    t.string "year"
   end
 
 end

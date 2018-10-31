@@ -10,12 +10,24 @@ class SavingsController < ApplicationController
   # GET /savings/1
   # GET /savings/1.json
   def show
+    @year= @saving.saving_date.year
+    @month= @saving.saving_date.month
+    @saving.year= @year
+    @saving.month = @month
+
     @ref = @saving.id
     @totallodgement = Lodgement.where(saving_id: @ref).sum(:amount)
     @totalwithdrawal = Withdrawal.where(saving_id: @ref).sum(:amount)
     @lodgments = Lodgement.where(saving_id: @ref)
     @withdrawals = Withdrawal.where(saving_id: @ref)
+
+
+
     @balance = (@totallodgement - @totalwithdrawal)
+    @saving.balance= @balance
+    @saving.save
+
+
 
   end
 
@@ -77,8 +89,8 @@ class SavingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def saving_params
       params.require(:saving).permit(:user_id, :month, :year, :saving_date, :name, lodgements_attributes:
-          [:id,:owner,:amount, :details,:user_id,:institution,:_destroy],withdrawals_attributes:
-                                         [:id,:owner,:amount, :details,:user_id,:institution,:_destroy],
+          [:id,:owner,:amount, :details,:user_id,:institution,:month,:year ,:_destroy],
+                                     withdrawals_attributes: [:id,:owner,:amount, :details,:user_id,:institution,:month,:year ,:_destroy],
                                      comments_attributes:[:id, :user_id,:commentary, :_destroy])
     end
 end

@@ -10,12 +10,22 @@ class BudgetsController < ApplicationController
   # GET /budgets/1
   # GET /budgets/1.json
   def show
+    @year= @budget.budget_date.year
+    @month= @budget.budget_date.month
+    @budget.year= @year
+    @budget.month = @month
+
     @ref = @budget.id
     @totalincome = Income.where(budget_id: @ref).sum(:amount)
     @totalexpense = Expense.where(budget_id: @ref).sum(:amount)
+
     @incomes = Income.where(budget_id: @ref)
     @expenses = Expense.where(budget_id: @ref)
+
     @balance = (@totalincome - @totalexpense)
+    @budget.balance= @balance
+    @budget.save
+
 
   end
 
@@ -78,8 +88,8 @@ class BudgetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def budget_params
       params.require(:budget).permit(:user_id, :month, :year, :budget_date, :name,
-                                     incomes_attributes:[:id,:owner,:amount,:user_id,:details,:income_type,:_destroy],
-      expenses_attributes:[:id, :owner, :amount, :user_id,:details,:expense_type,:_destroy],
+                                     incomes_attributes:[:id,:owner,:amount,:user_id,:details,:income_type,:month,:year,:_destroy],
+      expenses_attributes:[:id, :owner, :amount, :user_id,:details,:expense_type,:month,:year ,:_destroy],
                                      comments_attributes:[:id,:user_id, :commentary,:_destroy])
     end
 end

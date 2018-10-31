@@ -22,7 +22,9 @@
   <textarea rows="1" cols="80" readonly> <%= @budget.name %></textarea>
 </div>
 
-
+<div class="jumbotron">
+  Budget ID:<%=h @budget.id %>
+</div>
 <div class="jumbotron">
 
   <stong> Total Income (€): </stong><br><br>
@@ -118,6 +120,11 @@
       Registered on:
       <%=h income.created_at.strftime("%d %b. %Y") %>
     </div>
+    <div>
+      ID:
+      <%=h income.id %>
+    </div>
+
   </div>
 
 <% end %>
@@ -152,6 +159,11 @@
       Registered on:
       <%=h expense.created_at.strftime("%d %b. %Y") %>
     </div>
+    <div>
+      ID:
+      <%=h expense.id %>
+    </div>
+
   </div>
 
 <% end %>
@@ -169,6 +181,11 @@
       Registered on:
       <%=h comment.created_at.strftime("%d %b. %Y") %>
     </div>
+    <div>
+      ID:
+      <%=h comment.id %>
+    </div>
+
   </div>
 
 <% end %>

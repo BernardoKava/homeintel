@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="jumbotron">
+  <div>
+      <strong>Month:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>     <%= @ledger.month %></textarea>
+  </div>
+  <br>
+  <div>
+      <strong>Year:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>   <%= @ledger.year %></textarea>
+  </div>
+  <br>
+  <div>
+      <strong>Ledger date:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>   <%= @ledger.ledger_date %></textarea>
+  </div>
+  <br>
+  <div>
+      <strong>Name:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>   <%= @ledger.name %></textarea>
+  </div>
+
+</div>
+
+
+
+
+<div class="jumbotron">
+
+<hr>
+
+  <stong> Annual Budget Balance (€): </stong><br><br>
+
+  <p>€<%= @budget_balance %></p><br>
+
+  <stong> Annual Cashflow Balance (€): </stong><br><br>
+
+  <p> €<%= @cashflow_balance %></p><br>
+  <hr>
+  <stong> Annual Budget - Annual Cashflow (Actual) (€): </stong><br><br>
+  <% if @budget_vs_cashflow < @zero %>
+    <P> €<%= @budget_vs_cashflow %></P>
+    <div class="alert-danger"><%= @over_budget_message %></div>
+  <% else %>
+    <p> €<%= @budget_vs_cashflow %></p>
+    <div class=" alert-success"><%= @under_budget_message %></div>
+  <% end %>
+  <hr>
+  <stong>Annual Savings Balance (€): </stong><br><br>
+
+  <p> €<%= @saving_balance %></p><br>
+
+  <hr>
+<hr/>
+
+
+  <stong> Annual Savings + Annual Cashflow Balance (Actual) (€): </stong><br><br>
+
+  <p>Total Annual Liquid Assets = €<%= @cashflow_balance_plus_saving_balance %> </p>
+  <br>
+
+<hr>
+  <stong> Liquidity (€): </stong><br><br>
+
+
+  <p>Annual Total Income = €<%= @annual_total_inflow %></p>
+  <p>Annual Total Expenditure = €<%= @annual_total_outflow %></p>
+</div>
+
+
+<div class="links">
+  <%= link_to 'Edit', edit_ledger_path(@ledger), class:'fa fa-edit' %> |
+  <%= link_to 'Back', ledgers_path, class:'fa fa-arrow-left'  %>
+
+</div>
+
+

@@ -10,12 +10,39 @@ class CashflowsController < ApplicationController
   # GET /cashflows/1
   # GET /cashflows/1.json
   def show
+
+    # define month and year
+    @year= @cashflow.accounting_date.year
+    @month= @cashflow.accounting_date.month
+    @cashflow.year=@year
+    @cashflow.month = @month
+
+    # get widrawals and lodgement where the month and the year is the same as the and year of the current cashflow
+    @cash_injection = Withdrawal.where(year: @year, month: @month).sum(:amount)
+    @saving_lodgement = Lodgement.where(year: @year, month: @month).sum(:amount)
+    # Only retieve inflows and outflows where the cashflow id belongs to the current cashflow
     @ref = @cashflow.id
     @totalinflow = Inflow.where(cashflow_id: @ref).sum(:amount)
     @totaloutflow = Outflow.where(cashflow_id: @ref).sum(:amount)
+
+    # inflow outflow tabels
     @inflows = Inflow.where(cashflow_id: @ref)
     @outflows = Outflow.where(cashflow_id: @ref)
-    @balance = (@totalinflow - @totaloutflow)
+    # balance calculation
+    @i = 0
+    @balance = ((@totalinflow - @saving_lodgement)- @totaloutflow) + @cash_injection
+    @cashflow.balance= @balance
+
+    # savings dashboard
+    @savings = Saving.where(year: @year, month: @month).sum(:balance)
+
+    # budget balance
+    @budgets = Budget.where(year: @year, month: @month).sum(:balance)
+
+    #save whatever can be saved on the table
+    @cashflow.save
+
+
   end
 
   # GET /cashflows/new
@@ -73,11 +100,14 @@ class CashflowsController < ApplicationController
       @cashflow = Cashflow.find(params[:id])
     end
 
+
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def cashflow_params
       params.require(:cashflow).permit(:month, :year, :accounting_date, :name, :user_id, inflows_attributes:[ :id, :owner,
-      :amount, :details, :flow_type, :user_id,:_destroy], outflows_attributes:[:id,:owner,
-                                                                               :amount, :details, :flow_type, :user_id,:_destroy],
+      :amount, :details, :flow_type, :user_id,:month,:year ,:_destroy], outflows_attributes:[:id,:owner,
+                                                                               :amount, :details, :flow_type, :user_id,:month,:year ,:_destroy],
                                        comments_attributes:[:id, :commentary, :user_id, :_destroy])
     end
 end

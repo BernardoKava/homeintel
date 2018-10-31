@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'inflows/index'
+  resources :ledgers
   resources :savings
   resources :cashflows
   resources :budgets

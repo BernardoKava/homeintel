@@ -1,0 +1,8 @@
+<h1>Editing Ledger</h1>
+
+<%= render 'form', ledger: @ledger %>
+
+<div class="links">
+<%= link_to 'View', @ledger , class:'fa fa-eye'%> |
+<%= link_to 'Back', ledgers_path, class:'fa fa-arrow-left'%>
+</div>
