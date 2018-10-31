@@ -3,23 +3,25 @@
 
 
 <div class="jumbotron">
-  <strong>Month:</strong><br>
-  <textarea rows="1" cols="80" readonly>   <%= @budget.month %></textarea>
-</div>
-
-<div class="jumbotron">
-  <strong>Year:</strong><br>
-  <textarea rows="1" cols="80" readonly>  <%= @budget.year %></textarea>
-</div>
-
-<div class="jumbotron">
-  <strong>Budget date:</strong><br>
-  <textarea rows="1" cols="80" readonly>  <%= @budget.budget_date %></textarea>
-</div>
-
-<div class="jumbotron">
-  <strong>Name:</strong><br>
-  <textarea rows="1" cols="80" readonly> <%= @budget.name %></textarea>
+    <div>
+      <strong>Month:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>   <%= @budget.month %></textarea>
+    </div>
+  <br>
+    <div>
+      <strong>Year:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>  <%= @budget.year %></textarea>
+    </div>
+  <br>
+    <div>
+      <strong>Budget date:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>  <%= @budget.budget_date %></textarea>
+    </div>
+  <br>
+    <div>
+      <strong>Name:</strong><br><br>
+      <textarea rows="1" cols="80" readonly> <%= @budget.name %></textarea>
+    </div>
 </div>
 
 <div class="jumbotron">
@@ -29,16 +31,16 @@
 
   <stong> Total Income (€): </stong><br><br>
 
- <p> <%= @totalincome %></p><br>
+ <p>€ <%= @totalincome %></p><br>
 
 
   <stong> Total Expenses (€): </stong><br><br>
 
-  <p> <%= @totalexpense %></p>
+  <p>€ <%= @totalexpense %></p>
 
   <stong> Balance (€): </stong><br><br>
 
-  <p> <%= @balance %></p>
+  <p>€ <%= @balance %></p>
 
 
   <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Income Summary:</strong></h2></div>

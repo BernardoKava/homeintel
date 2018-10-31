@@ -2,29 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df494c92-2ec7-4b7b-b5f5-b8edd6bfb02f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/budgets_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/budgets_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/cashflows_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/cashflows_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/savings_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/savings_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/models/inflow.rb" afterPath="$PROJECT_DIR$/app/models/inflow.rb" />
-      <change beforePath="$PROJECT_DIR$/app/views/budgets/_expense_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/budgets/_expense_fields.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/budgets/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/budgets/_form.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/budgets/_income_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/budgets/_income_fields.html.erb" />
       <change beforePath="$PROJECT_DIR$/app/views/budgets/show.html.erb" afterPath="$PROJECT_DIR$/app/views/budgets/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/cashflows/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/cashflows/_form.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/cashflows/_inflow_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/cashflows/_inflow_fields.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/cashflows/_outflow_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/cashflows/_outflow_fields.html.erb" />
       <change beforePath="$PROJECT_DIR$/app/views/cashflows/show.html.erb" afterPath="$PROJECT_DIR$/app/views/cashflows/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/index.html.erb" afterPath="$PROJECT_DIR$/app/views/dashboard/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/savings/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/savings/_form.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/savings/_lodgement_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/savings/_lodgement_fields.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/savings/_withdrawal_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/savings/_withdrawal_fields.html.erb" />
+      <change beforePath="$PROJECT_DIR$/app/views/ledgers/show.html.erb" afterPath="$PROJECT_DIR$/app/views/ledgers/show.html.erb" />
       <change beforePath="$PROJECT_DIR$/app/views/savings/show.html.erb" afterPath="$PROJECT_DIR$/app/views/savings/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -40,7 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.50555557">
+    <splitter split-orientation="vertical" split-proportion="0.50666666">
       <split-first>
         <leaf>
           <file leaf-file-name="cashflows_controller.rb" pinned="false" current-in-tab="false">
@@ -117,10 +98,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="_header.html.erb" pinned="false" current-in-tab="true">
+          <file leaf-file-name="_header.html.erb" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="54">
+                <state relative-caret-position="378">
                   <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
                   <folding />
                 </state>
@@ -150,11 +131,11 @@
           <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/cashflows/show.html.erb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="216">
-                  <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+                <state relative-caret-position="288">
+                  <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
                   <folding>
-                    <element signature="n#style#0;n#p#0;n#strong#0;n#div#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#p#0;n#strong#1;n#div#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#0;n#strong#0;n#div#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#0;n#strong#1;n#div#2;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -163,8 +144,18 @@
           <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/ledgers/show.html.erb">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="251">
-                  <caret line="63" column="4" lean-forward="false" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+                <state relative-caret-position="432">
+                  <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/views/budgets/show.html.erb">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="216">
+                  <caret line="42" column="6" lean-forward="false" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -174,7 +165,7 @@
             <entry file="file://$PROJECT_DIR$/app/views/savings/show.html.erb">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="216">
-                  <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+                  <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
@@ -240,7 +231,6 @@
         <option value="$PROJECT_DIR$/app/views/ledgers/index.html.erb" />
         <option value="$PROJECT_DIR$/app/helpers/ledgers_helper.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.scss" />
-        <option value="$PROJECT_DIR$/app/views/budgets/show.html.erb" />
         <option value="$PROJECT_DIR$/app/models/inflow.rb" />
         <option value="$PROJECT_DIR$/app/controllers/inflows_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20181030193841_killer.rb" />
@@ -256,16 +246,17 @@
         <option value="$PROJECT_DIR$/db/migrate/20181030232508_killer.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20181030194434_add_year_month_fields.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20181030232856_add_month_year_on_tables.rb" />
-        <option value="$PROJECT_DIR$/app/views/savings/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/budgets/_expense_fields.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/savings_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/cashflows_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/budgets_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/cashflows/show.html.erb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
-        <option value="$PROJECT_DIR$/app/views/ledgers/show.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/ledgers_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/ledgers/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/cashflows/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/savings/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/budgets/show.html.erb" />
       </list>
     </option>
   </component>
@@ -612,12 +603,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539821040774</updated>
       <workItem from="1539821042249" duration="73656000" />
-      <workItem from="1540502030738" duration="129368000" />
+      <workItem from="1540502030738" duration="130108000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203024000" />
+    <option name="totallyTimeSpent" value="203764000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1204" extended-state="6" />
@@ -868,14 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/budgets/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3384">
-          <caret line="188" column="8" lean-forward="false" selection-start-line="188" selection-start-column="8" selection-end-line="188" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/inflow.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -980,25 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/savings/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="39" column="16" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/cashflows/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#strong#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#strong#1;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20181031215656_add_fields_to_ledgers.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1027,14 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/ledgers/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="63" column="4" lean-forward="false" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1081,8 +1037,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
+        <state relative-caret-position="378">
           <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/cashflows/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#strong#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#strong#1;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/savings/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/ledgers/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/budgets/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="42" column="6" lean-forward="false" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
           <folding />
         </state>
       </provider>
