@@ -3,17 +3,22 @@
 
 <div class="jumbotron">
 
-    <strong>Name:</strong><br><br>
-<textarea rows="4" cols="80" readonly> <%= @person.name %></textarea>
 
+    <div>
 
-</div>
+        <strong>Full Name:</strong><br><br>
+     <textarea rows="1" cols="80" readonly><%= @person.fullname %></textarea>
 
-<div class="jumbotron">
+    </div>
 
+  <br>
+    <div>
 
-    <strong>Surname:</strong><br><br>
- <textarea rows="4" cols="80" readonly><%= @person.surname %></textarea>
+      <strong>DoB:</strong><br><br>
+      <textarea rows="1" cols="80" readonly><%= @person.dob %></textarea>
+
+    </div>
+
 
 </div>
 
@@ -27,13 +32,13 @@
 
       <div>
         <strong>Email:</strong><br><br>
-        <textarea rows="4" cols="80" readonly><%=h email.email %></textarea>
+        <textarea rows="1" cols="80" readonly><%=h email.email %></textarea>
       </div>
       <br>
 
       <div>
         <strong>Active:</strong><br><br>
-        <textarea rows="4" cols="80" readonly><%=h email.active  %></textarea>
+        <textarea rows="1" cols="80" readonly><%=h email.active  %></textarea>
       </div>
       <br>
       <br>
@@ -58,12 +63,12 @@
 
         <div>
           <strong>Telephone:</strong><br><br>
-          <textarea rows="4" cols="80" readonly><%=h telephone.phone %></textarea>
+          <textarea rows="1" cols="80" readonly><%=h telephone.phone %></textarea>
         </div>
       <br>
       <div>
         <strong>Active:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>  <%=h telephone.active %></textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h telephone.active %></textarea>
       </div>
       <br>
       <br>
@@ -89,13 +94,13 @@
 
       <div>
         <strong>Address:</strong><br><br>
-        <textarea rows="4" cols="80" readonly> <%=h address.address %></textarea>
+        <textarea rows="1" cols="80" readonly> <%=h address.address %></textarea>
       </div>
       <br>
       <div>
         <strong>Active:</strong><br><br>
 
-        <textarea rows="4" cols="80" readonly>   <%=h address.active %></textarea>
+        <textarea rows="1" cols="80" readonly>   <%=h address.active %></textarea>
       </div>
       <br>
       <br>
@@ -122,33 +127,33 @@
 
       <div>
         <strong>Name:</strong><br><br>
-        <textarea rows="4" cols="80" readonly> <%=h qualification.name %></textarea>
+        <textarea rows="1" cols="80" readonly> <%=h qualification.name %></textarea>
       </div>
       <br>
       <div>
         <strong>School:</strong><br><br>
-        <textarea rows="4" cols="80" readonly> <%=h qualification.school %></textarea>
+        <textarea rows="1" cols="80" readonly> <%=h qualification.school %></textarea>
       </div>
       <br>
       <div>
         <strong>From:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>    <%=h qualification.from %></p></textarea>
+        <textarea rows="1" cols="80" readonly>    <%=h qualification.from %></textarea>
       </div>
       <br>
       <div>
         <strong>To:</strong></p><br><br>
-        <textarea rows="4" cols="80" readonly>        <%=h qualification.to %></textarea>
+        <textarea rows="1" cols="80" readonly>        <%=h qualification.to %></textarea>
       </div>
       <br>
 
       <div>
         <strong>Grade:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>  <%=h qualification.grade %> </textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h qualification.grade %> </textarea>
       </div>
       <br>
       <div>
         <strong>Active:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>   <%=h qualification.active %> </textarea>
+        <textarea rows="1" cols="80" readonly>   <%=h qualification.active %> </textarea>
       </div>
       <br>
       <br>
@@ -173,33 +178,33 @@
 
       <div>
         <strong>Company:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>  <%=h job.company %> </textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h job.company %> </textarea>
       </div>
       <br>
       <div>
         <strong>Position:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>    <%=h job.position %> </textarea>
+        <textarea rows="1" cols="80" readonly>    <%=h job.position %> </textarea>
       </div>
       <br>
       <div>
         <strong>From:</strong><br><br>
-        <textarea rows="4" cols="80" readonly><%=h job.from %> </textarea>
+        <textarea rows="1" cols="80" readonly><%=h job.from %> </textarea>
       </div>
       <br>
       <div>
         <strong>To:</strong><br><br>
-        <textarea rows="4" cols="80" readonly> <%=h job.to %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h job.to %> </textarea>
       </div>
       <br>
 
       <div>
         <strong>Termination Reason:</strong><br><br>
-        <textarea rows="4" cols="80" readonly> <%=h job.terminationreason %></textarea>
+        <textarea rows="1" cols="80" readonly> <%=h job.terminationreason %></textarea>
       </div>
       <br>
       <div>
         <strong>Active:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>    <%=h job.actve %> </textarea>
+        <textarea rows="1" cols="80" readonly>    <%=h job.actve %> </textarea>
       </div>
       <br>
       <br>
@@ -225,33 +230,33 @@
 
       <div>
         <strong>Company:</strong><br><br>
-        <textarea rows="4" cols="80" readonly> <%=h reference.employer %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h reference.employer %> </textarea>
       </div>
       <br>
       <div>
         <strong>Referee:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>  <%=h reference.referee %> </textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h reference.referee %> </textarea>
       </div>
       <br>
       <div>
         <strong>Telephone:</strong><br><br>
-        <textarea rows="4" cols="80" readonly> <%=h reference.telephone %></textarea>
+        <textarea rows="1" cols="80" readonly> <%=h reference.telephone %></textarea>
       </div>
       <br>
       <div>
         <strong> Email:</strong>:</strong><br><br>
-        <textarea rows="4" cols="80" readonly> <%=h reference.email %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h reference.email %> </textarea>
       </div>
       <br>
 
       <div>
         <strong>Details:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>   <%=h reference.details %> </textarea>
+        <textarea rows="1" cols="80" readonly>   <%=h reference.details %> </textarea>
       </div>
       <br>
       <div>
         <strong>Active:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>   <%=h reference.active %> </textarea>
+        <textarea rows="1" cols="80" readonly>   <%=h reference.active %> </textarea>
       </div>
       <br>
       <br>
@@ -277,7 +282,7 @@
 
       <div>
         <strong>Comment:</strong><br><br>
-        <textarea rows="4" cols="80" readonly>      <%=h comment.commentary %></textarea>
+        <textarea rows="1" cols="80" readonly>      <%=h comment.commentary %></textarea>
       </div>
       <br>
       <br>

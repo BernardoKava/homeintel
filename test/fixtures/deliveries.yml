@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  delivery_date: 2018-11-01
+  user_id: 1
+  owner: MyString
+
+two:
+  delivery_date: 2018-11-01
+  user_id: 1
+  owner: MyString

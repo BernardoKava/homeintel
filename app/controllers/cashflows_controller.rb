@@ -107,7 +107,8 @@ class CashflowsController < ApplicationController
     def cashflow_params
       params.require(:cashflow).permit(:month, :year, :accounting_date, :name, :user_id, inflows_attributes:[ :id, :owner,
       :amount, :details, :flow_type, :user_id,:month,:year ,:_destroy], outflows_attributes:[:id,:owner,
-                                                                               :amount, :details, :flow_type, :user_id,:month,:year ,:_destroy],
+                                                                               :amount, :details, :flow_type, :user_id,
+                                                                                             :month,:year ,:_destroy],
                                        comments_attributes:[:id, :commentary, :user_id, :_destroy])
     end
 end

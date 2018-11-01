@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post_type: MyString
+  description: MyText
+  signed_for_by: MyString
+  scanned: false
+  user_id: 1
+  delivery_id: 1
+
+two:
+  post_type: MyString
+  description: MyText
+  signed_for_by: MyString
+  scanned: false
+  user_id: 1
+  delivery_id: 1

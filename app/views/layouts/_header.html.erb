@@ -39,13 +39,15 @@
               <li class="divider"></li>
               <li><%= link_to "Savings", savings_path , class: 'fa fa-database'%></li>
               <li class="divider"></li>
-              <li><%= link_to "Deliveries", '#' , class: 'fa fa-database'%></li>
+              <li><%= link_to "Deliveries", deliveries_path, class: 'fa fa-database'%></li>
               <li class="divider"></li>
               <li><%= link_to "Inventory", inventories_path, class: 'fa fa-database'%></li>
               <li class="divider"></li>
               <li><%= link_to "People", people_path , class: 'fa fa-database'%></li>
-
-
+              <% if current_user.admin == true %>
+                <li class="divider"></li>
+                <li><%= link_to "Administrator", rails_admin_path , class: 'fa fa-database'%></li>
+              <% end %>
             </ul>
           </li>
 

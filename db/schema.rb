@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_223229) do
+ActiveRecord::Schema.define(version: 2018_11_01_070653) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -86,7 +86,16 @@ ActiveRecord::Schema.define(version: 2018_10_31_223229) do
     t.integer "budget_id"
     t.integer "cashflow_id"
     t.integer "saving_id"
+    t.integer "delivery_id"
     t.index ["inventory_id"], name: "index_comments_on_inventory_id"
+  end
+
+  create_table "deliveries", force: :cascade do |t|
+    t.date "delivery_date"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "receiver"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -232,6 +241,19 @@ ActiveRecord::Schema.define(version: 2018_10_31_223229) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "dob"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "post_type"
+    t.text "description"
+    t.string "signed_for_by"
+    t.boolean "scanned"
+    t.integer "user_id"
+    t.integer "delivery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "owner"
   end
 
   create_table "qualifications", force: :cascade do |t|

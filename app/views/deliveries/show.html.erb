@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<div class="jumbotron">
+  <div>
+    <strong>Delivery Date:</strong><br><br>
+    <textarea rows="1" cols="80" readonly> <%= @delivery.delivery_date %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Receiver:</strong><br><br>
+    <textarea rows="1" cols="80" readonly> <%= @delivery.owner %></textarea>
+  </div>
+  <br>
+</div>
+
+<div class="jumbotron">
+  Delivery ID:<%=h @delivery.id %>
+</div>
+
+
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Lodgements</strong></h2></div>
+<br>
+<div>
+
+  <% for post in @delivery.posts %>
+
+    <div class="jumbotron">
+
+      <div>
+        <strong>Owner:</strong><br><br>
+        <textarea rows="1" cols="80" readonly> <%=h cash.owner %> </textarea>
+      </div>
+      <br>
+      <div>
+        <strong>Type:</strong><br><br>
+        <textarea rows="1" cols="80" readonly>  <%=h cash.institution %> </textarea>
+      </div>
+      <br>
+      <div>
+        <strong>Amount:</strong><br><br>
+        <textarea rows="1" cols="80" readonly> <%=h cash.amount %></textarea>
+      </div>
+      <br>
+      <div>
+        <strong> Details:</strong>:</strong><br><br>
+        <textarea rows="1" cols="80" readonly> <%=h cash.details %> </textarea>
+      </div>
+      <br>
+      <div>
+        Registered on:
+        <%=h cash.created_at.strftime("%d %b. %Y") %>
+      </div>
+      <div>
+        ID:
+        <%=h cash.id %>
+      </div>
+
+    </div>
+  <% end %>
+
+</div>
+
+
+<div class="links">
+<%= link_to 'Edit', edit_delivery_path(@delivery), class:'fa fa-edit' %> |
+<%= link_to 'Back', deliveries_path, class:'fa fa-arrow-left' %>
+</div>
