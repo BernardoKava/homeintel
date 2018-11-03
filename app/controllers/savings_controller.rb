@@ -25,6 +25,12 @@ class SavingsController < ApplicationController
 
     @balance = (@totallodgement - @totalwithdrawal)
     @saving.balance= @balance
+
+    # Savings number
+    @saving_number =  (@saving.id + 10000 )
+    @saving.saving_number = @saving_number
+
+
     @saving.save
 
 

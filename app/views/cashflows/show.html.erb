@@ -24,7 +24,26 @@
 </div>
 
 <div class="jumbotron">
-  Cash flow ID:<%=h @cashflow.id %>
+  <div>
+    Created on:
+    <%=h @cashflow.created_at.strftime("%d %b. %Y") %>
+  </div>
+  <br>
+  <div>
+    Updated on:
+    <%=h @cashflow.updated_at.strftime("%d %b. %Y") %>
+  </div>
+  <br>
+  <div>
+    Cashflow Number:
+    CN - <%=h @cashflow_number %>
+  </div>
+  <br>
+</div>
+<div class="links">
+  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
+  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
+
 </div>
 
 <div class="jumbotron">
@@ -106,7 +125,11 @@
   </table>
 </div>
 
+<div class="links">
+  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
+  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
 
+</div>
 
 
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong> Inflows</strong></h2></div>

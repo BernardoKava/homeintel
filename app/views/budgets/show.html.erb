@@ -24,9 +24,30 @@
     </div>
 </div>
 
+
 <div class="jumbotron">
-  Budget ID:<%=h @budget.id %>
+  <div>
+    Created on:
+    <%=h @budget.created_at.strftime("%d %b. %Y") %>
+  </div>
+  <br>
+  <div>
+    Updated on:
+    <%=h @budget.updated_at.strftime("%d %b. %Y") %>
+  </div>
+  <br>
+  <div>
+    Budget Number:
+    BN - <%=h @budget_number %>
+  </div>
+  <br>
 </div>
+
+<div class="links">
+  <%= link_to 'Edit', edit_budget_path(@budget), class:'fa fa-edit' %> |
+  <%= link_to 'Back', budgets_path, class:'fa fa-arrow-left'  %>
+</div>
+
 <div class="jumbotron">
 
   <stong> Total Income (€): </stong><br><br>
@@ -92,6 +113,10 @@
   </table>
 </div>
 
+<div class="links">
+  <%= link_to 'Edit', edit_budget_path(@budget), class:'fa fa-edit' %> |
+  <%= link_to 'Back', budgets_path, class:'fa fa-arrow-left'  %>
+</div>
 
 
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Incomes</strong></h2></div>

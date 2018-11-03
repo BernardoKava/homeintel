@@ -24,8 +24,23 @@
 
 </div>
 
+
 <div class="jumbotron">
-  Ledger ID:<%=h @ledger.id %>
+  <div>
+    Created on:
+    <%=h @ledger.created_at.strftime("%d %b. %Y") %>
+  </div>
+  <br>
+  <div>
+    Updated on:
+    <%=h @ledger.updated_at.strftime("%d %b. %Y") %>
+  </div>
+  <br>
+  <div>
+    Saving Number:
+    LN - <%=h @ledger_number %>
+  </div>
+  <br>
 </div>
 
 

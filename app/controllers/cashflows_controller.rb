@@ -38,6 +38,9 @@ class CashflowsController < ApplicationController
 
     # budget balance
     @budgets = Budget.where(year: @year, month: @month).sum(:balance)
+    # Cashflow number
+    @cashflow_number =  (@cashflow.id + 10000 )
+    @cashflow.cashflow_number = @cashflow_number
 
     #save whatever can be saved on the table
     @cashflow.save
