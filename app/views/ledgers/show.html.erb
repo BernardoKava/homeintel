@@ -14,7 +14,7 @@
   <br>
   <div>
       <strong>Ledger date:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>   <%= @ledger.ledger_date %></textarea>
+      <textarea rows="1" cols="80" readonly>   <%= @ledger.ledger_date.strftime("%d %b. %Y") %></textarea>
   </div>
   <br>
   <div>

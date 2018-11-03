@@ -69,7 +69,7 @@ class DeliveriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def delivery_params
-      params.require(:delivery).permit(:delivery_date, :user_id, :receiver, posts_attributes:[:id, :owner, :post_type, :description,
-      :signed_for_by, :scanned, :user_id, :delivery_id,:_destroy],comments_attributes:[:id, :commentary, :user_id, :_destroy])
+      params.require(:delivery).permit(:delivery_date, :user_id, :receiver, :person_id,posts_attributes:[:id, :owner, :post_type, :description,
+      :signed_for_by, :scanned, :user_id,:person_id, :delivery_id,:_destroy],comments_attributes:[:id, :commentary, :user_id, :_destroy])
     end
 end

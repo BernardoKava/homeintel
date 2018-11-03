@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'csv'
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'people.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Person.new
+  t.name = row['name']
+  t.surname = row['surname']
+  t.dob = row['dob']
+  t.active = row['active']
+  t.save
+
+end
+

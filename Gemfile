@@ -25,7 +25,7 @@ gem 'geocoder'
 gem 'simple_form'
 gem 'country_select'
 gem 'cocoon'
-
+gem 'humanize_boolean'
 
 
 

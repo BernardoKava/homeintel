@@ -18,7 +18,7 @@
       <tr>
         <td><%= link_to cashflow.month, cashflow %></td>
         <td><%= cashflow.year %></td>
-        <td><%= cashflow.accounting_date %></td>
+        <td><%= cashflow.accounting_date.strftime("%d, %b  %Y") %></td>
         <td><%= cashflow.name %></td>
         <td><%= link_to 'View', cashflow, class:'fa fa-eye' %></td>
         <td><%= link_to 'Edit', edit_cashflow_path(cashflow), class:'fa fa-edit' %></td>

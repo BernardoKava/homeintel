@@ -18,7 +18,7 @@
       <tr>
         <td><%= link_to saving.month, saving %></td>
         <td><%= saving.year %></td>
-        <td><%= saving.saving_date %></td>
+        <td><%= saving.saving_date.strftime("%d %b. %Y") %></td>
         <td><%= saving.name %></td>
         <td><%= link_to 'View', saving, class:'fa fa-eye' %></td>
         <td><%= link_to 'Edit', edit_saving_path(saving), class:'fa fa-edit' %></td>

@@ -34,10 +34,13 @@ class SavingsController < ApplicationController
   # GET /savings/new
   def new
     @saving = Saving.new
+
+
   end
 
   # GET /savings/1/edit
   def edit
+
   end
 
   # POST /savings
@@ -89,8 +92,8 @@ class SavingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def saving_params
       params.require(:saving).permit(:user_id, :month, :year, :saving_date, :name, lodgements_attributes:
-          [:id,:owner,:amount, :details,:user_id,:institution,:month,:year ,:_destroy],
-                                     withdrawals_attributes: [:id,:owner,:amount, :details,:user_id,:institution,:month,:year ,:_destroy],
+          [:id,:yeartitle_id,:monthtitle_id,:person_id,:financialinstitution_id,:owner,:amount, :details,:user_id,:institution,:month,:year ,:_destroy],
+                                     withdrawals_attributes: [:id,:yeartitle_id,:monthtitle_id,:person_id,:financialinstitution_id,:owner,:amount, :details,:user_id,:institution,:month,:year ,:_destroy],
                                      comments_attributes:[:id, :user_id,:commentary, :_destroy])
     end
 end

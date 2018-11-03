@@ -45,7 +45,7 @@
     <%= link_to_add_association 'Add', f, :comments, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
     <%= f.simple_fields_for :comments do |comment| %>
       <div class="jumbotron">
-        <%= render 'expense_fields', :f => comment %>
+        <%= render 'comment_fields', :f => comment %>
       </div>
     <% end %>
   </div>

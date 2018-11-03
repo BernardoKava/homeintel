@@ -8,6 +8,15 @@ class Person < ApplicationRecord
   has_many :comments
   has_many :departments
   has_many :banks
+  has_many :posts
+  has_many :deliveries
+  has_many :inflows
+  has_many :outflows
+  has_many :expenses
+  has_many :incomes
+  has_many :withdrawals
+  has_many :lodgements
+
 
   accepts_nested_attributes_for :emails, allow_destroy: true
   accepts_nested_attributes_for :telephones, allow_destroy: true

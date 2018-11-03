@@ -1,0 +1,3 @@
+class Monthtitle < ApplicationRecord
+
+end

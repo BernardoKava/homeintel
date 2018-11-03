@@ -12,7 +12,7 @@
   <br>
   <div>
     <strong>Accounting date:</strong><br><br>
-    <textarea rows="1" cols="80" readonly> <%= @cashflow.accounting_date %></textarea>
+    <textarea rows="1" cols="80" readonly> <%= @cashflow.accounting_date.strftime("%d, %b  %Y") %></textarea>
   </div>
   <br>
   <div>
@@ -119,12 +119,12 @@
 
       <div>
         <strong>Owner:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h cash.owner %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h cash.person.fullname%> </textarea>
       </div>
       <br>
       <div>
         <strong>Type:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h cash.flow_type %> </textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h cash.inflowtype.name %> </textarea>
       </div>
       <br>
       <div>
@@ -133,7 +133,7 @@
       </div>
       <br>
       <div>
-        <strong> Details:</strong>:</strong><br><br>
+        <strong> Details:</strong><br><br>
         <textarea rows="1" cols="80" readonly> <%=h cash.details %> </textarea>
       </div>
       <br>
@@ -163,21 +163,23 @@
 
       <div>
         <strong>Owner:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h cash.owner %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h cash.person.fullname%> </textarea>
       </div>
       <br>
+
       <div>
         <strong>Type:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h cash.flow_type %> </textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h cash.outflowtype.name %> </textarea>
       </div>
       <br>
+
       <div>
         <strong>Amount:</strong><br><br>
         <textarea rows="1" cols="80" readonly> <%=h cash.amount %></textarea>
       </div>
       <br>
       <div>
-        <strong> Details:</strong>:</strong><br><br>
+        <strong> Details:</strong><br><br>
         <textarea rows="1" cols="80" readonly> <%=h cash.details %> </textarea>
       </div>
       <br>
@@ -204,7 +206,7 @@
     <div class="jumbotron">
 
       <div>
-        <strong>Owner:</strong><br><br>
+        <strong>Comments:</strong><br><br>
         <textarea rows="1" cols="80" readonly> <%=h comment.commentary %> </textarea>
       </div>
       <br>

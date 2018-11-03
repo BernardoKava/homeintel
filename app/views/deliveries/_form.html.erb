@@ -6,8 +6,15 @@
   <div class="form-inputs">
     <%= f.input :delivery_date %>
     <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id} %>
-    <%= f.input :receiver %>
 
+
+    <div class="control-group">
+      <%= f.label :person_id, "Receiver" %>
+      <div class ="controls">
+        <%= f.collection_select :person_id, Person.order(:fullname), :id, :fullname, include_blank: true %>
+      </div>
+    </div>
+    <br>
 
     <hr/>
     <hr/>
@@ -39,7 +46,7 @@
 
 
   </div>
-
+<br>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

@@ -24,7 +24,17 @@ class BudgetsController < ApplicationController
 
     @balance = (@totalincome - @totalexpense)
     @budget.balance= @balance
+
+
+
+    # Budget number
+    @budget_number =  (@budget.id + 10000 )
+    @budget.budget_number = @budget_number
+
+
+
     @budget.save
+
 
 
   end
@@ -37,6 +47,7 @@ class BudgetsController < ApplicationController
 
   # GET /budgets/1/edit
   def edit
+
   end
 
   # POST /budgets
@@ -88,8 +99,12 @@ class BudgetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def budget_params
       params.require(:budget).permit(:user_id, :month, :year, :budget_date, :name,
-                                     incomes_attributes:[:id,:owner,:amount,:user_id,:details,:income_type,:month,:year,:_destroy],
-      expenses_attributes:[:id, :owner, :amount, :user_id,:details,:expense_type,:month,:year ,:_destroy],
+                                     incomes_attributes:[:id,:monthtitle_id,:yeartitle_id,
+                                                         :person_id,
+                                                         :inflowtype_id,:owner,:amount,:user_id,:details,:income_type,
+                                                         :month,:year,:_destroy],
+      expenses_attributes:[:id,:monthtitle_id,:yeartitle_id, :outflowtype_id,:person_id,:owner, :amount, :user_id,
+                           :details,:expense_type,:month,:year ,:_destroy],
                                      comments_attributes:[:id,:user_id, :commentary,:_destroy])
     end
 end

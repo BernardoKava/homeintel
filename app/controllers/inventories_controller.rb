@@ -10,6 +10,14 @@ class InventoriesController < ApplicationController
   # GET /inventories/1
   # GET /inventories/1.json
   def show
+    @ref = @inventory.id
+    @items = Item.where(inventory_id: @ref)
+
+
+    # inventory number
+    @inventory_number =  (@inventory.id + 10000 )
+    @inventory.inventory_number = @inventory_number
+    @inventory.save
   end
 
   # GET /inventories/new
@@ -70,7 +78,7 @@ class InventoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inventory_params
-      params.require(:inventory).permit(:department, :active, :user_id, :period_from, :period_to,:department_id,
+      params.require(:inventory).permit(:department, :active, :user_id, :period_from, :period_to,:department_id,:location,
                                         items_attributes:[:id,:item,:quantity,:description, :value, :owner,
                                                           :_destroy] ,
       comments_attributes:[:id, :commentary, :user_id, :_destroy] )

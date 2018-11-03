@@ -7,6 +7,12 @@ one:
   user_id: 1
   budget_id: 1
   details: MyText
+  month: MyString
+  year: MyString
+  person_id: 1
+  yeartitle_id: 1
+  monthtitle_id: 1
+  outflowtype_id: 1
 
 two:
   owner: MyString
@@ -15,3 +21,9 @@ two:
   user_id: 1
   budget_id: 1
   details: MyText
+  month: MyString
+  year: MyString
+  person_id: 1
+  yeartitle_id: 1
+  monthtitle_id: 1
+  outflowtype_id: 1

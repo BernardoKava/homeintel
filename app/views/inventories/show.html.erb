@@ -2,43 +2,106 @@
 
 <div class="jumbotron">
 
+    <div>
+        <strong>Department:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>   <%= @inventory.department.name %></textarea>
 
-    <strong>Department:</strong><br><br>
-  <textarea rows="4" cols="80" readonly>   <%= @inventory.department.name %></textarea>
 
+    </div>
+  <br>
+    <div>
+
+
+        <strong>Period from:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>      <%= @inventory.period_from %></textarea>
+
+
+    </div>
+
+  <br>
+
+    <div>
+
+        <strong>Period to:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>   <%= @inventory.period_to %></textarea>
+
+
+    </div>
+  <br>
+  <div>
+
+    <strong> Location Inventoried:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>   <%= @inventory.location %></textarea>
+
+
+  </div>
+  <br>
+
+</div>
+
+<div class="links">
+
+  <%= link_to 'Edit', edit_inventory_path(@inventory), class: 'fa fa-edit' %> |
+  <%= link_to 'Back', inventories_path , class: 'fa fa-arrow-left'%>
+
+</div>
+<div class="jumbotron">
+
+  <div><h2 style="font-size: 15px;background-color: forestgreen;color: white"><strong> Iventory Summary</strong></h2></div>
+  <br>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Value (€)</th>
+      <th>Date Registered</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.item %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.value %></td>
+        <td><%= item.created_at.strftime("%d %b. %Y") %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 
 </div>
 
 <div class="jumbotron">
+    <div>
+      Created on: <%= @inventory.created_at.strftime("%d %b. %Y") %>
+    </div>
+<br>
+    <div>
+      Updated on: <%= @inventory.updated_at.strftime("%d %b. %Y") %>
+    </div>
+  <br>
+  <div>
+    Inventory Number: HI-<%= @inventory_number %>
+  </div>
+  <br>
+  <div>
+    Active: <%= @inventory.active.humanize%>
+  </div>
 
-
-    <strong>Period from:</strong><br><br>
-  <textarea rows="4" cols="80" readonly>      <%= @inventory.period_from %></textarea>
 
 
 </div>
+<div class="links">
 
-
-
-<div class="jumbotron">
-
-    <strong>Period to:</strong><br><br>
-  <textarea rows="4" cols="80" readonly>   <%= @inventory.period_to %></textarea>
-
-
-
+  <%= link_to 'Edit', edit_inventory_path(@inventory), class: 'fa fa-edit' %> |
+  <%= link_to 'Back', inventories_path , class: 'fa fa-arrow-left'%>
 
 </div>
 
-
-
-
-
-
-
-
-
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Items</strong></h2></div>
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Items Details</strong></h2></div>
 <br>
 
 
@@ -52,13 +115,13 @@
   <div>
 
     <strong>Item:</strong><br><br>
-      <textarea rows="4" cols="80" readonly>    <%=h item.item %></textarea>
+      <textarea rows="1" cols="80" readonly>    <%=h item.item %></textarea>
   </div>
 
   <div>
 
     <strong>Description:</strong><br><br>
-    <textarea rows="4" cols="80" readonly>       <%= item.description %></textarea>
+    <textarea rows="1" cols="80" readonly>       <%= item.description %></textarea>
 
   </div>
 
@@ -68,7 +131,7 @@
   <div>
 
     <strong>Quantity:</strong><br><br>
-    <textarea rows="4" cols="80" readonly>    <%= item.quantity %></textarea>
+    <textarea rows="1" cols="80" readonly>    <%= item.quantity %></textarea>
 
   </div>
 
@@ -76,20 +139,11 @@
   <div>
 
     <strong>Value:</strong><br><br>
-    <textarea rows="4" cols="80" readonly>   <%= item.value %>
+    <textarea rows="1" cols="80" readonly>   <%= item.value %>
     </textarea>
 
   </div>
 
-
-  <div>
-
-    <strong>Owner:</strong><br><br>
-    <textarea rows="4" cols="80" readonly> <%= item.owner %></textarea>
-    </textarea>
-
-
-  </div>
 
 <br>
   <div>
@@ -115,7 +169,7 @@
 <div class="jumbotron">
 
   <strong>Comment:</strong><br><br>
-  <textarea rows="4" cols="80" readonly>  <%= comment.commentary %></textarea>
+  <textarea rows="1" cols="80" readonly>  <%= comment.commentary %></textarea>
 
   <br>
   <div>

@@ -5,11 +5,25 @@
 
 
   <div class="form-inputs">
-    <%= f.input :owner %>
-    <%= f.input :month %>
-    <%= f.input :year %>
+
+    <div class="control-group">
+      <%= f.label :person_id, "Owner" %>
+      <div class ="controls">
+        <%= f.collection_select :person_id, Person.order(:fullname), :id, :fullname, include_blank: true %>
+      </div>
+    </div>
+<br>
+    <div class="control-group">
+      <%= f.label :financialinstitution_id, "Type",class: 'control-label' %>
+      <div class ="controls">
+        <%= f.collection_select :financialinstitution_id, Financialinstitution.order(:name), :id, :name, include_blank: true %>
+      </div>
+    </div>
+    <br>
+
+
+
     <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
-    <%= f.input :institution %>
     <%= f.input :amount %>
     <%= f.input :details %>
   </div>

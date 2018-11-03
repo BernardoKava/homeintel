@@ -18,7 +18,7 @@
       <tr>
         <td><%= link_to budget.month, budget%></td>
         <td><%= budget.year %></td>
-        <td><%= budget.budget_date %></td>
+        <td><%= budget.budget_date.strftime("%d %b. %Y") %></td>
         <td><%= budget.name %></td>
         <td><%= link_to 'View', budget, class:'fa fa-eye' %></td>
         <td><%= link_to 'Edit', edit_budget_path(budget), class:'fa fa-edit' %></td>

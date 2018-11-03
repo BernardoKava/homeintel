@@ -5,12 +5,12 @@
 <div class="jumbotron">
   <div>
     <strong>Delivery Date:</strong><br><br>
-    <textarea rows="1" cols="80" readonly> <%= @delivery.delivery_date %></textarea>
+    <textarea rows="1" cols="80" readonly> <%= @delivery.delivery_date.strftime("%d, %b  %Y") %></textarea>
   </div>
   <br>
   <div>
     <strong>Receiver:</strong><br><br>
-    <textarea rows="1" cols="80" readonly> <%= @delivery.owner %></textarea>
+    <textarea rows="1" cols="80" readonly> <%= @delivery.person.fullname%></textarea>
   </div>
   <br>
 </div>
@@ -30,35 +30,43 @@
 
       <div>
         <strong>Owner:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h cash.owner %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h post.person.fullname %></textarea>
       </div>
       <br>
+
       <div>
         <strong>Type:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h cash.institution %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h post.post_type %> </textarea>
       </div>
       <br>
       <div>
-        <strong>Amount:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h cash.amount %></textarea>
+        <strong>Description:</strong><br><br>
+        <textarea rows="1" cols="80" readonly>  <%=h post.description %> </textarea>
       </div>
       <br>
+
       <div>
-        <strong> Details:</strong>:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h cash.details %> </textarea>
+        <strong> Scanned:</strong>:</strong><br><br>
+        <textarea rows="1" cols="80" readonly> <%=h post.scanned.humanize %> </textarea>
       </div>
       <br>
       <div>
         Registered on:
-        <%=h cash.created_at.strftime("%d %b. %Y") %>
+        <%=h post.created_at.strftime("%d %b. %Y") %>
       </div>
       <div>
         ID:
-        <%=h cash.id %>
+        <%=h post.id %>
       </div>
 
     </div>
   <% end %>
+
+
+
+
+
+
 
 </div>
 

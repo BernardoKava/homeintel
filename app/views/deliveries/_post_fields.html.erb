@@ -5,11 +5,12 @@
 
   <div class="form-inputs">
 
-    <%= f.input :owner %>
+
+
     <%= f.input :post_type %>
     <%= f.input :description %>
     <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
-    <%= f.input :scanned %>
+    <%= f.input :scanned, default: false %>
 
 
   </div>

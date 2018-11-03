@@ -43,15 +43,18 @@ class CashflowsController < ApplicationController
     @cashflow.save
 
 
+
   end
 
   # GET /cashflows/new
   def new
     @cashflow = Cashflow.new
+
   end
 
   # GET /cashflows/1/edit
   def edit
+
   end
 
   # POST /cashflows
@@ -105,8 +108,8 @@ class CashflowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cashflow_params
-      params.require(:cashflow).permit(:month, :year, :accounting_date, :name, :user_id, inflows_attributes:[ :id, :owner,
-      :amount, :details, :flow_type, :user_id,:month,:year ,:_destroy], outflows_attributes:[:id,:owner,
+      params.require(:cashflow).permit(:month, :year, :accounting_date, :name,:user_id, inflows_attributes:[ :id,:monthtitle_id,:yeartitle_id,:inflowtype_id, :person_id,:owner,
+      :amount, :details, :flow_type, :user_id,:month,:year ,:_destroy], outflows_attributes:[:id,:monthtitle_id,:yeartitle_id,:outflowtype_id,:person_id,:owner,
                                                                                :amount, :details, :flow_type, :user_id,
                                                                                              :month,:year ,:_destroy],
                                        comments_attributes:[:id, :commentary, :user_id, :_destroy])

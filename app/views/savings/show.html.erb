@@ -62,7 +62,7 @@
       <tr>
         <td><%= income.created_at.strftime("%d %b. %Y")%></td>
         <td><%= income.details %></td>
-        <td><%= income.owner %></td>
+        <td><%= income.person.fullname %></td>
         <td><%= income.amount %></td>
         <td><%= income.institution %></td>
       </tr>
@@ -88,7 +88,7 @@
       <tr>
         <td><%= expense.created_at.strftime("%d %b. %Y")%></td>
         <td><%= expense.details %></td>
-        <td><%= expense.owner %></td>
+        <td><%= expense.person.fullname %></td>
         <td><%= expense.amount %></td>
         <td><%= expense.institution %></td>
       </tr>
@@ -110,12 +110,12 @@
 
       <div>
         <strong>Owner:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h cash.owner %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h cash.person.fullname %> </textarea>
       </div>
       <br>
       <div>
         <strong>Type:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h cash.institution %> </textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h cash.financialinstitution.name %> </textarea>
       </div>
       <br>
       <div>
@@ -153,12 +153,12 @@
 
       <div>
         <strong>Owner:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h cash.owner %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h cash.person.fullname %> </textarea>
       </div>
       <br>
       <div>
         <strong>Type:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h cash.institution %> </textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h cash.financialinstitution.name %> </textarea>
       </div>
       <br>
       <div>
@@ -194,7 +194,7 @@
     <div class="jumbotron">
 
       <div>
-        <strong>Owner:</strong><br><br>
+        <strong>Comments:</strong><br><br>
         <textarea rows="1" cols="80" readonly> <%=h comment.commentary %> </textarea>
       </div>
       <br>
