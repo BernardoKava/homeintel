@@ -19,8 +19,41 @@
 
     </div>
 
+  <br>
+  <div>
+
+    <strong>Active:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @person.active.humanize%></textarea>
+
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div>
+    Created on:
+    <%=h @person.created_at.strftime("%d %b. %Y") %>
+  </div>
+  <br>
+  <div>
+    Updated on:
+    <%=h @person.updated_at.strftime("%d %b. %Y") %>
+  </div>
+  <br>
+  <div>
+    Person Number:
+    PN - <%=h @person_number %>
+  </div>
+  <br>
+</div>
+
+
+
+<div class="links">
+  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
+  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
 
 </div>
+
 
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Emails</strong></h2></div>
 <br>
@@ -38,7 +71,7 @@
 
       <div>
         <strong>Active:</strong><br><br>
-        <textarea rows="1" cols="80" readonly><%=h email.active  %></textarea>
+        <textarea rows="1" cols="80" readonly><%=h email.active.humanize  %></textarea>
       </div>
       <br>
       <br>
@@ -49,6 +82,12 @@
     </div>
 
   <% end %>
+
+</div>
+
+<div class="links">
+  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
+  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
 
 </div>
 
@@ -68,7 +107,7 @@
       <br>
       <div>
         <strong>Active:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h telephone.active %></textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h telephone.active.humanize %></textarea>
       </div>
       <br>
       <br>
@@ -80,6 +119,12 @@
 
 
   <% end %>
+
+</div>
+
+<div class="links">
+  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
+  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
 
 </div>
 
@@ -100,7 +145,7 @@
       <div>
         <strong>Active:</strong><br><br>
 
-        <textarea rows="1" cols="80" readonly>   <%=h address.active %></textarea>
+        <textarea rows="1" cols="80" readonly>   <%=h address.active.humanize %></textarea>
       </div>
       <br>
       <br>
@@ -115,7 +160,11 @@
   <% end %>
 
 </div>
+<div class="links">
+  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
+  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
 
+</div>
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 4: Education</strong></h2></div>
 <br>
 
@@ -153,7 +202,7 @@
       <br>
       <div>
         <strong>Active:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>   <%=h qualification.active %> </textarea>
+        <textarea rows="1" cols="80" readonly>   <%=h qualification.active.humanize %> </textarea>
       </div>
       <br>
       <br>
@@ -166,7 +215,11 @@
   <% end %>
 
 </div>
+<div class="links">
+  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
+  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
 
+</div>
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 5: Employment</strong></h2></div>
 <br>
 
@@ -204,7 +257,7 @@
       <br>
       <div>
         <strong>Active:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>    <%=h job.actve %> </textarea>
+        <textarea rows="1" cols="80" readonly>    <%=h job.actve.humanize %> </textarea>
       </div>
       <br>
       <br>
@@ -217,46 +270,50 @@
   <% end %>
 
 </div>
+<div class="links">
+  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
+  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
 
+</div>
 
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 6: References</strong></h2></div>
 <br>
 
 <div>
 
-  <% for reference in @person.references %>
+  <% for reference in @person.employmentreferences %>
 
     <div class="jumbotron">
 
       <div>
         <strong>Company:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h reference.employer %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h reference.employment.company %> </textarea>
       </div>
       <br>
       <div>
         <strong>Referee:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h reference.referee %> </textarea>
+        <textarea rows="1" cols="80" readonly>  <%=h reference.referee_name %> </textarea>
       </div>
       <br>
       <div>
         <strong>Telephone:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h reference.telephone %></textarea>
+        <textarea rows="1" cols="80" readonly> <%=h reference.referee_telephone %></textarea>
       </div>
       <br>
       <div>
         <strong> Email:</strong>:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h reference.email %> </textarea>
+        <textarea rows="1" cols="80" readonly> <%=h reference.referee_email %> </textarea>
       </div>
       <br>
 
       <div>
         <strong>Details:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>   <%=h reference.details %> </textarea>
+        <textarea rows="1" cols="80" readonly>   <%=h reference.referee_details %> </textarea>
       </div>
       <br>
       <div>
         <strong>Active:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>   <%=h reference.active %> </textarea>
+        <textarea rows="1" cols="80" readonly>   <%=h reference.referee_active.humanize %> </textarea>
       </div>
       <br>
       <br>
@@ -269,7 +326,11 @@
 
 </div>
 
+<div class="links">
+  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
+  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
 
+</div>
 
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 7: General Comments</strong></h2></div>
 <br>

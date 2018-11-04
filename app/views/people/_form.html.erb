@@ -84,10 +84,10 @@
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">References</h2></strong>
 
     <div class="nested_fields">
-      <%= link_to_add_association 'Add', f, :references, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
-      <%= f.simple_fields_for :references do |reference| %>
+      <%= link_to_add_association 'Add', f, :employmentreferences, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+      <%= f.simple_fields_for :employmentreferences do |reference| %>
         <div class="jumbotron">
-        <%= render 'reference_fields', :f =>  reference%>
+        <%= render 'employmentreference_fields', :f =>  reference%>
         </div>
       <% end %>
 

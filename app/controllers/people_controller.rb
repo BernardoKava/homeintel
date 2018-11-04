@@ -12,6 +12,10 @@ class PeopleController < ApplicationController
   def show
     @full_name = @person.name + " " + @person.surname
     @person.fullname = @full_name
+
+    @person_number = (@person.id + 10000)
+    @person.person_number = @person_number
+
     @person.save
   end
 
@@ -82,10 +86,13 @@ class PeopleController < ApplicationController
                                      addresses_attributes:[:id,:address,:user_id,:active,:_destroy],
                                      qualifications_attributes:[:id, :active,:name,
                                                                 :school,:from, :to, :grade, :user_id,:_destroy],
-                                     employments_attributes:[:id, :company,
-                                                             :position, :from, :to,
-                                                             :terminationreason,:actve,:user_id,:_destroy],references_attributes:
-                                     [:id,:active, :employer,:referee,:telephone,:email,:details,:user_id,:_destroy],
+                                     employments_attributes:[:id, :company,:company_address,:company_telephone,:company_email,
+                                                             :company_details,:position, :from, :to,
+                                                             :terminationreason,:actve,:user_id,:_destroy],
+                                     employmentreferences_attributes:
+                                     [:id,:referee_active, :employment_id,:referee_name,:referee_telephone,:referee_email,
+                                      :referee_details,:user_id,
+                                      :_destroy],
                                      comments_attributes:[:id, :commentary, :user_id, :_destroy])
     end
 end

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employer: MyString
+  employer_address: MyString
+  employer_telephone: MyString
+  employer_email: MyString
+  employer_description: MyString
+  referee_name: MyString
+  referee_telephone: MyString
+  referee_email: MyString
+  referee_details: MyText
+  person_id: 1
+  referee_active: false
+  user_id: 1
+
+two:
+  employer: MyString
+  employer_address: MyString
+  employer_telephone: MyString
+  employer_email: MyString
+  employer_description: MyString
+  referee_name: MyString
+  referee_telephone: MyString
+  referee_email: MyString
+  referee_details: MyText
+  person_id: 1
+  referee_active: false
+  user_id: 1

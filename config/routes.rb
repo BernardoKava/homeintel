@@ -6,10 +6,6 @@ Rails.application.routes.draw do
   resources :savings
   resources :cashflows
   resources :budgets
-  resources :banks
-  resources :schools
-  resources :references
-  resources :addresspools
   resources :employments
   resources :qualifications
   resources :addresses

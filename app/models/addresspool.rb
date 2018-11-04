@@ -1,3 +1,0 @@
-class Addresspool < ApplicationRecord
-
-end

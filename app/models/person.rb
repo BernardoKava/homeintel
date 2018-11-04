@@ -1,13 +1,12 @@
 class Person < ApplicationRecord
-  has_many :emails
-  has_many :telephones
-  has_many :addresses
-  has_many :qualifications
-  has_many :employments
-  has_many :references
-  has_many :comments
+  has_many :emails, dependent: :destroy
+  has_many :telephones, dependent: :destroy
+  has_many :addresses, dependent: :destroy
+  has_many :qualifications, dependent: :destroy
+  has_many :employments, dependent: :destroy
+  has_many :employmentreferences, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :departments
-  has_many :banks
   has_many :posts
   has_many :deliveries
   has_many :inflows
@@ -23,6 +22,6 @@ class Person < ApplicationRecord
   accepts_nested_attributes_for :addresses, allow_destroy: true
   accepts_nested_attributes_for :qualifications, allow_destroy: true
   accepts_nested_attributes_for :employments, allow_destroy: true
-  accepts_nested_attributes_for :references, allow_destroy: true
+  accepts_nested_attributes_for :employmentreferences, allow_destroy: true
   accepts_nested_attributes_for :comments, allow_destroy: true
 end

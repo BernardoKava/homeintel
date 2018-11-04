@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_172322) do
+ActiveRecord::Schema.define(version: 2018_11_04_092725) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -19,53 +19,12 @@ ActiveRecord::Schema.define(version: 2018_11_03_172322) do
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "addrespool_id"
-  end
-
-  create_table "addresspools", force: :cascade do |t|
-    t.string "address"
-    t.boolean "active"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "banks", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.integer "user_id"
-    t.string "iban"
-    t.string "bic"
-    t.text "accessibility"
-    t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "owner"
-    t.integer "person_id"
-  end
-
-  create_table "base_items", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "owner"
-    t.boolean "active"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "budgetcomments", force: :cascade do |t|
-    t.text "commentary"
-    t.integer "user_id"
-    t.integer "budget_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "budgets", force: :cascade do |t|
     t.integer "user_id"
-    t.date "month"
-    t.date "year"
+    t.string "month"
+    t.string "year"
     t.date "budget_date"
     t.string "name"
     t.datetime "created_at", null: false
@@ -75,8 +34,8 @@ ActiveRecord::Schema.define(version: 2018_11_03_172322) do
   end
 
   create_table "cashflows", force: :cascade do |t|
-    t.date "month"
-    t.date "year"
+    t.string "month"
+    t.string "year"
     t.date "accounting_date"
     t.string "name"
     t.integer "user_id"
@@ -127,6 +86,19 @@ ActiveRecord::Schema.define(version: 2018_11_03_172322) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "employmentreferences", force: :cascade do |t|
+    t.string "referee_name"
+    t.string "referee_telephone"
+    t.string "referee_email"
+    t.text "referee_details"
+    t.integer "person_id"
+    t.boolean "referee_active"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "employment_id"
+  end
+
   create_table "employments", force: :cascade do |t|
     t.string "company"
     t.string "position"
@@ -138,6 +110,10 @@ ActiveRecord::Schema.define(version: 2018_11_03_172322) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "company_address"
+    t.string "company_telephone"
+    t.string "company_email"
+    t.text "company_details"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -235,8 +211,8 @@ ActiveRecord::Schema.define(version: 2018_11_03_172322) do
   end
 
   create_table "ledgers", force: :cascade do |t|
-    t.date "month"
-    t.date "year"
+    t.string "month"
+    t.string "year"
     t.date "ledger_date"
     t.string "name"
     t.integer "user_id"
@@ -305,6 +281,7 @@ ActiveRecord::Schema.define(version: 2018_11_03_172322) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "dob"
+    t.string "person_number"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -333,23 +310,10 @@ ActiveRecord::Schema.define(version: 2018_11_03_172322) do
     t.integer "user_id"
   end
 
-  create_table "references", force: :cascade do |t|
-    t.string "employer"
-    t.string "referee"
-    t.string "telephone"
-    t.string "email"
-    t.text "details"
-    t.integer "person_id"
-    t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-  end
-
   create_table "savings", force: :cascade do |t|
     t.integer "user_id"
-    t.date "month"
-    t.date "year"
+    t.string "month"
+    t.string "year"
     t.date "saving_date"
     t.string "name"
     t.datetime "created_at", null: false
@@ -357,17 +321,6 @@ ActiveRecord::Schema.define(version: 2018_11_03_172322) do
     t.decimal "balance"
     t.integer "ledger_id"
     t.string "saving_number"
-  end
-
-  create_table "schools", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "email"
-    t.string "telephone"
-    t.integer "user_id"
-    t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "telephones", force: :cascade do |t|

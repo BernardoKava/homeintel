@@ -1,0 +1,27 @@
+
+
+<div class="nested-fields">
+
+
+  <div class="form-inputs">
+
+    <div class="control-group">
+      <%= f.label :employment_id, "Company",class: 'control-label' %>
+      <div class ="controls">
+        <%= f.collection_select :employment_id, Employment.order(:company), :id, :company, include_blank: true %>
+      </div>
+    </div>
+
+    <%= f.input :referee_name %>
+    <%= f.input :referee_telephone %>
+    <%= f.input :referee_email %>
+    <%= f.input :referee_details %>
+    <%= f.input :referee_active %>
+    <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id} %>
+
+  </div>
+
+
+  <%= link_to_remove_association 'Remove', f ,class: 'fa fa-close', style:"font-size:15px;color:red"%>
+
+</div>

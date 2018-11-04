@@ -36,7 +36,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v5.2.1, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ansi (v1.5.0, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v9.0.0, rbenv: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v9.2.1, rbenv: 2.5.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v9.3.1, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.12, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.5.0, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.3.2, rbenv: 2.5.1) [gem]" level="application" />
@@ -82,11 +82,11 @@
     <orderEntry type="library" scope="PROVIDED" name="kaminari-activerecord (v1.1.1, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kaminari-core (v1.1.1, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.1.5, rbenv: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="loofah (v2.2.2, rbenv: 2.5.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="loofah (v2.2.3, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="lumberjack (v1.0.13, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.7.1, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v0.3.3, rbenv: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="method_source (v0.9.0, rbenv: 2.5.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="method_source (v0.9.1, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v3.2.2, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types-data (v3.2018.0812, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mimemagic (v0.3.2, rbenv: 2.5.1) [gem]" level="application" />
@@ -95,7 +95,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.3.0, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.10.3, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest-reporters (v1.1.14, rbenv: 2.5.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="money (v6.13.0, rbenv: 2.5.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="money (v6.13.1, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.2.4, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.13.1, rbenv: 2.5.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nenv (v0.3.0, rbenv: 2.5.1) [gem]" level="application" />
