@@ -1,0 +1,2 @@
+class Passwordrepository < ApplicationRecord
+end

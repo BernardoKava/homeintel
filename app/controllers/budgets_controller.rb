@@ -4,7 +4,7 @@ class BudgetsController < ApplicationController
   # GET /budgets
   # GET /budgets.json
   def index
-    @budgets = Budget.all
+    @budgets = Budget.all.paginate(page: params[:page], :per_page => 5).order("created_at DESC")
   end
 
   # GET /budgets/1

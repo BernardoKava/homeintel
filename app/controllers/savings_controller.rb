@@ -4,7 +4,7 @@ class SavingsController < ApplicationController
   # GET /savings
   # GET /savings.json
   def index
-    @savings = Saving.all
+    @savings = Saving.all.paginate(page: params[:page], :per_page => 5).order("created_at DESC")
   end
 
   # GET /savings/1

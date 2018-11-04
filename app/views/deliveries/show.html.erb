@@ -15,10 +15,30 @@
   <br>
 </div>
 
+
 <div class="jumbotron">
-  Delivery ID:<%=h @delivery.id %>
+  <div>
+    Created on:
+    <%=h @delivery.created_at.strftime("%d %b. %Y") %>
+  </div>
+  <br>
+  <div>
+    Updated on:
+    <%=h @delivery.updated_at.strftime("%d %b. %Y") %>
+  </div>
+  <br>
+  <div>
+    Delivery Number:
+    DN - <%=h @delivery_number %>
+  </div>
+  <br>
 </div>
 
+
+<div class="links">
+  <%= link_to 'Edit', edit_delivery_path(@delivery), class:'fa fa-edit' %> |
+  <%= link_to 'Back', deliveries_path, class:'fa fa-arrow-left' %>
+</div>
 
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Lodgements</strong></h2></div>
 <br>

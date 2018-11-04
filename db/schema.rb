@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_04_092725) do
+ActiveRecord::Schema.define(version: 2018_11_04_122105) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_092725) do
     t.datetime "updated_at", null: false
     t.string "receiver"
     t.integer "person_id"
+    t.string "delivery_number"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -273,6 +274,14 @@ ActiveRecord::Schema.define(version: 2018_11_04_092725) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "passwordrepositories", force: :cascade do |t|
+    t.string "system_name"
+    t.string "system_password"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "people", force: :cascade do |t|
     t.string "name"
     t.string "surname"
@@ -282,6 +291,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_092725) do
     t.datetime "updated_at", null: false
     t.date "dob"
     t.string "person_number"
+    t.string "pps_number"
   end
 
   create_table "posts", force: :cascade do |t|

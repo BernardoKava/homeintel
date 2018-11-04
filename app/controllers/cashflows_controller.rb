@@ -4,7 +4,7 @@ class CashflowsController < ApplicationController
   # GET /cashflows
   # GET /cashflows.json
   def index
-    @cashflows = Cashflow.all
+    @cashflows = Cashflow.all.paginate(page: params[:page], :per_page => 5).order("created_at DESC")
   end
 
   # GET /cashflows/1

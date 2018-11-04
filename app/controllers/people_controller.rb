@@ -4,7 +4,14 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.all.paginate(page: params[:page], :per_page => 5).order("created_at DESC")
+
+    @people.each do |person|
+      @full_name = person.name + " " + person.surname
+      person.fullname = @full_name
+      person.save
+    end
+
   end
 
   # GET /people/1
@@ -12,6 +19,7 @@ class PeopleController < ApplicationController
   def show
     @full_name = @person.name + " " + @person.surname
     @person.fullname = @full_name
+
 
     @person_number = (@person.id + 10000)
     @person.person_number = @person_number
@@ -79,7 +87,7 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:name, :surname, :fullname, :active,:dob,
+      params.require(:person).permit(:name, :surname, :fullname, :active,:dob,:pps_number,
                                      emails_attributes: [:id, :email,:user_id,:active, :_destroy],
                                      telephones_attributes:
                                          [:id, :phone, :user_id, :active, :_destroy],

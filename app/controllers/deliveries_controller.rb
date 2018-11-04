@@ -4,12 +4,16 @@ class DeliveriesController < ApplicationController
   # GET /deliveries
   # GET /deliveries.json
   def index
-    @deliveries = Delivery.all
+    @deliveries = Delivery.all.paginate(page: params[:page], :per_page => 5).order("created_at DESC")
   end
 
   # GET /deliveries/1
   # GET /deliveries/1.json
   def show
+
+    @delivery_number = (@delivery.id + 10000)
+    @delivery.delivery_number = @delivery_number
+    @delivery.save
   end
 
   # GET /deliveries/new

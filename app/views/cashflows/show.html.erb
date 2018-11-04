@@ -175,7 +175,11 @@
 
 </div>
 
+<div class="links">
+  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
+  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
 
+</div>
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong> Outflows</strong></h2></div>
 <br>
 <div>
@@ -219,7 +223,11 @@
   <% end %>
 
 </div>
+<div class="links">
+  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
+  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
 
+</div>
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong> Comments</strong></h2></div>
 <br>
 <div>

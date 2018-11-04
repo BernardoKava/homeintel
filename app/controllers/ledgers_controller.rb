@@ -4,7 +4,7 @@ class LedgersController < ApplicationController
   # GET /ledgers
   # GET /ledgers.json
   def index
-    @ledgers = Ledger.all
+    @ledgers = Ledger.all.paginate(page: params[:page], :per_page => 5).order("created_at DESC")
   end
 
   # GET /ledgers/1
