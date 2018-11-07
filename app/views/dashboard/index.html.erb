@@ -1,17 +1,14 @@
 
 <div class="fa fa-dashboard", id="dashboard">
-  Dashboard
+  My Dashboard
 </div>
 <br/><br/>
+<% if current_user.admin ==true %>
+<div><%= link_to "Password Repo", dashboard_passwords_path, class:'fa fa-key' %></div>
 
-<%= will_paginate @ledgers %>
-<%= will_paginate @people %>
-<%= will_paginate @inventories %>
-<%= will_paginate @deliveries %>
-<%= will_paginate @ledgers %>
-<%= will_paginate @cashflows %>
-<%= will_paginate @budgets %>
-<%= will_paginate @savings %>
+<% end %>
+<div><%= link_to "Legacy Transactions 2009 - 2016", dashboard_legacy_path, class:'fa fa-archive' %></div>
+<br/><br/>
 <div class="jumbotron">
 
   <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Budgets:</strong></h2></div>
@@ -40,8 +37,11 @@
     <% end %>
     </tbody>
   </table>
+  <%= will_paginate @budgets %>
 
 <hr>
+
+  <%= link_to "Finance Summary", dashboard_financial_path, class:'fa fa-money' %>
 </div>
 <div class="jumbotron">
   <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Cashflows:</strong></h2></div>
@@ -70,7 +70,11 @@
     <% end %>
     </tbody>
   </table>
+  <%= will_paginate @cashflows %>
   <hr>
+  <%= link_to "Finance Summary", dashboard_financial_path, class:'fa fa-money' %>
+
+
 </div>
 
 
@@ -101,6 +105,10 @@
     <% end %>
     </tbody>
   </table>
+  <%= will_paginate @ledgers %>
+  <hr>
+  <%= link_to "Finance Summary", dashboard_financial_path, class:'fa fa-money' %>
+
 </div>
 
 <div class="jumbotron">
@@ -130,6 +138,10 @@
     <% end %>
     </tbody>
   </table>
+  <%= will_paginate @savings %>
+  <hr>
+  <%= link_to "Finance Summary", dashboard_financial_path, class:'fa fa-money' %>
+
 </div>
 
 <div class="jumbotron">
@@ -153,7 +165,8 @@
     <% end %>
     </tbody>
   </table>
-
+  <%= will_paginate @deliveries %>
+  <hr>
 </div>
 
 <div class="jumbotron">
@@ -182,7 +195,8 @@
     <% end %>
     </tbody>
   </table>
-
+  <%= will_paginate @inventories %>
+  <hr>
 </div>
 
 
@@ -209,19 +223,10 @@
     <% end %>
     </tbody>
   </table>
-
-
+  <%= will_paginate @people %>
+<hr>
 </div>
 
-
-<%= will_paginate @ledgers %>
-<%= will_paginate @people %>
-<%= will_paginate @inventories %>
-<%= will_paginate @deliveries %>
-<%= will_paginate @ledgers %>
-<%= will_paginate @cashflows %>
-<%= will_paginate @budgets %>
-<%= will_paginate @savings %>
 
 
 

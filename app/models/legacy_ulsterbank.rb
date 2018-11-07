@@ -1,0 +1,2 @@
+class LegacyUlsterbank < ApplicationRecord
+end

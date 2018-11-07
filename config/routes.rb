@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :people
   resources :departments
   resources :inventories
+  resources :searches
+  get 'dashboard/legacy'
+  get 'dashboard/passwords'
+  get 'dashboard/financial'
   get 'dashboard/index'
   get 'user/index'
   get 'user/gravatar'

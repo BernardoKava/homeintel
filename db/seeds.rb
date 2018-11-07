@@ -8,15 +8,23 @@
 
 require 'csv'
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'people.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'htransactions.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  t = Person.new
-  t.name = row['name']
-  t.surname = row['surname']
-  t.dob = row['dob']
-  t.active = row['active']
-  t.save
+  t = LegacyUlsterbank.new
+  t.trans_date = row['date']
+  t.trans_type = row['type']
+  t.description = row['description']
+  t.trans_value= row['value']
+  t.account_name = row['account_name']
+  t.account_number = row['account_number']
 
+  t.save
+  puts "#{t.trans_date}, #{t.description}, #{t.trans_value},
+ #{t.account_name}, #{t.account_number} ,saved"
 end
+puts "There are now #{LegacyUlsterbank.count} rows in the table"
+
+
+
 
