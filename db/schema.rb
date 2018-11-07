@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_083053) do
+ActiveRecord::Schema.define(version: 2018_11_04_215907) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -343,45 +343,7 @@ ActiveRecord::Schema.define(version: 2018_11_05_083053) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "balance"
-    t.integer "ledger_id"
     t.string "saving_number"
-  end
-
-  create_table "searches", force: :cascade do |t|
-    t.string "keyword"
-    t.integer "address_id"
-    t.integer "budget_id"
-    t.integer "cashflow_id"
-    t.integer "comment_id"
-    t.integer "delivery_id"
-    t.integer "department_id"
-    t.integer "email_id"
-    t.integer "employment_id"
-    t.integer "employmentreference_id"
-    t.integer "expense_id"
-    t.integer "financialinstitution_id"
-    t.integer "income_id"
-    t.integer "inflow_id"
-    t.integer "inflowtype_id"
-    t.integer "inventory_id"
-    t.integer "item_id"
-    t.integer "legacy_ulsterbank_id"
-    t.integer "lodgement_id"
-    t.integer "outflow_id"
-    t.integer "outflowtype_id"
-    t.integer "passwordrepository_id"
-    t.integer "person_id"
-    t.integer "post_id"
-    t.integer "qualification_id"
-    t.integer "saving_id"
-    t.integer "telephone_id"
-    t.integer "user_id"
-    t.integer "withdrawal_id"
-    t.date "from_date"
-    t.date "to_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "ledger_id"
   end
 
   create_table "telephones", force: :cascade do |t|
