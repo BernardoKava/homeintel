@@ -26,6 +26,7 @@ gem 'simple_form'
 gem 'country_select'
 gem 'cocoon'
 gem 'humanize_boolean'
+gem 'ransack', '~> 2.1'
 
 
 

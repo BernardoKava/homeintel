@@ -11,16 +11,28 @@ class DashboardController < ApplicationController
 
   end
 
-  def financial
-    @budgets     =  Budget.all.paginate(page: params[:page], :per_page => 4).order("created_at DESC")
-    @cashflows   =  Cashflow.all.paginate(page: params[:page], :per_page => 4).order("created_at DESC")
-    @savings     =  Saving.all.paginate(page: params[:page], :per_page => 4).order("created_at DESC")
-    @ledgers     =  Ledger.all.paginate(page: params[:page], :per_page => 4).order("created_at DESC")
-
-    @inflows     =  Inflow.all
-    @ouflows     =  Outflow.all
-
+  def incomes
+    @incomes     =  Income.all.paginate(page: params[:page], :per_page => 10).order("created_at DESC")
   end
+
+  def expenses
+    @expenses    =  Expense.all.paginate(page: params[:page], :per_page => 10).order("created_at DESC")
+  end
+
+  def inflows
+    @incomes     =  Income.all.paginate(page: params[:page], :per_page => 10).order("created_at DESC")
+  end
+
+  def expense
+    @expenses    =  Expense.all.paginate(page: params[:page], :per_page => 10).order("created_at DESC")
+  end
+
+
+
+
+
+
+
 
   def passwords
     @passwords = Passwordrepository.where(:active => true).paginate(page: params[:page], :per_page => 4).order("created_at DESC")
@@ -36,8 +48,6 @@ class DashboardController < ApplicationController
                                 end
     @total = @ulster_bank_transactions.sum(:trans_value)
     @records = @ulster_bank_transactions.total_entries
-
-
   end
 
 
@@ -45,10 +55,4 @@ class DashboardController < ApplicationController
     params.require(:dashboard).permit(:term)
 
   end
-
-
-
-
-
-
 end

@@ -1,0 +1,57 @@
+<h1>Lodgements Overview</h1>
+
+
+
+
+<div class="jumbotron">
+
+  <div>
+    <div class="form-inline">
+      <%= search_form_for @search, url:  search_lodgements_path, html: {method: :post} do |f| %>
+        <%= f.text_field :date_posted_gteq, placeholder:'Start Date...' , class:'form-control'%>
+        <%= f.text_field :date_posted_lteq, placeholder:'End Date...' , class:'form-control'%>
+        <%= f.text_field :details_cont, placeholder:'Details...', class:'form-control' %>
+        <%= f.text_field :owner_cont, placeholder:'Owner...' , class:'form-control'%><br><br>
+        <%= f.text_field :amount_gteq, placeholder:' Start Amount...', class:'form-control' %>
+        <%= f.text_field :amount_lteq, placeholder:'End Amount... ' , class:'form-control'%>
+        <br>  <br>
+        <%= f.submit "Search" , class:'btn btn-success'%>
+        </div>
+        <br>  <br>
+        Balance : € <%= @total_value.round(2) %> |
+        Found: <%= @transaction_records %> records
+      <% end %>
+
+
+      </div>
+
+  <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Lodgement Summary:</strong></h2></div>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Details </th>
+      <th>Owner</th>
+      <th>Amount(€)</th>
+      <th>Institution</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @transactions.each do |income| %>
+      <tr>
+        <td><%= income.created_at.strftime("%d %b. %Y")%></td>
+        <td><%= income.details %></td>
+        <td><%= income.person.fullname %></td>
+        <td><%= income.amount %></td>
+        <td><%= income.institution %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <%= will_paginate @transactions %>
+
+</div>
+

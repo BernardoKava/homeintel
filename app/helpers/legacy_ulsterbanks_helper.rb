@@ -1,0 +1,2 @@
+module LegacyUlsterbanksHelper
+end

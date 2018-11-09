@@ -8,23 +8,39 @@
 
 require 'csv'
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'htransactions.csv'))
+
+
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'testinflows.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  t = LegacyUlsterbank.new
-  t.trans_date = row['date']
-  t.trans_type = row['type']
-  t.description = row['description']
-  t.trans_value= row['value']
-  t.account_name = row['account_name']
-  t.account_number = row['account_number']
-
+  t = Income.new
+  t.amount = row['amount']
+  t.details = row['details']
+  t.user_id = row['user_id']
+  t.budget_id = row['budget_id']
+  t.income_type = row['income_type']
+  t.person_id = row['person_id']
   t.save
-  puts "#{t.trans_date}, #{t.description}, #{t.trans_value},
- #{t.account_name}, #{t.account_number} ,saved"
+  puts "#{t.details} saved"
 end
-puts "There are now #{LegacyUlsterbank.count} rows in the table"
+puts "There are now #{Income.count} rows in the table"
 
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'testoutflows.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Expense.new
+  t.amount = row['amount']
+  t.details = row['details']
+  t.user_id = row['user_id']
+  t.budget_id = row['budget_id']
+  t.expense_type = row['expense_type']
+  t.person_id = row['person_id']
+  t.save
+  puts "#{t.details} saved"
+end
+puts "There are now #{Expense.count} rows in the table"
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'outflowtypes.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
@@ -139,4 +155,3 @@ csv.each do |row|
   puts "#{t.name} saved"
 end
 puts "There are now #{Inflowtype.count} rows in the table"
-

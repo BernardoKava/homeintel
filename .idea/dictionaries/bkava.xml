@@ -8,9 +8,12 @@
       <w>herga</w>
       <w>jumbotron</w>
       <w>lodgement</w>
+      <w>lodgements</w>
       <w>outflowtype</w>
       <w>passwordrepository</w>
       <w>ulsterbank</w>
+      <w>ulsterbanks</w>
+      <w>ulsterbanktransaction</w>
     </words>
   </dictionary>
 </component>

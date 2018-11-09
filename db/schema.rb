@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_04_215907) do
+ActiveRecord::Schema.define(version: 2018_11_09_141759) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -179,6 +179,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_215907) do
     t.integer "yeartitle_id"
     t.integer "monthtitle_id"
     t.date "bank_record_date"
+    t.date "date_posted"
   end
 
   create_table "inflowtypes", force: :cascade do |t|
@@ -254,6 +255,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_215907) do
     t.integer "financialinstitution_id"
     t.integer "yeartitle_id"
     t.integer "monthtitle_id"
+    t.date "date_posted"
   end
 
   create_table "monthtitles", force: :cascade do |t|
@@ -278,6 +280,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_215907) do
     t.integer "outflowtype_id"
     t.integer "monthtitle_id"
     t.date "bank_record_date"
+    t.date "date_posted"
   end
 
   create_table "outflowtypes", force: :cascade do |t|
@@ -383,6 +386,7 @@ ActiveRecord::Schema.define(version: 2018_11_04_215907) do
     t.integer "financialinstitution_id"
     t.integer "yeartitle_id"
     t.integer "monthtitle_id"
+    t.date "date_posted"
   end
 
   create_table "yeartitles", force: :cascade do |t|

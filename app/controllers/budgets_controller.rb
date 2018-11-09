@@ -34,9 +34,6 @@ class BudgetsController < ApplicationController
 
 
     @budget.save
-
-
-
   end
 
   # GET /budgets/new

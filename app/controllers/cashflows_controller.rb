@@ -111,8 +111,8 @@ class CashflowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cashflow_params
-      params.require(:cashflow).permit(:month, :year, :accounting_date, :name,:user_id, inflows_attributes:[ :id,:bank_record_date,:monthtitle_id,:yeartitle_id,:inflowtype_id, :person_id,:owner,
-      :amount, :details, :flow_type, :user_id,:month,:year ,:_destroy], outflows_attributes:[:id,:bank_record_date,:monthtitle_id,:yeartitle_id,:outflowtype_id,:person_id,:owner,
+      params.require(:cashflow).permit(:month, :year, :accounting_date, :name,:user_id, inflows_attributes:[ :id,:date_posted,:bank_record_date,:monthtitle_id,:yeartitle_id,:inflowtype_id, :person_id,:owner,
+      :amount, :details, :flow_type, :user_id,:month,:year ,:_destroy], outflows_attributes:[:id,:date_posted,:bank_record_date,:monthtitle_id,:yeartitle_id,:outflowtype_id,:person_id,:owner,
                                                                                :amount, :details, :flow_type, :user_id,
                                                                                              :month,:year ,:_destroy],
                                        comments_attributes:[:id, :commentary, :user_id, :_destroy])
