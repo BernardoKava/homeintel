@@ -45,9 +45,43 @@ class CashflowsController < ApplicationController
     #save whatever can be saved on the table
     @cashflow.save
 
+    # Totals income breakdownAmounts
 
+    @salary = @inflows.where(inflowtype_id: 1).sum(:amount)
+    @child_benefit = @inflows.where(inflowtype_id: 2).sum(:amount)
+    @lotto_winnings = @inflows.where(inflowtype_id: 3).sum(:amount)
+    @others = @inflows.where(inflowtype_id: 4).sum(:amount)
+
+
+    # Totals expense breakdownAmounts
+
+    @rent = @outflows.where(outflowtype_id: 1).sum(:amount)
+    @telecom = @outflows.where(outflowtype_id: 2).sum(:amount)
+    @eflow = @outflows.where(outflowtype_id: 3).sum(:amount)
+    @food = @outflows.where(outflowtype_id: 4).sum(:amount)
+    @electricity = @outflows.where(outflowtype_id: 5).sum(:amount)
+    @transport = @outflows.where(outflowtype_id: 6).sum(:amount)
+    @credit_card_fees = @outflows.where(outflowtype_id: 7).sum(:amount)
+    @current_account_fees = @outflows.where(outflowtype_id: 8).sum(:amount)
+    @allowance_gaelle = @outflows.where(outflowtype_id: 9).sum(:amount)
+    @allowance_herve = @outflows.where(outflowtype_id: 10).sum(:amount)
+    @loan_ptsb = @outflows.where(outflowtype_id: 11).sum(:amount)
+    @loan_chill_money = @outflows.where(outflowtype_id: 12).sum(:amount)
+    @lodgement_credit_union = @outflows.where(outflowtype_id: 13).sum(:amount)
+    @family_support = @outflows.where(outflowtype_id: 14).sum(:amount)
+    @entertainment_nightout = @outflows.where(outflowtype_id: 15).sum(:amount)
+    @entertainment_dayout = @outflows.where(outflowtype_id: 16).sum(:amount)
+    @apple_storage = @outflows.where(outflowtype_id: 17).sum(:amount)
+    @aa_ireland = @outflows.where(outflowtype_id: 18).sum(:amount)
+    @lottery_ticket = @outflows.where(outflowtype_id: 19).sum(:amount)
+    @car_tax = @outflows.where(outflowtype_id: 20).sum(:amount)
+    @heating_oil = @outflows.where(outflowtype_id: 21).sum(:amount)
+    @car_service = @outflows.where(outflowtype_id: 22).sum(:amount)
+    @spiritual_tools = @outflows.where(outflowtype_id: 23).sum(:amount)
 
   end
+
+
 
   # GET /cashflows/new
   def new

@@ -1,15 +1,62 @@
-<% provide(:title, "Finance Summary") %>
+<% provide(:title, "Financial Modules") %>
 <div class="fa fa-money", id="dashboard">
-  Financial Summary
+  Financial Modules
 </div>
-<br/><br/>
-
-
-<p>Coming Soon!</p>
+<br>
+<br>
 <div class="jumbotron">
+  <div class="container">
 
-  <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Cashflow:</strong></h2></div>
+    <nav class="navbar navbar-default">
+
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Budgets Module", budgets_path %></li>
+          <li><%= link_to "Income", search_incomes_path %></li>
+          <li><%= link_to "Expenditure", search_expenses_path%></li>
+        </ul>
+    </nav>
+
+
+    <nav class="navbar navbar-default">
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Cashflows Module", cashflows_path %></li>
+        <li><%= link_to "Inflows", search_inflows_path %></li>
+        <li><%= link_to "Outflows", search_outflows_path %></li>
+      </ul>
+    </nav>
+
+    <nav class="navbar navbar-default">
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Credit Cards Module", '#' %></li>
+        <li><%= link_to "Repayments", '#'%></li>
+        <li><%= link_to "Purchases", '#' %></li>
+      </ul>
+    </nav>
+
+
+    <nav class="navbar navbar-default">
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Savings Module", savings_path %></li>
+        <li><%= link_to "Lodgements", search_lodgements_path %></li>
+        <li><%= link_to "Withdrawals", search_withdrawals_path %></li>
+      </ul>
+    </nav>
+
+
+    <nav class="navbar navbar-default">
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Ledgers Module", ledgers_path %></li>
+      </ul>
+    </nav>
 
 
 
+
+  </div>
 </div>
+
+

@@ -31,10 +31,45 @@ class BudgetsController < ApplicationController
     @budget_number =  (@budget.id + 10000 )
     @budget.budget_number = @budget_number
 
-
-
     @budget.save
+
+
+    # Totals income breakdownAmounts
+
+    @salary = @incomes.where(inflowtype_id: 1).sum(:amount)
+    @child_benefit = @incomes.where(inflowtype_id: 2).sum(:amount)
+    @lotto_winnings = @incomes.where(inflowtype_id: 3).sum(:amount)
+    @others = @incomes.where(inflowtype_id: 4).sum(:amount)
+
+
+    # Totals expense breakdownAmounts
+
+    @rent = @expenses.where(outflowtype_id: 1).sum(:amount)
+    @telecom = @expenses.where(outflowtype_id: 2).sum(:amount)
+    @eflow = @expenses.where(outflowtype_id: 3).sum(:amount)
+    @food = @expenses.where(outflowtype_id: 4).sum(:amount)
+    @electricity = @expenses.where(outflowtype_id: 5).sum(:amount)
+    @transport = @expenses.where(outflowtype_id: 6).sum(:amount)
+    @credit_card_fees = @expenses.where(outflowtype_id: 7).sum(:amount)
+    @current_account_fees = @expenses.where(outflowtype_id: 8).sum(:amount)
+    @allowance_gaelle = @expenses.where(outflowtype_id: 9).sum(:amount)
+    @allowance_herve = @expenses.where(outflowtype_id: 10).sum(:amount)
+    @loan_ptsb = @expenses.where(outflowtype_id: 11).sum(:amount)
+    @loan_chill_money = @expenses.where(outflowtype_id: 12).sum(:amount)
+    @lodgement_credit_union = @expenses.where(outflowtype_id: 13).sum(:amount)
+    @family_support = @expenses.where(outflowtype_id: 14).sum(:amount)
+    @entertainment_nightout = @expenses.where(outflowtype_id: 15).sum(:amount)
+    @entertainment_dayout = @expenses.where(outflowtype_id: 16).sum(:amount)
+    @apple_storage = @expenses.where(outflowtype_id: 17).sum(:amount)
+    @aa_ireland = @expenses.where(outflowtype_id: 18).sum(:amount)
+    @lottery_ticket = @expenses.where(outflowtype_id: 19).sum(:amount)
+    @car_tax = @expenses.where(outflowtype_id: 20).sum(:amount)
+    @heating_oil = @expenses.where(outflowtype_id: 21).sum(:amount)
+    @car_service = @expenses.where(outflowtype_id: 22).sum(:amount)
+    @spiritual_tools = @expenses.where(outflowtype_id: 23).sum(:amount)
+
   end
+
 
   # GET /budgets/new
   def new

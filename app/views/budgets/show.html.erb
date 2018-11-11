@@ -68,14 +68,12 @@
   <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Income Summary:</strong></h2></div>
 
 
-
-
   <table class="table table-hover">
     <thead>
     <tr>
-
       <th>Date</th>
       <th>Details </th>
+      <th>Flow Type</th>
       <th>Owner</th>
       <th>Amount(€)</th>
     </tr>
@@ -86,17 +84,14 @@
       <tr>
         <td><%= income.created_at.strftime("%d %b. %Y")%>
         <td><%= income.details %></td>
+        <td><%= income.inflowtype.name %></td>
         <td><%= income.person.fullname %></td>
         <td><%= income.amount %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
-
-
   <hr>
-
-
   <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Expenses Summary:</strong></h2></div>
 
   <table class="table table-hover">
@@ -104,6 +99,7 @@
     <tr>
       <th>Date</th>
       <th>Details </th>
+      <th>Flow Type </th>
       <th>Owner</th>
       <th>Amount(€)</th>
     </tr>
@@ -114,6 +110,7 @@
       <tr>
         <td><%= expense.created_at.strftime("%d %b. %Y")%>
         <td><%= expense.details %></td>
+        <td><%= expense.outflowtype.name %></td>
         <td><%= expense.person.fullname %></td>
         <td><%= expense.amount %></td>
       </tr>
@@ -128,87 +125,162 @@
 </div>
 
 
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Incomes</strong></h2></div>
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Incomes Breakdown</strong></h2></div>
 <br>
-<% for income in @budget.incomes %>
+
+
   <div class="jumbotron">
     <div>
-        <strong>Owner:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%= income.person.fullname%></textarea>
+      <strong>Salary:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @salary %></textarea>
     </div>
+    <br>
     <div>
-      <strong>Type:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>  <%= income.inflowtype.name%></textarea>
+      <strong>Child Benefit:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @child_benefit %></textarea>
     </div>
     <br>
 
     <div>
-        <strong>Amount:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%= income.amount %></textarea>
+      <strong>Lotto Winnings:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @lotto_winnings %></textarea>
     </div>
-
+    <br>
     <div>
-        <strong>Details:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%= income.details %></textarea>
+      <strong>Others:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @others %></textarea>
     </div>
-
-
+    <br><br>
     <div>
-      Registered on:
-      <%=h income.created_at.strftime("%d %b. %Y") %>
+      Total Income = € <%= @totalincome %>
     </div>
-    <div>
-      ID:
-      <%=h income.id %>
-    </div>
-
   </div>
-
-<% end %>
-
 
 <div class="links">
   <%= link_to 'Edit', edit_budget_path(@budget), class:'fa fa-edit' %> |
   <%= link_to 'Back', budgets_path, class:'fa fa-arrow-left'  %>
 </div>
 
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 2: Expenses</strong></h2></div>
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 2: Expenses Breakdown</strong></h2></div>
 <br>
-<% for expense in @budget.expenses %>
+
   <div class="jumbotron">
-    <div>
-      <strong>Owner:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>  <%= expense.person.fullname%></textarea>
+      <strong>Rent:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @rent  %></textarea>
     </div>
+    <br>
     <div>
-      <strong>Type:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>  <%= expense.outflowtype.name %></textarea>
+      <strong>Telecom:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @telecom %></textarea>
     </div>
     <br>
 
     <div>
-      <strong>Amount:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>  <%= expense.amount %></textarea>
+      <strong>eFlow:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @eflow %></textarea>
     </div>
+    <br>
+    <div>
+      <strong>Food:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @food %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Electricity:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @electricity %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Credit Card Fees:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @credit_card_fees %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Current Account Fees:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @current_account_fees %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Allowance - Gaelle:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @allowance_gaelle %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Allowance - Herve:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @allowance_herve %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Loan  - PTSB:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @loan_ptsb %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Loan - Chill Money:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @loan_chill_money %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Lodgement - Credit Union:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @lodgement_credit_union %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Family Support:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @family_support %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Entertainment - Night Out:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @entertainment_nightout %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Entertainment - Day Out:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @entertainment_dayout %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Apple storage:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @apple_storage %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>AA Ireland:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @aa_ireland %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Lottery Ticket:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @lottery_ticket %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Car Tax:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @car_tax %></textarea>
+    </div>
+    <br>
+    <div>
+      <strong>Heating Oil:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @heating_oil %></textarea>
+    </div>
+    <br>
 
     <div>
-      <strong>Details:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>  <%= expense.details %></textarea>
+      <strong>Car Service:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @car_service %></textarea>
     </div>
-
-
+    <br>
     <div>
-      Registered on:
-      <%=h expense.created_at.strftime("%d %b. %Y") %>
+      <strong>Spiritual Tools:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>€  <%= @spiritual_tools %></textarea>
     </div>
+    <br><br>
     <div>
-      ID:
-      <%=h expense.id %>
+      Total Expenses = € <%= @totalexpense %>
     </div>
-
   </div>
 
-<% end %>
 <div class="links">
   <%= link_to 'Edit', edit_budget_path(@budget), class:'fa fa-edit' %> |
   <%= link_to 'Back', budgets_path, class:'fa fa-arrow-left'  %>

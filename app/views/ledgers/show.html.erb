@@ -26,7 +26,7 @@
 </div>
 
 
-<div class="jumbotron">
+<div class="breadcrumb">
   <div>
     Created on:
     <%=h @ledger.created_at.strftime("%d %b. %Y") %>
@@ -49,11 +49,11 @@
 
 <hr>
 
-  <stong> Annual Budget Balance (€): </stong><br><br>
+  <stong> Annual Budget Balance [Remainder] (€): </stong><br><br>
 
   <p>€<%= @budget_balance %></p><br>
 
-  <stong> Annual Cashflow Balance (€): </stong><br><br>
+  <stong> Annual Cashflow Balance [Remainder] (€): </stong><br><br>
 
   <p> €<%= @cashflow_balance %></p><br>
   <hr>
@@ -83,8 +83,319 @@
   <stong> Liquidity (€): </stong><br><br>
 
 
-  <p>Annual Total Income = €<%= @annual_total_inflow %></p>
-  <p>Annual Total Expenditure = €<%= @annual_total_outflow %></p>
+  <p>Annual Total Inflow = €<%= @annual_total_inflow %></p>
+  <p>Annual Total Outflow = €<%= @annual_total_outflow %></p>
+</div>
+<div class="links">
+  <%= link_to 'Edit', edit_ledger_path(@ledger), class:'fa fa-edit' %> |
+  <%= link_to 'Back', ledgers_path, class:'fa fa-arrow-left'  %>
+
+</div>
+
+
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Budgeted Incomes Breakdown</strong></h2></div>
+<br>
+
+
+<div class="jumbotron">
+  <div>
+    <strong>Salary:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @salary %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Child Benefit:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @child_benefit %></textarea>
+  </div>
+  <br>
+
+  <div>
+    <strong>Lotto Winnings:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @lotto_winnings %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Others:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @others %></textarea>
+  </div>
+  <br><br>
+  <div>
+    Total Income = € <%= @annual_total_income %>
+  </div>
+</div>
+
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 2: Budgeted Expenses Breakdown</strong></h2></div>
+<br>
+
+<div class="jumbotron">
+  <div>
+    <strong>Rent:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @rent  %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Telecom:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @telecom %></textarea>
+  </div>
+  <br>
+
+  <div>
+    <strong>eFlow:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @eflow %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Food:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @food %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Electricity:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @electricity %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Credit Card Fees:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @credit_card_fees %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Current Account Fees:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @current_account_fees %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Allowance - Gaelle:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @allowance_gaelle %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Allowance - Herve:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @allowance_herve %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Loan  - PTSB:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @loan_ptsb %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Loan - Chill Money:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @loan_chill_money %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Lodgement - Credit Union:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @lodgement_credit_union %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Family Support:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @family_support %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Entertainment - Night Out:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @entertainment_nightout %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Entertainment - Day Out:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @entertainment_dayout %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Apple storage:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @apple_storage %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>AA Ireland:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @aa_ireland %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Lottery Ticket:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @lottery_ticket %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Car Tax:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @car_tax %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Heating Oil:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @heating_oil %></textarea>
+  </div>
+  <br>
+
+  <div>
+    <strong>Car Service:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @car_service %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Spiritual Tools:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @spiritual_tools %></textarea>
+  </div>
+  <br><br>
+  <div>
+    Total Expenses = € <%= @annual_total_expenses %>
+  </div>
+</div>
+
+
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 3: Actual Income Breakdown</strong></h2></div>
+<br>
+
+<div class="jumbotron">
+  <div>
+    <strong>Salary:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @isalary %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Child Benefit:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ichild_benefit %></textarea>
+  </div>
+  <br>
+
+  <div>
+    <strong>Lotto Winnings:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ilotto_winnings %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Others:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @iothers %></textarea>
+  </div>
+  <br><br>
+  <div>
+    Total Income = € <%= @annual_total_inflow %>
+  </div>
+</div>
+
+
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 4: Actual Expenses Breakdown</strong></h2></div>
+<br>
+
+<div class="jumbotron">
+  <div>
+    <strong>Rent:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @irent  %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Telecom:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @itelecom %></textarea>
+  </div>
+  <br>
+
+  <div>
+    <strong>eFlow:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ieflow %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Food:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ifood %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Electricity:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ielectricity %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Credit Card Fees:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @icredit_card_fees %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Current Account Fees:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @icurrent_account_fees %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Allowance - Gaelle:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @iallowance_gaelle %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Allowance - Herve:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @iallowance_herve %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Loan  - PTSB:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @iloan_ptsb %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Loan - Chill Money:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @iloan_chill_money %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Lodgement - Credit Union:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ilodgement_credit_union %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Family Support:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ifamily_support %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Entertainment - Night Out:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ientertainment_nightout %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Entertainment - Day Out:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ientertainment_dayout %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Apple storage:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @iapple_storage %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>AA Ireland:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @iaa_ireland %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Lottery Ticket:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ilottery_ticket %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Car Tax:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @icar_tax %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Heating Oil:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @iheating_oil %></textarea>
+  </div>
+  <br>
+
+  <div>
+    <strong>Car Service:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @icar_service %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Spiritual Tools:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>€  <%= @ispiritual_tools %></textarea>
+  </div>
+  <br><br>
+  <div>
+    Total Expenses = € <%= @annual_total_outflow %>
+  </div>
 </div>
 
 
