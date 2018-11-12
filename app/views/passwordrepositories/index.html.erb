@@ -1,10 +1,30 @@
 <% provide(:title, "Password Repo.") %>
 <div class="fa fa-key", id="dashboard">
-Password Repository
+  Password Repository
 </div>
 <br/><br/>
 
 <div class="jumbotron">
+
+  <div>
+    <div class="form-inline">
+      <%= search_form_for @search, url:  search_passwordrepositories_path, html: {method: :post} do |f| %>
+        <%= f.text_field :system_name_cont, placeholder:'System Name...' , class:'form-control'%>
+        <%= f.text_field :user_name_cont, placeholder:'User Name...', class:'form-control' %>
+        <%= f.text_field :system_password_cont, placeholder:'Password...', class:'form-control' %>
+
+        <br>  <br>
+        <%= f.submit "Search" , class:'btn btn-success'%>
+        </div>
+        <br>  <br>
+
+        Found: <%= @password_records %> records
+      <% end %>
+
+
+      </div>
+
+
 
   <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>current Passwords:</strong></h2></div>
   <table class="table table-hover">

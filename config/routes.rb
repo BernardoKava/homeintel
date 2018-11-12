@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'passwordrepositories/index'
+  get 'passwordrepo/index'
   get 'withdrawals/index'
   get 'lodgements/index'
   get 'legacy_ulsterbanks/index'
@@ -19,6 +21,11 @@ Rails.application.routes.draw do
   resources :emails
   resources :people
   resources :departments
+  resources :passwordrepositories do
+    collection do
+      match 'search' => 'passwordrepositories#search', via: [:get, :post], as: :search
+    end
+  end
   resources :inventories
   resources :withdrawals do
     collection do

@@ -3,15 +3,17 @@
 
 <h1>Deliveries</h1>
 
-<table class="table table-hover">
-  <thead>
+<div class="jumbotron">
+
+  <table class="table table-hover">
+    <thead>
     <tr>
       <th>Delivery date</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @deliveries.each do |delivery| %>
       <tr>
         <td><%= link_to delivery.delivery_date.strftime("%d, %b  %Y"),delivery %></td>
@@ -20,10 +22,14 @@
         <td><%= link_to 'Delete', delivery, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-remove' %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-<%= will_paginate @deliveries %>
-<br>
+    </tbody>
+  </table>
+  <%= will_paginate @deliveries %>
+  <br>
+
+</div>
+
+
 <div class="links">
 <%= link_to 'New Delivery', new_delivery_path, class:'fa fa-plus' %>
 </div>

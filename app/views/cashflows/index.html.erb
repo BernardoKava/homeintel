@@ -3,9 +3,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Cashflows</h1>
-
-<table class=" table table-hover">
-  <thead>
+<div class="jumbotron">
+  <table class=" table table-hover">
+    <thead>
     <tr>
       <th>Month</th>
       <th>Year</th>
@@ -13,9 +13,9 @@
       <th>Name</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @cashflows.each do |cashflow| %>
       <tr>
         <td><%= link_to cashflow.month, cashflow %></td>
@@ -27,10 +27,14 @@
         <td><%= link_to 'Delete', cashflow, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-remove' %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-<%= will_paginate @cashflows %>
-<br>
+    </tbody>
+  </table>
+  <%= will_paginate @cashflows %>
+  <br>
+
+</div>
+
+
 
 <div class="links">
 <%= link_to 'New Cashflow', new_cashflow_path, class:'fa fa-plus' %>

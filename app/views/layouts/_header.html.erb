@@ -29,7 +29,7 @@
               <li class="alert-info"><%= link_to "People", people_path , class: 'fa fa-database'%></li>
               <% if current_user.admin == true %>
                 <li class="divider"></li>
-                <li class="alert-danger"><%= link_to "Administrator", rails_admin_path , class: 'fa fa-database'%></li>
+                <li class="alert-danger"><%= link_to "Backend System", rails_admin_path , class: 'fa fa-database'%></li>
               <% end %>
             </ul>
           </li>
@@ -38,22 +38,22 @@
               Search <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Income   Overview",incomes_path, class:'fa fa-archive' %></li>
+              <li><%= link_to "Income   Overview",incomes_path, class:'fa fa-search' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Expenses Overview",expenses_path, class:'fa fa-archive' %></li>
+              <li><%= link_to "Expenses Overview",expenses_path, class:'fa fa-search' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Inflows  Overview",inflows_path, class:'fa fa-archive' %></li>
+              <li><%= link_to "Inflows  Overview",inflows_path, class:'fa fa-search' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Outflows Overview",outflows_path, class:'fa fa-archive' %></li>
+              <li><%= link_to "Outflows Overview",outflows_path, class:'fa fa-search' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Lodgements Overview",lodgements_path, class:'fa fa-archive' %></li>
+              <li><%= link_to "Lodgements Overview",lodgements_path, class:'fa fa-search' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Withdrwals Overview",withdrawals_path, class:'fa fa-archive' %></li>
+              <li><%= link_to "Withdrwals Overview",withdrawals_path, class:'fa fa-search' %></li>
               <li class="divider"></li>
-              <li><%= link_to "Legacy Transactions",legacy_ulsterbanks_path, class:'fa fa-archive' %></li>
+              <li><%= link_to "Legacy Transactions",legacy_ulsterbanks_path, class:'fa fa-search' %></li>
               <% if current_user.admin == true %>
                 <li class="divider"></li>
-                <li class="alert-danger"><%= link_to "Password Repository", dashboard_passwords_path, class:'fa fa-key' %></li>
+                <li class="alert-danger"><%= link_to "Password Repository", search_passwordrepositories_path, class:'fa fa-key' %></li>
               <% end %>
             </ul>
           </li>

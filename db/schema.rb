@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_09_141759) do
+ActiveRecord::Schema.define(version: 2018_11_12_201403) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_141759) do
     t.datetime "updated_at", null: false
     t.decimal "balance"
     t.string "budget_number"
+    t.integer "reference_number"
   end
 
   create_table "cashflows", force: :cascade do |t|
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_141759) do
     t.datetime "updated_at", null: false
     t.decimal "balance"
     t.string "cashflow_number"
+    t.integer "reference_number"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -227,6 +229,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_141759) do
     t.decimal "annual_total_income"
     t.decimal "annual_total_expenditure"
     t.string "ledger_number"
+    t.integer "reference_number"
   end
 
   create_table "legacy_ulsterbanks", force: :cascade do |t|
@@ -347,6 +350,7 @@ ActiveRecord::Schema.define(version: 2018_11_09_141759) do
     t.datetime "updated_at", null: false
     t.decimal "balance"
     t.string "saving_number"
+    t.integer "reference_number"
   end
 
   create_table "telephones", force: :cascade do |t|

@@ -12,13 +12,8 @@ class DashboardController < ApplicationController
   end
 
 
-  def passwords
-    @passwords = Passwordrepository.where(:active => true).paginate(page: params[:page], :per_page => 4).order("created_at DESC")
-  end
 
   def financial
 
   end
-
-
 end

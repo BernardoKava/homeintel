@@ -67,6 +67,7 @@ class BudgetsController < ApplicationController
     @heating_oil = @expenses.where(outflowtype_id: 21).sum(:amount)
     @car_service = @expenses.where(outflowtype_id: 22).sum(:amount)
     @spiritual_tools = @expenses.where(outflowtype_id: 23).sum(:amount)
+    @other_expenses = @expenses.where(outflowtype_id: 24).sum(:amount)
 
   end
 

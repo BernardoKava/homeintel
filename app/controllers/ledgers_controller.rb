@@ -85,7 +85,7 @@ class LedgersController < ApplicationController
     @heating_oil = @annual_expenses.where(outflowtype_id: 21).sum(:amount)
     @car_service = @annual_expenses.where(outflowtype_id: 22).sum(:amount)
     @spiritual_tools = @annual_expenses.where(outflowtype_id: 23).sum(:amount)
-
+    @other_expenses = @expenses.where(outflowtype_id: 24).sum(:amount)
 
     # Annual Inflows Breakdown
 
@@ -120,7 +120,7 @@ class LedgersController < ApplicationController
     @iheating_oil = @annual_outflow.where(outflowtype_id: 21).sum(:amount)
     @icar_service = @annual_outflow.where(outflowtype_id: 22).sum(:amount)
     @ispiritual_tools = @annual_outflow.where(outflowtype_id: 23).sum(:amount)
-
+    @iother_expenses = @expenses.where(outflowtype_id: 24).sum(:amount)
   end
 
 
