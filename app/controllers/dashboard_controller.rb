@@ -16,4 +16,9 @@ class DashboardController < ApplicationController
   def financial
 
   end
+
+
+  def pendingaccess
+
+  end
 end

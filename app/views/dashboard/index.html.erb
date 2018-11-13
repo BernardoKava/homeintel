@@ -1,5 +1,9 @@
 <% provide(:title, "My Dashboard") %>
 
+
+<% if current_user.access_granted == true %>
+
+
 <div class="fa fa-dashboard", id="dashboard">
   My Dashboard
 </div>
@@ -221,7 +225,15 @@
   </table>
   <%= will_paginate @people %>
 <hr>
+
 </div>
+
+<% else %>
+
+  <p> Your account is being reviewed. Your request will be reviewed within 24 hours.</p>
+
+<% end %>
+
 
 
 

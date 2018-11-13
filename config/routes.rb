@@ -65,7 +65,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'dashboard/legacy'
+
   get 'dashboard/passwords'
   get 'dashboard/financial'
   get 'dashboard/index'
