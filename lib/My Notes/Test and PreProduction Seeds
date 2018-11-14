@@ -1,6 +1,8 @@
 
 require 'csv'
 
+
+
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'outflowtypes.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
@@ -11,54 +13,6 @@ csv.each do |row|
   puts "#{t.name} saved"
 end
 puts "There are now #{Outflowtype.count} rows in the table"
-
-
-
-
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'budgettest.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-csv.each do |row|
-  t = Budget.new
-  t.year = row['year']
-  t.month = row['month']
-  t.budget_date = row['budget_date']
-  t.name = row['name']
-
-  t.save
-  puts "#{t.name} saved"
-end
-puts "There are now #{Budget.count} rows in the table"
-
-
-
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'budgettest.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-csv.each do |row|
-  t = Cashflow.new
-  t.year = row['year']
-  t.month = row['month']
-  t.accounting_date = row['budget_date']
-  t.name = row['name']
-
-  t.save
-  puts "#{t.name} saved"
-end
-puts "There are now #{Cashflow.count} rows in the table"
-
-
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'budgettest.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-csv.each do |row|
-  t = Saving.new
-  t.year = row['year']
-  t.month = row['month']
-  t.saving_date = row['budget_date']
-  t.name = row['name']
-
-  t.save
-  puts "#{t.name} saved"
-end
-puts "There are now #{Saving.count} rows in the table"
 
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'passwords.csv'))
@@ -91,18 +45,6 @@ end
 puts "There are now #{Person.count} rows in the table"
 
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'departments.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-csv.each do |row|
-  t = Department.new
-  t.name = row['name']
-  t.description= row['description']
-  t.active = row['active']
-
-  t.save
-  puts "#{t.name} saved"
-end
-puts "There are now #{Department.count} rows in the table"
 
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'inflowtypes.csv'))
@@ -114,3 +56,34 @@ csv.each do |row|
   puts "#{t.name} saved"
 end
 puts "There are now #{Inflowtype.count} rows in the table"
+
+
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'departments.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Department.new
+  t.name = row['name']
+  t.description= row['description']
+  t.active = row['active']
+  t.save
+  puts "#{t.name} saved"
+end
+puts "There are now #{Department.count} rows in the table"
+
+
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'htransactions.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = LegacyUlsterbank.new
+  t.trans_date = row['date']
+  t.description= row['description']
+  t.trans_value= row['value']
+  t.account_name= row['account_name']
+  t.account_number= row['account_number']
+
+  t.save
+  puts "#{t.description},#{t.trans_value} saved"
+end
+puts "There are now #{LegacyUlsterbank.count} rows in the table"
