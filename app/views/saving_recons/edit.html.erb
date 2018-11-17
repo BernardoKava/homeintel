@@ -1,0 +1,11 @@
+<% provide(:title, "Edit Saving Recons") %>
+<h1>Editing Saving Recon</h1>
+
+<%= render 'form', saving_recon: @saving_recon %>
+<br>
+
+<div class="breadcrumb">
+  <%= link_to 'View', @saving_recon, class:'fa fa-eye'%> |
+  <%= link_to 'Back', saving_recons_path, class:'fa fa-arrow-left' %>
+</div>
+

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :cashflow_recons
+  resources :saving_recons
+  resources :bankaccounts
   get 'passwordrepositories/index'
   get 'passwordrepo/index'
   get 'withdrawals/index'

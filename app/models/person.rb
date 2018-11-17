@@ -15,6 +15,9 @@ class Person < ApplicationRecord
   has_many :incomes
   has_many :withdrawals
   has_many :lodgements
+  has_many :bankaccounts
+  has_many :cashflow_recons
+  has_many :saving_recons
 
 
   accepts_nested_attributes_for :emails, allow_destroy: true

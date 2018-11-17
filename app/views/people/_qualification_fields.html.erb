@@ -5,8 +5,8 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :school %>
-    <%= f.input :from %>
-    <%= f.input :to %>
+    <%= f.input :from , :start_year =>2000, :end_year => 2030 %>
+    <%= f.input :to,:start_year =>2000, :end_year => 2030%>
     <%= f.input :grade %>
     <%= f.input :user_id ,:as => :hidden, :input_html => { :value => current_user.id}%>
     <%= f.input :active %>

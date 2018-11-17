@@ -26,11 +26,18 @@ class CashflowsController < ApplicationController
     @totaloutflow = Outflow.where(cashflow_id: @ref).sum(:amount)
 
     # inflow outflow tabels
-    @inflows = Inflow.where(cashflow_id: @ref)
-    @outflows = Outflow.where(cashflow_id: @ref)
+    @inflows = Inflow.where(cashflow_id: @ref).order("date_posted DESC")
+    @outflows = Outflow.where(cashflow_id: @ref).order("date_posted DESC")
+
+    # reconciliation calc
+
+    @recons = CashflowRecon.where(cashflow_id: @ref).sum(:correction_amount)
+
+
+
     # balance calculation
     @i = 0
-    @balance = ((@totalinflow - @saving_lodgement)- @totaloutflow) + @cash_injection
+    @balance = (((@totalinflow - @saving_lodgement)- @totaloutflow) + @cash_injection) + @recons
     @cashflow.balance= @balance
 
     # savings dashboard
@@ -79,6 +86,9 @@ class CashflowsController < ApplicationController
     @car_service = @outflows.where(outflowtype_id: 22).sum(:amount)
     @spiritual_tools = @outflows.where(outflowtype_id: 23).sum(:amount)
     @other_expenses = @outflows.where(outflowtype_id: 24).sum(:amount)
+    @work_lunch = @outflows.where(outflowtype_id: 25).sum(:amount)
+    @pharmacy = @outflows.where(outflowtype_id: 26).sum(:amount)
+    @furniture = @outflows.where(outflowtype_id: 27).sum(:amount)
   end
 
 
@@ -145,8 +155,8 @@ class CashflowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cashflow_params
-      params.require(:cashflow).permit(:month, :year, :accounting_date, :name,:user_id, inflows_attributes:[ :id,:date_posted,:bank_record_date,:monthtitle_id,:yeartitle_id,:inflowtype_id, :person_id,:owner,
-      :amount, :details, :flow_type, :user_id,:month,:year ,:_destroy], outflows_attributes:[:id,:date_posted,:bank_record_date,:monthtitle_id,:yeartitle_id,:outflowtype_id,:person_id,:owner,
+      params.require(:cashflow).permit(:month, :year, :accounting_date, :name,:user_id, inflows_attributes:[ :id,:bankaccount_id,:date_posted,:bank_record_date,:monthtitle_id,:yeartitle_id,:inflowtype_id, :person_id,:owner,
+      :amount, :details, :flow_type, :user_id,:month,:year ,:_destroy], outflows_attributes:[:id,:date_posted,:bankaccount_id,:bank_record_date,:monthtitle_id,:yeartitle_id,:outflowtype_id,:person_id,:owner,
                                                                                :amount, :details, :flow_type, :user_id,
                                                                                              :month,:year ,:_destroy],
                                        comments_attributes:[:id, :commentary, :user_id, :_destroy])

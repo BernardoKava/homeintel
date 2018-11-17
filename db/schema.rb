@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_002657) do
+ActiveRecord::Schema.define(version: 2018_11_17_195353) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 2018_11_13_002657) do
     t.integer "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "bankaccounts", force: :cascade do |t|
+    t.integer "financialinstitution_id"
+    t.string "account_number"
+    t.string "sort_code"
+    t.string "iban"
+    t.string "bic"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "account_code"
   end
 
   create_table "budgets", force: :cascade do |t|
@@ -32,6 +44,19 @@ ActiveRecord::Schema.define(version: 2018_11_13_002657) do
     t.decimal "balance"
     t.string "budget_number"
     t.integer "reference_number"
+  end
+
+  create_table "cashflow_recons", force: :cascade do |t|
+    t.integer "cashflow_id"
+    t.integer "user_id"
+    t.text "error_details"
+    t.text "reconciliation_rationale"
+    t.decimal "correction_amount"
+    t.string "authorised_by"
+    t.date "authorisation_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "person_id"
   end
 
   create_table "cashflows", force: :cascade do |t|
@@ -146,6 +171,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_002657) do
     t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "institution_code"
   end
 
   create_table "incomes", force: :cascade do |t|
@@ -182,6 +208,9 @@ ActiveRecord::Schema.define(version: 2018_11_13_002657) do
     t.integer "monthtitle_id"
     t.date "bank_record_date"
     t.date "date_posted"
+    t.string "origination"
+    t.text "rationale"
+    t.integer "bankaccount_id"
   end
 
   create_table "inflowtypes", force: :cascade do |t|
@@ -259,6 +288,8 @@ ActiveRecord::Schema.define(version: 2018_11_13_002657) do
     t.integer "yeartitle_id"
     t.integer "monthtitle_id"
     t.date "date_posted"
+    t.string "origination"
+    t.text "rationale"
   end
 
   create_table "monthtitles", force: :cascade do |t|
@@ -284,6 +315,9 @@ ActiveRecord::Schema.define(version: 2018_11_13_002657) do
     t.integer "monthtitle_id"
     t.date "bank_record_date"
     t.date "date_posted"
+    t.string "origination"
+    t.text "rationale"
+    t.integer "bankaccount_id"
   end
 
   create_table "outflowtypes", force: :cascade do |t|
@@ -340,6 +374,19 @@ ActiveRecord::Schema.define(version: 2018_11_13_002657) do
     t.integer "user_id"
   end
 
+  create_table "saving_recons", force: :cascade do |t|
+    t.integer "saving_id"
+    t.integer "user_id"
+    t.text "error_details"
+    t.text "reconciliation_rationale"
+    t.decimal "correction_amount"
+    t.string "authorised_by"
+    t.date "authorisation_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "person_id"
+  end
+
   create_table "savings", force: :cascade do |t|
     t.integer "user_id"
     t.string "month"
@@ -372,6 +419,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_002657) do
     t.datetime "updated_at", null: false
     t.boolean "admin"
     t.boolean "access_granted"
+    t.string "fullname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -392,6 +440,8 @@ ActiveRecord::Schema.define(version: 2018_11_13_002657) do
     t.integer "yeartitle_id"
     t.integer "monthtitle_id"
     t.date "date_posted"
+    t.string "origination"
+    t.text "rationale"
   end
 
   create_table "yeartitles", force: :cascade do |t|

@@ -18,12 +18,15 @@ class SavingsController < ApplicationController
     @ref = @saving.id
     @totallodgement = Lodgement.where(saving_id: @ref).sum(:amount)
     @totalwithdrawal = Withdrawal.where(saving_id: @ref).sum(:amount)
-    @lodgments = Lodgement.where(saving_id: @ref)
-    @withdrawals = Withdrawal.where(saving_id: @ref)
+    @lodgments = Lodgement.where(saving_id: @ref).order("date_posted DESC")
+    @withdrawals = Withdrawal.where(saving_id: @ref).order("date_posted DESC")
+
+    # reconciliation calc
+
+    @recons = SavingRecon.where(saving_id: @ref).sum(:correction_amount)
 
 
-
-    @balance = (@totallodgement - @totalwithdrawal)
+    @balance = ((@totallodgement - @totalwithdrawal)+ @recons)
     @saving.balance= @balance
 
     # Savings number

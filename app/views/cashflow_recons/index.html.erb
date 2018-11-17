@@ -1,0 +1,38 @@
+<% provide(:title, "Cash Recons") %>
+<p id="notice"><%= notice %></p>
+
+<h1>Cashflow Recons</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Cashflow</th>
+      <th>Registed by:</th>
+      <th>Correction amount</th>
+      <th>Authorised by</th>
+      <th>Authorisation date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cashflow_recons.each do |cashflow_recon| %>
+      <tr>
+        <td><%= link_to cashflow_recon.cashflow.name, cashflow_recon %></td>
+        <td><%= cashflow_recon.user.fullname %></td>
+        <td><%= cashflow_recon.correction_amount %></td>
+        <td><%= cashflow_recon.person.fullname %></td>
+        <td><%= cashflow_recon.authorisation_date %></td>
+        <td><%= link_to 'View', cashflow_recon, class:'fa fa-eye' %></td>
+        <td><%= link_to 'Edit', edit_cashflow_recon_path(cashflow_recon), class:'fa fa-edit' %></td>
+        <td><%= link_to 'Delete', cashflow_recon, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-remove' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @cashflow_recons %>
+<br>
+<div class="breadcrumb">
+  <%= link_to 'New Cashflow Recon', new_cashflow_recon_path, class:'fa fa-plus' %>
+</div>
+

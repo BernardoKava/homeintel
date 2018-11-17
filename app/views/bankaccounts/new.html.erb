@@ -1,0 +1,10 @@
+<% provide(:title, "New Bank Account") %>
+<h1>New Bank Account</h1>
+
+<%= render 'form', bankaccount: @bankaccount %>
+
+<br>
+<div class="breadcrumb">
+  <%= link_to 'Back', bankaccounts_path, class:'fa fa-arrow-left' %>
+</div>
+

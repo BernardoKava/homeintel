@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  financialinstitution_id: 1
+  account_number: MyString
+  sort_code: MyString
+  iban: MyString
+  bic: MyString
+  person_id: 1
+
+two:
+  financialinstitution_id: 1
+  account_number: MyString
+  sort_code: MyString
+  iban: MyString
+  bic: MyString
+  person_id: 1

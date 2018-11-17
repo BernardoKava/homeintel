@@ -53,14 +53,14 @@ class LedgersController < ApplicationController
     @annual_outflow = Outflow.where(year: @year)
 
 
-    # Annual income breakdown
+    # Annual income breakdown (Budget)
 
     @salary = @annual_income.where(inflowtype_id: 1).sum(:amount)
     @child_benefit = @annual_income.where(inflowtype_id: 2).sum(:amount)
     @lotto_winnings = @annual_income.where(inflowtype_id: 3).sum(:amount)
     @others = @annual_income.where(inflowtype_id: 4).sum(:amount)
 
-    # Annual expense breakdown
+    # Annual expense breakdown  (Budget)
 
     @rent = @annual_expenses.where(outflowtype_id: 1).sum(:amount)
     @telecom = @annual_expenses.where(outflowtype_id: 2).sum(:amount)
@@ -85,16 +85,19 @@ class LedgersController < ApplicationController
     @heating_oil = @annual_expenses.where(outflowtype_id: 21).sum(:amount)
     @car_service = @annual_expenses.where(outflowtype_id: 22).sum(:amount)
     @spiritual_tools = @annual_expenses.where(outflowtype_id: 23).sum(:amount)
-    @other_expenses = @expenses.where(outflowtype_id: 24).sum(:amount)
+    @other_expenses = @annual_expenses.where(outflowtype_id: 24).sum(:amount)
+    @work_lunch = @annual_expenses.where(outflowtype_id: 25).sum(:amount)
+    @pharmacy = @annual_expenses.where(outflowtype_id: 26).sum(:amount)
+    @furniture = @annual_expenses.where(outflowtype_id: 27).sum(:amount)
 
-    # Annual Inflows Breakdown
+    # Annual Inflows Breakdown (Cashflow)
 
     @isalary = @annual_inflow.where(inflowtype_id: 1).sum(:amount)
     @ichild_benefit = @annual_inflow.where(inflowtype_id: 2).sum(:amount)
     @ilotto_winnings = @annual_inflow.where(inflowtype_id: 3).sum(:amount)
     @iothers = @annual_inflow.where(inflowtype_id: 4).sum(:amount)
 
-    # Annual outflows Breakdown
+    # Annual outflows Breakdown (Cashflow)
 
 
     @irent = @annual_outflow.where(outflowtype_id: 1).sum(:amount)
@@ -120,7 +123,10 @@ class LedgersController < ApplicationController
     @iheating_oil = @annual_outflow.where(outflowtype_id: 21).sum(:amount)
     @icar_service = @annual_outflow.where(outflowtype_id: 22).sum(:amount)
     @ispiritual_tools = @annual_outflow.where(outflowtype_id: 23).sum(:amount)
-    @iother_expenses = @expenses.where(outflowtype_id: 24).sum(:amount)
+    @iother_expenses = @annual_outflow.where(outflowtype_id: 24).sum(:amount)
+    @iwork_lunch = @annual_outflow.where(outflowtype_id: 25).sum(:amount)
+    @ipharmacy = @annual_outflow.where(outflowtype_id: 26).sum(:amount)
+    @ifurniture = @annual_outflow.where(outflowtype_id: 27).sum(:amount)
   end
 
 

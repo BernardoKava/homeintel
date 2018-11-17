@@ -68,7 +68,9 @@ class BudgetsController < ApplicationController
     @car_service = @expenses.where(outflowtype_id: 22).sum(:amount)
     @spiritual_tools = @expenses.where(outflowtype_id: 23).sum(:amount)
     @other_expenses = @expenses.where(outflowtype_id: 24).sum(:amount)
-
+    @work_lunch = @expenses.where(outflowtype_id: 25).sum(:amount)
+    @pharmacy = @expenses.where(outflowtype_id: 26).sum(:amount)
+    @furniture = @expenses.where(outflowtype_id: 27).sum(:amount)
   end
 
 

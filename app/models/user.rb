@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   include Gravtastic
   gravtastic
+
+  has_many :saving_recons
+  has_many :cashflow_recons
 end

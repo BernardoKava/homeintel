@@ -12,7 +12,9 @@
   <hr/>
   <hr/>
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Income(s)</h2></strong>
-
+  <div class="form-actions">
+    <%= f.button :submit,"Save" %>
+  </div>
   <div class="nested_fields">
     <%= link_to_add_association 'Add', f, :incomes, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
     <%= f.simple_fields_for :incomes do |income| %>
@@ -20,13 +22,18 @@
         <%= render 'income_fields', :f => income %>
       </div>
     <% end %>
+    <div class="form-actions">
+      <%= f.button :submit,"Save" %>
+    </div>
   </div>
   <hr/>
   <hr/>
 
 
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add expense(s)</h2></strong>
-
+        <div class="form-actions">
+          <%= f.button :submit,"Save" %>
+        </div>
         <div class="nested_fields">
               <%= link_to_add_association 'Add', f, :expenses, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
               <%= f.simple_fields_for :expenses do |expense| %>
@@ -34,13 +41,19 @@
               <%= render 'expense_fields', :f => expense %>
         </div>
               <% end %>
+          <div class="form-actions">
+            <%= f.button :submit,"Save" %>
           </div>
+        </div>
+
   <hr/>
   <hr/>
 
 
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Comment(s)</h2></strong>
-
+  <div class="form-actions">
+    <%= f.button :submit,"Save" %>
+  </div>
   <div class="nested_fields">
     <%= link_to_add_association 'Add', f, :comments, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
     <%= f.simple_fields_for :comments do |comment| %>
@@ -48,6 +61,10 @@
         <%= render 'comment_fields', :f => comment %>
       </div>
     <% end %>
+    <div class="form-actions">
+      <%= f.button :submit,"Save" %>
+    </div>
+
   </div>
   <hr/>
   <hr/>
@@ -55,7 +72,7 @@
 
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit,"Save" %>
   </div>
 <% end %>
 <br>

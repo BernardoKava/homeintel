@@ -1,0 +1,35 @@
+
+<%= simple_form_for(@bankaccount) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
+  <div class="jumbotron">
+    <div class="form-inputs">
+
+      <div class="control-group">
+        <%= f.label :financialinstitution_id,"Financial Institution" %>
+        <div class ="controls">
+          <%= f.collection_select :financialinstitution_id, Financialinstitution.order(:institution_code), :id, :institution_code, include_blank: true %>
+        </div>
+      </div>
+      <br>
+      <div class="control-group">
+        <%= f.label :person_id,"Owner" %>
+        <div class ="controls">
+          <%= f.collection_select :person_id, Person.order(:fullname), :id, :fullname, include_blank: true %>
+        </div>
+      </div>
+      <br>
+      <%= f.input :account_number %>
+      <%= f.input :sort_code %>
+      <%= f.input :iban %>
+      <%= f.input :bic %>
+    </div>
+  </div>
+
+
+  <div class="form-actions">
+    <%= f.button :submit,"Save" %>
+  </div>
+<% end %>

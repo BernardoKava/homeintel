@@ -14,7 +14,7 @@
     </div>
 <br>
     <div class="control-group">
-      <%= f.label :financialinstitution_id, "Type",class: 'control-label' %>
+      <%= f.label :financialinstitution_id, "Institution",class: 'control-label' %>
       <div class ="controls">
         <%= f.collection_select :financialinstitution_id, Financialinstitution.order(:name), :id, :name, include_blank: true %>
       </div>
@@ -22,8 +22,10 @@
     <br>
 
     <%= f.input :date_posted %>
-
+    <%= f.input :year,:input_html => { :value => Date.today.year} %>
+    <%= f.input :month,:input_html => { :value => Date.today.month} %>
     <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
+
     <%= f.input :amount %>
     <%= f.input :details %>
   </div>

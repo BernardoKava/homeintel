@@ -1,0 +1,10 @@
+<% provide(:title, "Edit Cash Recons") %>
+<h1>Editing Cashflow Recon</h1>
+
+<%= render 'form', cashflow_recon: @cashflow_recon %>
+<br>
+
+<div class="breadcrumb">
+  <%= link_to 'View', @cashflow_recon, class:'fa fa-eye' %> |
+  <%= link_to 'Back', cashflow_recons_path, class:'fa fa-arrow-left' %>
+</div>

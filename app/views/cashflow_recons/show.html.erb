@@ -1,0 +1,65 @@
+<% provide(:title, "View Cash Recons") %>
+<p id="notice"><%= notice %></p>
+
+
+
+<div class="jumbotron">
+
+
+  <div>
+    <strong>Cashflow:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>
+  <%= @cashflow_recon.cashflow.name %>
+  </textarea>
+  </div>
+
+  <div>
+    <strong>User:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>
+  <%= @cashflow_recon.user.fullname %>
+  </textarea>
+  </div>
+
+  <div>
+    <strong>Error details:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>
+  <%= @cashflow_recon.error_details %>
+  </textarea>
+  </div>
+
+  <div>
+    <strong>Reconciliation rationale:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>
+  <%= @cashflow_recon.reconciliation_rationale %>
+  </textarea>
+  </div>
+
+  <div>
+    <strong>Correction amount:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>
+  <%= @cashflow_recon.correction_amount %>
+  </textarea>
+  </div>
+
+  <div>
+    <strong>Authorised by:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>
+  <%= @cashflow_recon.person.fullname %>
+  </textarea>
+  </div>
+
+  <div>
+    <strong>Authorisation date:</strong><br><br>
+    <textarea rows="1" cols="80" readonly>
+  <%= @cashflow_recon.authorisation_date.strftime("%d %b. %Y") %>
+  </textarea>
+  </div>
+
+</div>
+
+<div class="breadcrumb">
+  <%= link_to 'Edit', edit_cashflow_recon_path(@cashflow_recon), class:'fa fa-edit' %> |
+  <%= link_to 'Back', cashflow_recons_path, class:'fa fa-arrow_left' %>
+</div>
+
+

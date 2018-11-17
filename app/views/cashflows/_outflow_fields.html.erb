@@ -20,6 +20,13 @@
       </div>
     </div>
     <br>
+    <div class="control-group">
+      <%= f.label :bankaccount_id,"Origination" %>
+      <div class ="controls">
+        <%= f.collection_select :bankaccount_id, Bankaccount.order(:account_code), :id, :account_code, include_blank: true %>
+      </div>
+    </div>
+    <br>
     <br>
     <%= f.input :year,:input_html => { :value => Date.today.year} %>
     <%= f.input :month,:input_html => { :value => Date.today.month} %>
@@ -28,6 +35,8 @@
 
     <%= f.input :amount %>
     <%= f.input :details %>
+    <%= f.input :rationale %>
+
   </div>
 
 

@@ -30,6 +30,12 @@
               <% if current_user.admin == true %>
                 <li class="divider"></li>
                 <li class="alert-danger"><%= link_to "Backend System", rails_admin_path , class: 'fa fa-database'%></li>
+                <li class="divider"></li>
+                <li class="alert-danger"><%= link_to "Bank Accounts", bankaccounts_path , class: 'fa fa-database'%></li>
+                <li class="divider"></li>
+                <li class="alert-danger"><%= link_to "Cashflow Recons", cashflow_recons_path , class: 'fa fa-database'%></li>
+                <li class="divider"></li>
+                <li class="alert-danger"><%= link_to "Savings Recons", saving_recons_path , class: 'fa fa-database'%></li>
               <% end %>
             </ul>
           </li>
