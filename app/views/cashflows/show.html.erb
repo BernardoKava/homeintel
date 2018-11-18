@@ -1,6 +1,9 @@
 <% provide(:title, "View Cashflow") %>
 
 <p id="notice"><%= notice %></p>
+
+<h1>The Monthly Budget</h1>
+
 <div class="jumbotron">
   <div >
     <strong>Month:</strong><br><br>
@@ -52,17 +55,19 @@
 <hr>
   <stong> Total Income (€): </stong><br><br>
 
-  <p>€ <%= @totalinflow %></p><br>
+  <p>€ <%= @totalinflow %> </p>
+  <div class="alert-info"><%= @totalinflow.humanize %></div><br>
 
 
   <stong> Total Expenses (€): </stong><br><br>
 
   <p> € <%= @totaloutflow %></p>
-
+  <div class="alert-info"><%= @totaloutflow.humanize %></div><br>
   <hr>
   <stong> Cash Injection (€): </stong><br><br>
 
   <p>€ <%=@cash_injection%></p>
+  <div class="alert-info"><%= @cash_injection.humanize %></div><br>
 <hr>
   <stong> Balance (€): </stong><br><br>
     <% if @balance < @i  %>
@@ -70,16 +75,18 @@
     <% else %>
       <strong><p style="color: green"> € <%= @balance %></p></strong>
     <% end %>
+  <div class="alert-info"><%= @balance.humanize %></div><br>
+  <hr>
   <stong> Balance Planned (€): </stong><br><br>
     <p>€ <%= @budgets %></p>
   <hr>
   <stong> Monthly Savings Balance (€): </stong><br><br>
     <p>€ <%= @savings %></p>
-
+  <div class="alert-info"><%= @savings.humanize %></div><br>
   <hr>
   <stong> Monthly Reconciliation (€): </stong><br><br>
   <p>€ <%= @recons %></p>
-
+  <div class="alert-info"><%= @recons.humanize %></div><br>
 
 
   <hr>  <hr>

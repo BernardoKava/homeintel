@@ -1,6 +1,7 @@
 <% provide(:title, "View Ledger") %>
 <p id="notice"><%= notice %></p>
 
+<h1>The General Ledger - Balance Sheet</h1>
 
 <div class="jumbotron">
   <div>
@@ -52,10 +53,12 @@
   <stong> Annual Budget Balance [Remainder] (€): </stong><br><br>
 
   <p>€<%= @budget_balance %></p><br>
-
+  <div class="alert-info"><%= @budget_balance.humanize %></div><br>
+  <hr>
   <stong> Annual Cashflow Balance [Remainder] (€): </stong><br><br>
 
   <p> €<%= @cashflow_balance %></p><br>
+  <div class="alert-info"><%= @cashflow_balance.humanize %></div><br>
   <hr>
   <stong> Annual Budget - Annual Cashflow (Actual) (€): </stong><br><br>
   <% if @budget_vs_cashflow < @zero %>
@@ -69,7 +72,7 @@
   <stong>Annual Savings Balance (€): </stong><br><br>
 
   <p> €<%= @saving_balance %></p><br>
-
+  <div class="alert-info"><%= @saving_balance.humanize %></div><br>
   <hr>
 <hr/>
 
@@ -77,6 +80,7 @@
   <stong> Annual Savings + Annual Cashflow Balance (Actual) (€): </stong><br><br>
 
   <p>Total Annual Liquid Assets = €<%= @cashflow_balance_plus_saving_balance %> </p>
+  <div class="alert-info"><%= @cashflow_balance_plus_saving_balance.humanize %></div><br>
   <br>
 
 <hr>
@@ -84,7 +88,9 @@
 
 
   <p>Annual Total Inflow = €<%= @annual_total_inflow %></p>
+  <div class="alert-info"><%= @annual_total_inflow.humanize %></div><br>
   <p>Annual Total Outflow = €<%= @annual_total_outflow %></p>
+  <div class="alert-info"><%= @annual_total_inflow.humanize %></div><br>
 </div>
 <div class="links">
   <%= link_to 'Edit', edit_ledger_path(@ledger), class:'fa fa-edit' %> |

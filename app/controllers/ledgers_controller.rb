@@ -127,6 +127,75 @@ class LedgersController < ApplicationController
     @iwork_lunch = @annual_outflow.where(outflowtype_id: 25).sum(:amount)
     @ipharmacy = @annual_outflow.where(outflowtype_id: 26).sum(:amount)
     @ifurniture = @annual_outflow.where(outflowtype_id: 27).sum(:amount)
+
+    # save the breakdown into the table:
+
+    @ledger.bud_inflow_salary = @salary
+    @ledger.bud_inflow_child_benefit=@child_benefit
+    @ledger.bud_inflow_lotto_winnings=@lotto_winnings
+    @ledger.bud_inflow_other= @others
+    @ledger.bud_outflow_rent=@rent
+    @ledger.bud_outflow_telecom=@telecom
+    @ledger.bud_outflow_eflow=@eflow
+    @ledger.bud_outflow_food=@food
+    @ledger.bud_outflow_electricity=@electricity
+    @ledger.bud_outflow_transport=@transport
+    @ledger.bud_outflow_credit_card_fees=@credit_card_fees
+    @ledger.bud_outflow_current_account_fees=@current_account_fees
+    @ledger.bud_outflow_allowance_gaelle=@allowance_gaelle
+    @ledger.bud_outflow_allowance_herve=@allowance_herve
+    @ledger.bud_outflow_loan_ptsb=@loan_ptsb
+    @ledger.bud_outflow_loan_chill=@loan_chill_money
+    @ledger.bud_outflow_lodgement_cu=@lodgement_credit_union
+    @ledger.bud_outflow_family_support=@family_support
+    @ledger.bud_outflow_entert_nightout=@entertainment_nightout
+    @ledger.bud_outflow_entert_dayout=@entertainment_dayout
+    @ledger.bud_outflow_apple_str=@apple_storage
+    @ledger.bud_outflow_aa_irl=@aa_ireland
+    @ledger.bud_outflow_lottery_ticket=@lottery_ticket
+    @ledger.bud_outflow_car_tax=@car_tax
+    @ledger.bud_outflow_heating_oil=@heating_oil
+    @ledger.bud_outflow_car_service=@car_service
+    @ledger.bud_outflow_spiritual_tools=@spiritual_tools
+    @ledger.bud_outflow_work_lunch=@work_lunch
+    @ledger.bud_outflow_pharmacy=@pharmacy
+    @ledger.bud_outflow_furniture=@furniture
+    @ledger.bud_outflow_other_exp=@other_expenses
+
+    @ledger.act_inflow_salary = @isalary
+    @ledger.act_inflow_child_benefit=@ichild_benefit
+    @ledger.act_inflow_lotto_winnings=@ilotto_winnings
+    @ledger.act_inflow_other= @iothers
+    @ledger.act_outflow_rent=@irent
+    @ledger.act_outflow_telecom=@itelecom
+    @ledger.act_outflow_eflow=@ieflow
+    @ledger.act_outflow_food=@ifood
+    @ledger.act_outflow_electricity=@ielectricity
+    @ledger.act_outflow_transport=@itransport
+    @ledger.act_outflow_credit_card_fees=@icredit_card_fees
+    @ledger.act_outflow_current_account_fees=@icurrent_account_fees
+    @ledger.act_outflow_allowance_gaelle=@iallowance_gaelle
+    @ledger.act_outflow_allowance_herve=@iallowance_herve
+    @ledger.act_outflow_loan_ptsb=@iloan_ptsb
+    @ledger.act_outflow_loan_chill=@iloan_chill_money
+    @ledger.act_outflow_lodgement_cu=@ilodgement_credit_union
+    @ledger.act_outflow_family_support=@ifamily_support
+    @ledger.act_outflow_entert_nightout=@ientertainment_nightout
+    @ledger.act_outflow_entert_dayout=@ientertainment_dayout
+    @ledger.act_outflow_apple_str=@iapple_storage
+    @ledger.act_outflow_aa_irl=@iaa_ireland
+    @ledger.act_outflow_lottery_ticket=@ilottery_ticket
+    @ledger.act_outflow_car_tax=@icar_tax
+    @ledger.act_outflow_heating_oil=@iheating_oil
+    @ledger.act_outflow_car_service=@icar_service
+    @ledger.act_outflow_spiritual_tools=@ispiritual_tools
+    @ledger.act_outflow_work_lunch=@iwork_lunch
+    @ledger.act_outflow_pharmacy=@ipharmacy
+    @ledger.act_outflow_furniture=@ifurniture
+    @ledger.act_outflow_other_exp=@iother_expenses
+
+    @ledger.save
+
   end
 
 

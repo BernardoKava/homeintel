@@ -89,6 +89,49 @@ class CashflowsController < ApplicationController
     @work_lunch = @outflows.where(outflowtype_id: 25).sum(:amount)
     @pharmacy = @outflows.where(outflowtype_id: 26).sum(:amount)
     @furniture = @outflows.where(outflowtype_id: 27).sum(:amount)
+
+    # save the breakdown into the table:
+
+    @cashflow.inflow_salary = @salary
+    @cashflow.inflow_child_benefit=@child_benefit
+    @cashflow.inflow_lotto_winnings=@lotto_winnings
+    @cashflow.inflow_other= @others
+    @cashflow.outflow_rent=@rent
+    @cashflow.outflow_telecom=@telecom
+    @cashflow.outflow_eflow=@eflow
+    @cashflow.outflow_food=@food
+    @cashflow.outflow_electricity=@electricity
+    @cashflow.outflow_transport=@transport
+    @cashflow.outflow_credit_card_fees=@credit_card_fees
+    @cashflow.outflow_current_account_fees=@current_account_fees
+    @cashflow.outflow_allowance_gaelle=@allowance_gaelle
+    @cashflow.outflow_allowance_herve=@allowance_herve
+    @cashflow.outflow_loan_ptsb=@loan_ptsb
+    @cashflow.outflow_loan_chill=@loan_chill_money
+    @cashflow.outflow_lodgement_cu=@lodgement_credit_union
+    @cashflow.outflow_family_support=@family_support
+    @cashflow.outflow_entert_nightout=@entertainment_nightout
+    @cashflow.outflow_entert_dayout=@entertainment_dayout
+    @cashflow.outflow_apple_str=@apple_storage
+    @cashflow.outflow_aa_irl=@aa_ireland
+    @cashflow.outflow_lottery_ticket=@lottery_ticket
+    @cashflow.outflow_car_tax=@car_tax
+    @cashflow.outflow_heating_oil=@heating_oil
+    @cashflow.outflow_car_service=@car_service
+    @cashflow.outflow_spiritual_tools=@spiritual_tools
+    @cashflow.outflow_work_lunch=@work_lunch
+    @cashflow.outflow_pharmacy=@pharmacy
+    @cashflow.outflow_furniture=@furniture
+    @cashflow.outflow_other_exp=@other_expenses
+
+
+    @cashflow.save
+
+
+
+
+
+
   end
 
 

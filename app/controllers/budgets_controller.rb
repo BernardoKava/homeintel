@@ -71,6 +71,45 @@ class BudgetsController < ApplicationController
     @work_lunch = @expenses.where(outflowtype_id: 25).sum(:amount)
     @pharmacy = @expenses.where(outflowtype_id: 26).sum(:amount)
     @furniture = @expenses.where(outflowtype_id: 27).sum(:amount)
+
+
+    # save the breakdown into the table:
+
+    @budget.inflow_salary = @salary
+    @budget.inflow_child_benefit=@child_benefit
+    @budget.inflow_lotto_winnings=@lotto_winnings
+    @budget.inflow_other= @others
+    @budget.outflow_rent=@rent
+    @budget.outflow_telecom=@telecom
+    @budget.outflow_eflow=@eflow
+    @budget.outflow_food=@food
+    @budget.outflow_electricity=@electricity
+    @budget.outflow_transport=@transport
+    @budget.outflow_credit_card_fees=@credit_card_fees
+    @budget.outflow_current_account_fees=@current_account_fees
+    @budget.outflow_allowance_gaelle=@allowance_gaelle
+    @budget.outflow_allowance_herve=@allowance_herve
+    @budget.outflow_loan_ptsb=@loan_ptsb
+    @budget.outflow_loan_chill=@loan_chill_money
+    @budget.outflow_lodgement_cu=@lodgement_credit_union
+    @budget.outflow_family_support=@family_support
+    @budget.outflow_entert_nightout=@entertainment_nightout
+    @budget.outflow_entert_dayout=@entertainment_dayout
+    @budget.outflow_apple_str=@apple_storage
+    @budget.outflow_aa_irl=@aa_ireland
+    @budget.outflow_lottery_ticket=@lottery_ticket
+    @budget.outflow_car_tax=@car_tax
+    @budget.outflow_heating_oil=@heating_oil
+    @budget.outflow_car_service=@car_service
+    @budget.outflow_spiritual_tools=@spiritual_tools
+    @budget.outflow_work_lunch=@work_lunch
+    @budget.outflow_pharmacy=@pharmacy
+    @budget.outflow_furniture=@furniture
+    @budget.outflow_other_exp=@other_expenses
+
+
+    @budget.save
+
   end
 
 

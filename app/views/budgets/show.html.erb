@@ -1,7 +1,7 @@
 <% provide(:title, "View Budget") %>
 <p id="notice"><%= notice %></p>
 
-
+<h1>The Monthly Budget</h1>
 
 <div class="jumbotron">
     <div>
@@ -54,16 +54,17 @@
   <stong> Total Income (€): </stong><br><br>
 
  <p>€ <%= @totalincome %></p><br>
-
-
+  <div class="alert-info"><%= @totalincome.humanize %></div><br>
+  <hr>
   <stong> Total Expenses (€): </stong><br><br>
 
   <p>€ <%= @totalexpense %></p>
-
+  <div class="alert-info"><%= @totalexpense.humanize %></div><br>
+  <hr>
   <stong> Balance (€): </stong><br><br>
 
   <p>€ <%= @balance %></p>
-
+  <div class="alert-info"><%= @balance.humanize %></div><br>
   <hr>
   <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Income Summary:</strong></h2></div>
 
