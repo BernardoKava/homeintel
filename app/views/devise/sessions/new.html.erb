@@ -5,12 +5,12 @@
 
       <div class="jumbotron">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "our email address" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: "Your email address..." %>
         <br />
 
 
         <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' , placeholder: "Your password"%>
+        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' , placeholder: "Your password..."%>
 
         <br />
         <% if devise_mapping.rememberable? -%>

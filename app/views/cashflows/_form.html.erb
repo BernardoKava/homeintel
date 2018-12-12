@@ -5,7 +5,7 @@
 
   <div class="form-inputs">
     <%= f.input :accounting_date %>
-    <%= f.input :name %>
+    <%= f.input :name ,placeholder:'Cashflow Name...'%>
     <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
   </div>
 

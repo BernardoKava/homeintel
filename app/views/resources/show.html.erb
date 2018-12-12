@@ -1,0 +1,35 @@
+<% provide(:title, "Resource") %>
+<p id="notice"><%= notice %></p>
+  <div class="jumbotron">
+    <div>
+      <strong>Name:</strong><br><br>
+      <%= link_to @resource.name,@resource.link %><br><br>
+    </div>
+
+    <div>
+      <strong>Description:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>  <%= @resource.description %></textarea><br><br>
+
+    </div>
+
+    <div>
+      <strong>Logged by:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>  <%= @resource.user.fullname %></textarea><br><br>
+
+    </div>
+
+    <div>
+      <strong>Link:</strong><br><br>
+      <textarea rows="1" cols="80" readonly>    <%= @resource.link %></textarea><br><br>
+
+    </div>
+  </div>
+
+
+<div class="breadcrumb">
+  <%= link_to 'Edit', edit_resource_path(@resource) , class:'fa fa-edit' %> |
+  <%= link_to 'Back', resources_path , class:'fa fa-arrow-left' %>
+
+</div>
+
+<br>

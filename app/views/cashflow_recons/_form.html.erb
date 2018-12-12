@@ -14,9 +14,9 @@
 
     <div class="form-inputs">
       <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id} %>
-      <%= f.input :error_details %>
-      <%= f.input :reconciliation_rationale %>
-      <%= f.input :correction_amount %>
+      <%= f.input :error_details,placeholder:'Error Details...' %>
+      <%= f.input :reconciliation_rationale,placeholder:'Enter Rationale...' %>
+      <%= f.input :correction_amount,placeholder:'Correction Amount...' %>
       <%= f.input :authorisation_date %>
       <br>
       <div class="control-group">

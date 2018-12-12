@@ -1,0 +1,38 @@
+<% provide(:title, "Resources") %>
+<p id="notice"><%= notice %></p>
+
+<h1>Resources</h1>
+<div class="jumbotron">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Logged by</th>
+      <th>Link</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @resources.each do |resource| %>
+      <tr>
+        <td><%= link_to resource.name,resource %></td>
+        <td><%= resource.description %></td>
+        <td><%= resource.user.fullname %></td>
+        <td><%= resource.link %></td>
+        <td><%= link_to 'View', resource, class:'fa fa-eye' %></td>
+        <td><%= link_to 'Edit', edit_resource_path(resource) , class:'fa fa-edit' %></td>
+        <td><%= link_to 'Delete', resource, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-remove'  %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<br>
+<div class="breadcrumb">
+  <%= link_to 'New Resource', new_resource_path, class:'fa fa-plus'  %>
+
+</div>

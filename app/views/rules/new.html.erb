@@ -1,0 +1,11 @@
+<% provide(:title, "New") %>
+<h1>New Rule</h1>
+
+<%= render 'form', rule: @rule %>
+
+<br>
+
+<div class="breadcrumb">
+  <%= link_to 'Back', rules_path, class:'fa fa-arrow-left' %>
+</div>
+

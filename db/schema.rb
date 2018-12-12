@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_17_214615) do
+ActiveRecord::Schema.define(version: 2018_12_11_235709) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -482,7 +482,6 @@ ActiveRecord::Schema.define(version: 2018_11_17_214615) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "owner"
-    t.integer "person_id"
   end
 
   create_table "qualifications", force: :cascade do |t|
@@ -496,6 +495,27 @@ ActiveRecord::Schema.define(version: 2018_11_17_214615) do
     t.boolean "active"
     t.integer "person_id"
     t.integer "user_id"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "user_id"
+    t.string "link"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.string "category"
+    t.string "title"
+    t.text "definition"
+    t.boolean "active"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "policy_code"
   end
 
   create_table "saving_recons", force: :cascade do |t|
@@ -522,6 +542,19 @@ ActiveRecord::Schema.define(version: 2018_11_17_214615) do
     t.decimal "balance"
     t.string "saving_number"
     t.integer "reference_number"
+  end
+
+  create_table "service_providers", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "telephone"
+    t.string "email"
+    t.string "acc_number"
+    t.integer "user_id"
+    t.boolean "active"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "telephones", force: :cascade do |t|

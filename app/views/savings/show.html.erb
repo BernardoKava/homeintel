@@ -54,19 +54,22 @@
   <stong> Total Monthly Lodgement (€): </stong><br><br>
 
   <p> <%= @totallodgement %></p><br>
-
+  <div class="alert-info"><%= @totallodgement.humanize %></div><br>
 
   <stong> Total Monthly Withdrawal (€): </stong><br><br>
 
   <p> <%= @totalwithdrawal %></p>
+  <div class="alert-info"><%= @totalwithdrawal.humanize %></div><br>
 
   <stong> Monthly Balance (€): </stong><br><br>
 
   <p> <%= @balance %></p>
+  <div class="alert-info"><%= @balance.humanize %></div><br>
 
   <stong> Monthly Reconciliation (€): </stong><br><br>
 
   <p> <%= @recons %></p>
+  <div class="alert-info"><%= @recons.humanize %></div><br>
 
 
   <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Lodgement Summary:</strong></h2></div>

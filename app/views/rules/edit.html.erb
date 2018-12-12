@@ -1,0 +1,10 @@
+<% provide(:title, "Edit") %>
+<h1>Editing Rule</h1>
+
+<%= render 'form', rule: @rule %>
+<br>
+<div class="breadcrumb">
+  <%= link_to 'View', @rule , class:'fa fa-eye'%> |
+  <%= link_to 'Back', rules_path, class:'fa fa-arrow-left' %>
+</div>
+

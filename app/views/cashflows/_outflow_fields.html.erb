@@ -33,9 +33,9 @@
     <%= f.input :date_posted %>
     <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
 
-    <%= f.input :amount %>
-    <%= f.input :details %>
-    <%= f.input :rationale %>
+    <%= f.input :amount,placeholder:'Amount...' %>
+    <%= f.input :details,placeholder:'Details...' %>
+    <%= f.input :rationale ,placeholder:'Add Rationale...'%>
 
   </div>
 

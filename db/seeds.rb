@@ -8,23 +8,17 @@
 
 require 'csv'
 
-
-
-
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'cashflow_inflow.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'rule.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  t = Outflow.new
-  t.owner = row['owner']
-  t.amount= row['amount']
+  t = Rule.new
+  t.category = row['Category']
+  t.title= row['Title']
+  t.definition= row['Definition']
   t.user_id= row['user_id']
-  t.cashflow_id= row['cashflow_id']
-  t.year= row['year']
-  t.month= row['month']
-  t.outflowtype_id= row['inflowtype_id']
-  t.date_posted = row['date_posted']
-  t.details = row['details']
+  t.active= row['Active']
+
   t.save
-  puts "#{t.owner},#{t.details} saved"
+  puts "#{t.category},#{t.title} saved"
 end
-puts "There are now #{Outflow.count} rows in the table"
+puts "There are now #{Rule.count} rows in the table"

@@ -1,0 +1,12 @@
+<% provide(:title, "Edit") %>
+<h1>Editing Service Provider</h1>
+
+<%= render 'form', service_provider: @service_provider %>
+
+<br>
+
+<div class="breadcrumb">
+  <%= link_to 'View', @service_provider, class:'fa fa-eye' %> |
+  <%= link_to 'Back', service_providers_path, class:'fa fa-arrow-left' %>
+</div>
+

@@ -3,7 +3,7 @@
 
 
   <div class="form-inputs">
-    <%= f.input :commentary %>
+    <%= f.input :commentary ,placeholder:'Add a comment...'%>
     <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
   </div>
 

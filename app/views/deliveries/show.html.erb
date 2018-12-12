@@ -17,7 +17,7 @@
 </div>
 
 
-<div class="jumbotron">
+<div class="breadcrumb">
   <div>
     Created on:
     <%=h @delivery.created_at.strftime("%d %b. %Y") %>
@@ -41,19 +41,13 @@
   <%= link_to 'Back', deliveries_path, class:'fa fa-arrow-left' %>
 </div>
 
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Lodgements</strong></h2></div>
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Posts</strong></h2></div>
 <br>
 <div>
 
   <% for post in @delivery.posts %>
 
     <div class="jumbotron">
-
-      <div>
-        <strong>Owner:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h post.person.fullname %></textarea>
-      </div>
-      <br>
 
       <div>
         <strong>Type:</strong><br><br>
@@ -91,6 +85,38 @@
 
 </div>
 
+<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Comments</strong></h2></div>
+<br>
+<div>
+
+  <% for comment in @delivery.comments %>
+
+    <div class="jumbotron">
+
+      <div>
+        <strong>Type:</strong><br><br>
+        <textarea rows="1" cols="80" readonly> <%=h comment.commentary %> </textarea>
+      </div>
+      <br>
+      <div>
+        Registered on:
+        <%=h comment.created_at.strftime("%d %b. %Y") %>
+      </div>
+      <div>
+        ID:
+        <%=h comment.id %>
+      </div>
+
+    </div>
+  <% end %>
+
+
+
+
+
+
+
+</div>
 
 <div class="links">
 <%= link_to 'Edit', edit_delivery_path(@delivery), class:'fa fa-edit' %> |

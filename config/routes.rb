@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :service_providers
+  resources :rules
+  resources :resources
   resources :cashflow_recons
   resources :saving_recons
   resources :bankaccounts

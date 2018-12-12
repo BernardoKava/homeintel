@@ -28,8 +28,8 @@
     <%= f.input :year,:input_html => { :value => Date.today.year} %>
     <%= f.input :month,:input_html => { :value => Date.today.month} %>
     <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
-    <%= f.input :amount %>
-    <%= f.input :details %>
+    <%= f.input :amount ,placeholder:'Amount...'%>
+    <%= f.input :details ,placeholder:'Details...'%>
   </div>
 
 

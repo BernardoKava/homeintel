@@ -1,0 +1,36 @@
+<% provide(:title, "View Policy") %>
+
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <div>
+    <strong>Category:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @rule.category %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Title:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @rule.title %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Definition:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @rule.definition %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Active:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @rule.active.humanize %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Logged by:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @rule.user.fullname %></textarea>
+  </div>
+</div>
+
+<br>
+<div class="breadcrumb">
+  <%= link_to 'Edit', edit_rule_path(@rule) , class:'fa fa-edit'%> |
+  <%= link_to 'Back', rules_path, class:'fa fa-arrow-left' %>
+</div>
+

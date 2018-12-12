@@ -1,0 +1,11 @@
+<% provide(:title, "Edit") %>
+<h1>Editing Resource</h1>
+
+<%= render 'form', resource: @resource %>
+
+<br>
+<div class="breadcrumb">
+  <%= link_to 'View', @resource , class:'fa fa-eye'%> |
+  <%= link_to 'Back', resources_path, class:'fa fa-arrow-left' %>
+</div>
+

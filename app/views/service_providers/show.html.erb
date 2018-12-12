@@ -1,0 +1,51 @@
+<% provide(:title, "View Service Provider") %>
+<p id="notice"><%= notice %></p>
+
+<div class="jumbotron">
+  <div>
+    <strong>Name:</strong><br><br>
+    <%= link_to @service_provider.name, @service_provider.link %>
+  </div>
+<br>
+  <div>
+    <strong>Address:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @service_provider.address %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Telephone:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @service_provider.telephone %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Email:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @service_provider.email %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Acc number:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @service_provider.acc_number %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Logged by:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @service_provider.user.fullname %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Active:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @service_provider.active.humanize %></textarea>
+  </div>
+  <br>
+  <div>
+    <strong>Link:</strong><br><br>
+    <textarea rows="1" cols="80" readonly><%= @service_provider.link %></textarea>
+  </div>
+  <br>
+</div>
+
+<div class="breadcrumb">
+  <%= link_to 'Edit', edit_service_provider_path(@service_provider), class:'fa fa-edit' %> |
+  <%= link_to 'Back', service_providers_path, class:'fa fa-arrow-left'%>
+</div>
+
