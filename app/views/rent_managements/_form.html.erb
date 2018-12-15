@@ -1,0 +1,23 @@
+
+<%= simple_form_for(@rent_management) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class=" jumbotron">
+      <%= f.input :year %>
+      <%= f.input :month %>
+      <%= f.input :amount %>
+      <%= f.input :date_collected %>
+      <%= f.input :details %>
+      <%= f.input :collected_by %>
+      <%= f.input :user_id %>
+    </div>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit,"Save" %>
+  </div>
+<% end %>
+<br>

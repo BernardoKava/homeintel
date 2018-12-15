@@ -1,34 +1,434 @@
 <% provide(:title, "View Cashflow") %>
 
 <p id="notice"><%= notice %></p>
+<div class="breadcrumb">
+  <h3>Monthly Cashflow</h3>
+</div>
 
-<h1>The Monthly Budget</h1>
 
-<div class="jumbotron">
-  <div >
-    <strong>Month:</strong><br><br>
-    <textarea rows="1" cols="80" readonly><%= @cashflow.month %></textarea>
+<div>
+  <div class="row">
+    <div class="col-sm-6">
+
+      <div class="jumbotron">
+        <h2 style="font-size: 15px;background-color: navy;color: white"><strong> Cashflow Details</strong></h2>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr>
+            <td>Month</td>
+            <td><%= @cashflow.month %> </td>
+          </tr>
+          <tr>
+            <td>Year</td>
+            <td><%= @cashflow.year %></td>
+          </tr>
+          <tr>
+            <td>Accounting date</td>
+            <td><%= @cashflow.accounting_date.strftime("%d, %b  %Y") %></td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td><%= @cashflow.name %></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-6">
+
+      <div class="jumbotron">
+        <h2 style="font-size: 15px;background-color: navy;color: white"><strong> Cashflow Financial Summary</strong></h2>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Title</th>
+            <th>Amount(€)</th>
+            <th>Literal</th>
+          </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Total Income (€)</td>
+              <td>€ <%= @totalinflow %> </td>
+              <td><%= @totalinflow.humanize %></td>
+            </tr>
+            <tr>
+              <td>Total Expenses (€)</td>
+              <td>€ <%= @totaloutflow %> </td>
+              <td><%= @totaloutflow.humanize %></td>
+            </tr>
+            <tr>
+              <td>Cash Injection (€)</td>
+              <td>€ <%=@cash_injection%></td>
+              <td><%= @cash_injection.humanize %></td>
+            </tr>
+            <tr>
+              <td>Balance (€)</td>
+              <% if @balance < @i  %>
+                <td style="color: #B00100"> € <%= @balance %></td>
+              <% else %>
+                <td style="color: green"> € <%= @balance %></td>
+              <% end %>
+              <td><%= @balance.humanize %></td>
+            </tr>
+            <tr>
+              <td>Balance Planned (€)</td>
+              <td>€ <%= @budgets %></td>
+              <td><%= @budgets.humanize %></td>
+            </tr>
+            <tr>
+              <td>Monthly Savings Balance (€)</td>
+              <td>€ <%= @savings %></td>
+              <td><%= @savings.humanize %></td>
+            </tr>
+            <tr>
+              <td>Monthly Reconciliation (€)</td>
+              <td>€ <%= @recons %></td>
+              <td><%= @recons.humanize %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-  <br>
+</div>
+<div class="links">
+  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
+  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
+
+</div>
+<hr>
+<div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="jumbotron">
+        <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Income:</strong></h2></div>
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Reg. Date</th>
+            <th>Date Posted</th>
+            <th>Details </th>
+            <th>Flow Type </th>
+            <th>Owner</th>
+            <th>Origination</th>
+            <th>Amount(€)</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @inflows.each do |income| %>
+            <tr>
+              <td><%= income.created_at.strftime("%d %b. %Y")%>
+              <td><%= income.date_posted.strftime("%d %b. %Y")%></td>
+              <td><%= income.details %></td>
+              <td><%= income.inflowtype.name %></td>
+              <td><%= income.person.fullname %></td>
+              <td><%= income.bankaccount.account_code %></td>
+              <td><%= income.amount %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="jumbotron">
+        <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Expenses:</strong></h2></div>
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Reg. Date</th>
+            <th>Date Posted</th>
+            <th>Details </th>
+            <th>Flow Type </th>
+            <th>Owner</th>
+            <th>Origination</th>
+            <th>Amount(€)</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @outflows.each do |expense| %>
+            <tr>
+              <td><%= expense.created_at.strftime("%d %b. %Y")%>
+              <td><%= expense.date_posted.strftime("%d %b. %Y")%></td>
+              <td><%= expense.details %></td>
+              <td><%= expense.outflowtype.name %></td>
+              <td><%= expense.person.fullname %></td>
+              <td><%= expense.bankaccount.account_code %></td>
+              <td><%= expense.amount %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="links">
+  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
+  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
+</div>
+<hr>
+<br>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="jumbotron">
+      <h2 style="font-size: 15px;background-color: navy;color: white"><strong> Income Breakdown</strong></h2>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Category</th>
+          <th>Amount(€)</th>
+          <th>Literal</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td>Salary</td>
+          <td>€  <%= @salary %> </td>
+          <td><%= @salary.humanize %></td>
+        </tr>
+        <tr>
+          <td>Child Benefit (€)</td>
+          <td>€ <%= @child_benefit %> </td>
+          <td><%= @child_benefit.humanize %></td>
+        </tr>
+        <tr>
+          <td>Lotto Winnings(€)</td>
+          <td>€ <%=@lotto_winnings%></td>
+          <td><%= @lotto_winnings.humanize %></td>
+        </tr>
+        <tr>
+          <td>Other (€)</td>
+          <td>€ <%= @others %></td>
+          <td><%= @others.humanize %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <div class="col-sm-6">
+    <div class="jumbotron">
+      <h2 style="font-size: 15px;background-color: navy;color: white"><strong> Expenses Breakdown</strong></h2>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Category</th>
+          <th>Amount(€)</th>
+          <th>Literal</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td>Rent</td>
+          <td>€  <%= @rent %> </td>
+          <td><%= @rent.humanize %></td>
+        </tr>
+        <tr>
+          <td>Telecom</td>
+          <td>€ <%= @telecom %> </td>
+          <td><%= @telecom.humanize %></td>
+        </tr>
+        <tr>
+          <td>eFlow</td>
+          <td>€ <%=@eflow%></td>
+          <td><%= @eflow.humanize %></td>
+        </tr>
+        <tr>
+          <td>Food</td>
+          <td>€ <%= @food %></td>
+          <td><%= @food.humanize %></td>
+        </tr>
+        <tr>
+          <td>Electricity</td>
+          <td>€ <%= @electricity %></td>
+          <td><%= @electricity.humanize %></td>
+        </tr>
+        <tr>
+          <td>Credit Card Fees</td>
+          <td>€ <%= @credit_card_fees %></td>
+          <td><%= @credit_card_fees.humanize %></td>
+        </tr>
+        <tr>
+          <td>Current Account Fees</td>
+          <td>€ <%= @current_account_fees %></td>
+          <td><%= @current_account_fees.humanize %></td>
+        </tr>
+        <tr>
+          <td>Allowance - Gaelle</td>
+          <td>€ <%= @allowance_gaelle %></td>
+          <td><%= @allowance_gaelle.humanize %></td>
+        </tr>
+
+        <tr>
+          <td>Allowance - Herve</td>
+          <td>€ <%= @allowance_herve %></td>
+          <td><%= @allowance_herve_account_fees.humanize %></td>
+        </tr>
+        <tr>
+          <td>Loan  - PTSB</td>
+          <td>€ <%= @loan_ptsb %></td>
+          <td><%= @loan_ptsb.humanize %></td>
+        </tr>
+        <tr>
+          <td>Loan - Chill Money</td>
+          <td>€ <%= @loan_chill_money %></td>
+          <td><%= @loan_chill_money.humanize %></td>
+        </tr>
+        <tr>
+          <td>Lodgement - Credit Union</td>
+          <td>€ <%= @lodgement_credit_union %></td>
+          <td><%= @lodgement_credit_union.humanize %></td>
+        </tr>
+        <tr>
+          <td>Family Support</td>
+          <td>€ <%= @family_support %></td>
+          <td><%= @family_support.humanize %></td>
+        </tr>
+        <tr>
+          <td>Entertainment - Night Out:</td>
+          <td>€ <%= @entertainment_nightout %></td>
+          <td><%= @entertainment_nightout.humanize %></td>
+        </tr>
+        <tr>
+          <td>Entertainment - Day Out</td>
+          <td>€ <%= @entertainment_dayout %></td>
+          <td><%= @entertainment_dayout.humanize %></td>
+        </tr>
+        <tr>
+          <td>Apple storage</td>
+          <td>€ <%= @apple_storage %></td>
+          <td><%= @apple_storage.humanize %></td>
+        </tr>
+        <tr>
+          <td>AA Ireland</td>
+          <td>€ <%= @aa_ireland %></td>
+          <td><%= @aa_ireland.humanize %></td>
+        </tr>
+        <tr>
+          <td>Lottery Ticket</td>
+          <td>€ <%= @lottery_ticket %></td>
+          <td><%= @lottery_ticket.humanize %></td>
+        </tr>
+        <tr>
+          <td>Car Tax</td>
+          <td>€ <%= @car_tax %></td>
+          <td><%= @car_tax.humanize %></td>
+        </tr>
+        <tr>
+          <td>Heating Oil</td>
+          <td>€ <%= @heating_oil %></td>
+          <td><%= @heating_oil.humanize %></td>
+        </tr>
+        <tr>
+          <td>Car Service</td>
+          <td>€ <%= @car_service %></td>
+          <td><%= @car_service.humanize %></td>
+        </tr>
+        <tr>
+          <td>Spiritual Tools</td>
+          <td>€ <%= @spiritual_tools %></td>
+          <td><%= @spiritual_tools.humanize %></td>
+        </tr>
+        <tr>
+          <td>Other</td>
+          <td>€ <%= @other_expenses %></td>
+          <td><%= @other_expenses.humanize %></td>
+        </tr>
+        <tr>
+          <td>Work Lunch:</td>
+          <td>€ <%= @work_lunch %></td>
+          <td><%= @work_lunch.humanize %></td>
+        </tr>
+        <tr>
+          <td>Pharmacy</td>
+          <td>€ <%= @pharmacy %></td>
+          <td><%= @pharmacy.humanize %></td>
+        </tr>
+        <tr>
+          <td>Furniture</td>
+          <td>€ <%= @furniture %></td>
+          <td><%= @furniture.humanize %></td>
+        </tr>
+        <tr>
+          <td class="alert-info">Total Expenses </td>
+          <td class="alert-info" >€ <%= @totaloutflow%></td>
+          <td class="alert-info"><%= @totaloutflow.humanize %></td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="links">
+  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
+  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
+
+</div>
+<hr>
+
+<div>
+  <h2 style="font-size: 15px;background-color: navy;color: white"><strong> Comments</strong></h2>
+
   <div>
-    <strong>Year:</strong><br><br>
-    <textarea rows="1" cols="80" readonly><%= @cashflow.year %></textarea>
+
+    <% for comment in @cashflow.comments %>
+
+      <div class="jumbotron">
+
+        <div>
+          <strong>Comments:</strong><br><br>
+          <textarea rows="4" cols="80" readonly> <%=h comment.commentary %> </textarea>
+        </div>
+        <br>
+        <div>
+          Registered on:
+          <%=h comment.created_at.strftime("%d %b. %Y") %>
+        </div>
+        <div>
+          ID:
+          <%=h comment.id %>
+        </div>
+
+      </div>
+    <% end %>
+
   </div>
-  <br>
-  <div>
-    <strong>Accounting date:</strong><br><br>
-    <textarea rows="1" cols="80" readonly> <%= @cashflow.accounting_date.strftime("%d, %b  %Y") %></textarea>
-  </div>
-  <br>
-  <div>
-    <strong>Name:</strong><br><br>
-    <textarea rows="1" cols="80" readonly><%= @cashflow.name %></textarea>
-  </div>
-  <br><br>
 
 </div>
 
-<div class="jumbotron">
+
+
+<br>
+
+<div class="links">
+  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
+  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
+
+</div>
+<hr>
+
+<div class="breadcrumb">
   <div>
     Created on:
     <%=h @cashflow.created_at.strftime("%d %b. %Y") %>
@@ -45,337 +445,3 @@
   </div>
   <br>
 </div>
-<div class="links">
-  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
-  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
-
-</div>
-
-<div class="jumbotron">
-<hr>
-  <stong> Total Income (€): </stong><br><br>
-
-  <p>€ <%= @totalinflow %> </p>
-  <div class="alert-info"><%= @totalinflow.humanize %></div><br>
-
-
-  <stong> Total Expenses (€): </stong><br><br>
-
-  <p> € <%= @totaloutflow %></p>
-  <div class="alert-info"><%= @totaloutflow.humanize %></div><br>
-  <hr>
-  <stong> Cash Injection (€): </stong><br><br>
-
-  <p>€ <%=@cash_injection%></p>
-  <div class="alert-info"><%= @cash_injection.humanize %></div><br>
-<hr>
-  <stong> Balance (€): </stong><br><br>
-    <% if @balance < @i  %>
-      <strong><p style="color: #B00100"> € <%= @balance %></p></strong>
-    <% else %>
-      <strong><p style="color: green"> € <%= @balance %></p></strong>
-    <% end %>
-  <div class="alert-info"><%= @balance.humanize %></div><br>
-  <hr>
-  <stong> Balance Planned (€): </stong><br><br>
-    <p>€ <%= @budgets %></p>
-  <hr>
-  <stong> Monthly Savings Balance (€): </stong><br><br>
-    <p>€ <%= @savings %></p>
-  <div class="alert-info"><%= @savings.humanize %></div><br>
-  <hr>
-  <stong> Monthly Reconciliation (€): </stong><br><br>
-  <p>€ <%= @recons %></p>
-  <div class="alert-info"><%= @recons.humanize %></div><br>
-
-
-  <hr>  <hr>
-  <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Income Summary:</strong></h2></div>
-
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>Reg. Date</th>
-      <th>Date Posted</th>
-      <th>Details </th>
-      <th>Flow Type </th>
-      <th>Owner</th>
-      <th>Origination</th>
-      <th>Amount(€)</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @inflows.each do |income| %>
-      <tr>
-        <td><%= income.created_at.strftime("%d %b. %Y")%>
-        <td><%= income.date_posted.strftime("%d %b. %Y")%></td>
-        <td><%= income.details %></td>
-        <td><%= income.inflowtype.name %></td>
-        <td><%= income.person.fullname %></td>
-        <td><%= income.bankaccount.account_code %></td>
-        <td><%= income.amount %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-
-  <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Expenses Summary:</strong></h2></div>
-
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>Reg. Date</th>
-      <th>Date Posted</th>
-      <th>Details </th>
-      <th>Flow Type </th>
-      <th>Owner</th>
-      <th>Origination</th>
-      <th>Amount(€)</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @outflows.each do |expense| %>
-      <tr>
-        <td><%= expense.created_at.strftime("%d %b. %Y")%>
-        <td><%= expense.date_posted.strftime("%d %b. %Y")%></td>
-        <td><%= expense.details %></td>
-        <td><%= expense.outflowtype.name %></td>
-        <td><%= expense.person.fullname %></td>
-        <td><%= expense.bankaccount.account_code %></td>
-        <td><%= expense.amount %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
-
-<div class="links">
-  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
-  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
-
-</div>
-
-
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong> Inflows Breakdown</strong></h2></div>
-<br>
-<div>
-
-    <div class="jumbotron">
-      <div>
-        <strong>Salary:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>€  <%= @salary %></textarea>
-      </div>
-      <br>
-      <div>
-        <strong>Child Benefit:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>€  <%= @child_benefit %></textarea>
-      </div>
-      <br>
-
-      <div>
-        <strong>Lotto Winnings:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>€  <%= @lotto_winnings %></textarea>
-      </div>
-      <br>
-      <div>
-        <strong>Others:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>€  <%= @others %></textarea>
-      </div>
-      <br><br>
-      <div>
-        Total Income = € <%= @totalinflow %>
-      </div>
-    </div>
-
-
-
-</div>
-
-<div class="links">
-  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
-  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
-
-</div>
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong> Outflows Breakdown</strong></h2></div>
-<br>
-<div>
-
-  <div class="jumbotron">
-    <div>
-      <strong>Rent:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @rent  %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Telecom:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @telecom %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>eFlow:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @eflow %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Food:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @food %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Electricity:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @electricity %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Credit Card Fees:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @credit_card_fees %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Current Account Fees:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @current_account_fees %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Allowance - Gaelle:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @allowance_gaelle %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Allowance - Herve:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @allowance_herve %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Loan  - PTSB:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @loan_ptsb %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Loan - Chill Money:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @loan_chill_money %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Lodgement - Credit Union:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @lodgement_credit_union %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Family Support:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @family_support %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Entertainment - Night Out:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @entertainment_nightout %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Entertainment - Day Out:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @entertainment_dayout %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Apple storage:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @apple_storage %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>AA Ireland:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @aa_ireland %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Lottery Ticket:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @lottery_ticket %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Car Tax:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @car_tax %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Heating Oil:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @heating_oil %></textarea>
-    </div>
-    <br>
-
-    <div>
-      <strong>Car Service:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @car_service %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Spiritual Tools:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @spiritual_tools %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Other:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @other_expenses %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Work Lunch:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @work_lunch %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Pharmacy:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @pharmacy %></textarea>
-    </div>
-    <br>
-    <div>
-      <strong>Furniture:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>€  <%= @furniture%></textarea>
-    </div>
-
-    <br><br>
-    <div>
-      Total Expenses = € <%= @totaloutflow %>
-    </div>
-  </div>
-</div>
-<div class="links">
-  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
-  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
-
-</div>
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong> Comments</strong></h2></div>
-<br>
-<div>
-
-  <% for comment in @cashflow.comments %>
-
-    <div class="jumbotron">
-
-      <div>
-        <strong>Comments:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h comment.commentary %> </textarea>
-      </div>
-      <br>
-      <div>
-        Registered on:
-        <%=h comment.created_at.strftime("%d %b. %Y") %>
-      </div>
-      <div>
-        ID:
-        <%=h comment.id %>
-      </div>
-
-    </div>
-  <% end %>
-
-</div>
-
-
-<div class="links">
-  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
-  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
-
-</div>
-

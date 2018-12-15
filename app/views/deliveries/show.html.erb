@@ -2,21 +2,115 @@
 <p id="notice"><%= notice %></p>
 
 
-
+<div class="breadcrumb">
+<h3>Daily Postal Delivery</h3>
+</div>
 <div class="jumbotron">
-  <div>
-    <strong>Delivery Date:</strong><br><br>
-    <textarea rows="1" cols="80" readonly> <%= @delivery.delivery_date.strftime("%d, %b  %Y") %></textarea>
-  </div>
-  <br>
-  <div>
-    <strong>Receiver:</strong><br><br>
-    <textarea rows="1" cols="80" readonly> <%= @delivery.person.fullname%></textarea>
-  </div>
-  <br>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Delivery Date</th>
+      <th>Receiver</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= @delivery.delivery_date.strftime("%d, %b  %Y") %> </td>
+      <td><%= @delivery.person.fullname%> </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 
 
+<div class="links">
+  <%= link_to 'Edit', edit_delivery_path(@delivery), class:'fa fa-edit' %> |
+  <%= link_to 'Back', deliveries_path, class:'fa fa-arrow-left' %>
+</div>
+<hr>
+<div class="row">
+  <div class="col-sm-6">
+    <div>
+      <h2 style="font-size: 15px;background-color: navy;color: white"><strong>Posts</strong></h2>
+
+      <% for post in @delivery.posts %>
+
+        <div class="jumbotron">
+
+
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Type</td>
+              <td><%=h post.post_type %> </td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td><%=h post.description %> </td>
+            </tr>
+            <tr>
+              <td>Scanned</td>
+              <td><%=h post.scanned.humanize %></td>
+            </tr>
+            <tr>
+              <td>Registered on</td>
+              <td><%=h post.created_at.strftime("%d %b. %Y") %></td>
+            </tr>
+            <tr>
+              <td>Auto ID</td>
+              <td><%=h post.id %></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <div class="col-sm-6">
+    <div>
+      <h2 style="font-size: 15px;background-color: navy;color: white"><strong>Comments</strong></h2>
+      <% for comment in @delivery.comments %>
+
+        <div class="jumbotron">
+          <div>
+            <strong>Type:</strong><br><br>
+            <textarea rows="6" cols="80" readonly> <%=h comment.commentary %> </textarea>
+          </div>
+          <br>
+          <div>
+            Registered on:
+            <%=h comment.created_at.strftime("%d %b. %Y") %>
+          </div>
+          <div>
+            Auto ID:
+            <%=h comment.id %>
+          </div>
+
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="links">
+<%= link_to 'Edit', edit_delivery_path(@delivery), class:'fa fa-edit' %> |
+<%= link_to 'Back', deliveries_path, class:'fa fa-arrow-left' %>
+</div>
+<hr>
+<br>
 <div class="breadcrumb">
   <div>
     Created on:
@@ -33,92 +127,4 @@
     DN - <%=h @delivery_number %>
   </div>
   <br>
-</div>
-
-
-<div class="links">
-  <%= link_to 'Edit', edit_delivery_path(@delivery), class:'fa fa-edit' %> |
-  <%= link_to 'Back', deliveries_path, class:'fa fa-arrow-left' %>
-</div>
-
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Posts</strong></h2></div>
-<br>
-<div>
-
-  <% for post in @delivery.posts %>
-
-    <div class="jumbotron">
-
-      <div>
-        <strong>Type:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h post.post_type %> </textarea>
-      </div>
-      <br>
-      <div>
-        <strong>Description:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h post.description %> </textarea>
-      </div>
-      <br>
-
-      <div>
-        <strong> Scanned:</strong>:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h post.scanned.humanize %> </textarea>
-      </div>
-      <br>
-      <div>
-        Registered on:
-        <%=h post.created_at.strftime("%d %b. %Y") %>
-      </div>
-      <div>
-        ID:
-        <%=h post.id %>
-      </div>
-
-    </div>
-  <% end %>
-
-
-
-
-
-
-
-</div>
-
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Comments</strong></h2></div>
-<br>
-<div>
-
-  <% for comment in @delivery.comments %>
-
-    <div class="jumbotron">
-
-      <div>
-        <strong>Type:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h comment.commentary %> </textarea>
-      </div>
-      <br>
-      <div>
-        Registered on:
-        <%=h comment.created_at.strftime("%d %b. %Y") %>
-      </div>
-      <div>
-        ID:
-        <%=h comment.id %>
-      </div>
-
-    </div>
-  <% end %>
-
-
-
-
-
-
-
-</div>
-
-<div class="links">
-<%= link_to 'Edit', edit_delivery_path(@delivery), class:'fa fa-edit' %> |
-<%= link_to 'Back', deliveries_path, class:'fa fa-arrow-left' %>
 </div>

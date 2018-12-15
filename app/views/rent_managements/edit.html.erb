@@ -1,0 +1,10 @@
+<% provide(:title, "Edit") %>
+<h1>Editing Rent Management</h1>
+
+<%= render 'form', rent_management: @rent_management %>
+<br>
+
+<div class="breadcrumb">
+  <%= link_to 'View', @rent_management, class:'fa fa-eye' %> |
+  <%= link_to 'Back', rent_managements_path, class:'fa fa-arrow-left' %>
+</div>

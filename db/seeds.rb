@@ -8,17 +8,19 @@
 
 require 'csv'
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'rule.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'RentBook.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  t = Rule.new
-  t.category = row['Category']
-  t.title= row['Title']
-  t.definition= row['Definition']
-  t.user_id= row['user_id']
-  t.active= row['Active']
+  t = RentManagement.new
+  t.year = row['year']
+  t.month= row['month']
+  t.amount= row['amount']
+  t.date_collected= row['date_collected']
+  t.details= row['details']
+  t.collected_by= row['collected_by']
+  t.user_id= row['logged_by']
 
   t.save
-  puts "#{t.category},#{t.title} saved"
+  puts "#{t.year},#{t.date_collected} saved"
 end
-puts "There are now #{Rule.count} rows in the table"
+puts "There are now #{RentManagement.count} rows in the table"

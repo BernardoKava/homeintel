@@ -10,7 +10,7 @@ class LedgersController < ApplicationController
   # GET /ledgers/1
   # GET /ledgers/1.json
   def show
-    @zero = 0
+    @zero = 0.0
     @over_budget_message = "Alert: Exceeded Budgeted Expenditure. Please check budget and cashflow Dr and Cr. If necessary please reconcile."
     @under_budget_message = "Notice: Within Planned Expenditure"
     @year= @ledger.ledger_date.year
@@ -257,6 +257,6 @@ class LedgersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ledger_params
-      params.require(:ledger).permit(:month, :year, :ledger_date, :name, :user_id)
+      params.require(:ledger).permit(:month, :year, :ledger_date, :name, :user_id,:note)
     end
 end

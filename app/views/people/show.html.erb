@@ -1,344 +1,339 @@
 <% provide(:title, "Person") %>
 <p id="notice"><%= notice %></p>
 
+<div class="breadcrumb">
+  <h3>Person Profile</h3>
+</div>
+<hr>
 
-<div class="jumbotron">
-
-
-    <div>
-
-        <strong>Full Name:</strong><br><br>
-     <textarea rows="1" cols="80" readonly><%= @person.fullname %></textarea>
-
+  <div class="col-sm-4">
+    <div class="breadcrumb">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Created on</th>
+          <th>Updated on</th>
+          <th>Person Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><%=h @person.created_at.strftime("%d %b. %Y") %></td>
+          <td><%=h @person.updated_at.strftime("%d %b. %Y") %></td>
+          <td><%=h @person_number %></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
-
-  <br>
-    <div>
-
-      <strong>DoB:</strong><br><br>
-      <textarea rows="1" cols="80" readonly><%= @person.dob.strftime("%d %b. %Y") %></textarea>
-
-    </div>
-  <br>
-  <div>
-
-    <strong>PPSN:</strong><br><br>
-    <textarea rows="1" cols="80" readonly><%= @person.pps_number%></textarea>
-
   </div>
-
-  <br>
-  <div>
-
-    <strong>Active:</strong><br><br>
-    <textarea rows="1" cols="80" readonly><%= @person.active.humanize%></textarea>
-
+  <div class="col-sm-4">
+    <div class="jumbotron">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Full Name:</td>
+          <td><%= @person.fullname %> </td>
+        </tr>
+        <tr>
+          <td>DoB</td>
+          <td><%= @person.dob.strftime("%d %b. %Y") %></td>
+        </tr>
+        <tr>
+          <td>PPSN</td>
+          <td><%= @person.pps_number%></td>
+        </tr>
+        <tr>
+          <td>Active</td>
+          <td><%= @person.active.humanize%></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
-<div class="jumbotron">
-  <div>
-    Created on:
-    <%=h @person.created_at.strftime("%d %b. %Y") %>
-  </div>
-  <br>
-  <div>
-    Updated on:
-    <%=h @person.updated_at.strftime("%d %b. %Y") %>
-  </div>
-  <br>
-  <div>
-    Person Number:
-    PN - <%=h @person_number %>
-  </div>
-  <br>
-</div>
-
-
-
-<div class="links">
+<div class="breadcrumb">
   <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
   <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
-
 </div>
+<hr>
 
+<div class="row">
+  <div class="col-sm-4">
+    <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Emails</strong></h2></div>
+    <br>
 
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Emails</strong></h2></div>
-<br>
-<div>
+    <div>
+      <% for email in @person.emails %>
+        <div class="jumbotron">
 
-  <% for email in @person.emails %>
-
-    <div class="jumbotron">
-
-      <div>
-        <strong>Email:</strong><br><br>
-        <textarea rows="1" cols="80" readonly><%=h email.email %></textarea>
-      </div>
-      <br>
-
-      <div>
-        <strong>Active:</strong><br><br>
-        <textarea rows="1" cols="80" readonly><%=h email.active.humanize  %></textarea>
-      </div>
-      <br>
-      <br>
-      <div>
-        Registered on:
-        <%=h email.created_at.strftime("%d %b. %Y") %>
-      </div>
-    </div>
-
-  <% end %>
-
-</div>
-
-<div class="links">
-  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
-  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
-
-</div>
-
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 2: Telephones</strong></h2></div>
-<br>
-
-<div>
-
-  <% for telephone in @person.telephones %>
-
-    <div class="jumbotron">
-
-        <div>
-          <strong>Telephone:</strong><br><br>
-          <textarea rows="1" cols="80" readonly><%=h telephone.phone %></textarea>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Email</td>
+              <td><%=h email.email %> </td>
+            </tr>
+            <tr>
+              <td>Active</td>
+              <td><%=h email.active.humanize  %></td>
+            </tr>
+            <tr>
+              <td>Registered on:</td>
+              <td><%=h email.created_at.strftime("%d %b. %Y") %></td>
+            </tr>
+            </tbody>
+          </table>
         </div>
-      <br>
-      <div>
-        <strong>Active:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h telephone.active.humanize %></textarea>
-      </div>
-      <br>
-      <br>
-      <div>
-        Registered on:
-        <%=h telephone.created_at.strftime("%d %b. %Y") %>
-      </div>
+      <% end %>
     </div>
 
+  </div>
+  <div class="col-sm-4">
+    <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 2: Telephones</strong></h2></div>
+    <br>
 
-  <% end %>
+    <div>
 
-</div>
+      <% for telephone in @person.telephones %>
 
-<div class="links">
-  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
-  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
+        <div class="jumbotron">
 
-</div>
-
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 3: Postal Address</strong></h2></div>
-<br>
-
-<div>
-
-  <% for address in @person.addresses %>
-
-    <div class="jumbotron">
-
-      <div>
-        <strong>Address:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h address.address %></textarea>
-      </div>
-      <br>
-      <div>
-        <strong>Active:</strong><br><br>
-
-        <textarea rows="1" cols="80" readonly>   <%=h address.active.humanize %></textarea>
-      </div>
-      <br>
-      <br>
-      <div>
-        Registered on:
-        <%=h address.created_at.strftime("%d %b. %Y") %>
-      </div>
-
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Telephone</td>
+              <td><%=h telephone.phone %> </td>
+            </tr>
+            <tr>
+              <td>Active</td>
+              <td><%=h telephone.active.humanize %></td>
+            </tr>
+            <tr>
+              <td>Registered on</td>
+              <td> <%=h telephone.created_at.strftime("%d %b. %Y") %></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
     </div>
+  </div>
+  <div class="col-sm-4">
+    <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 3: Postal Address</strong></h2></div>
+    <br>
+    <div>
 
+      <% for address in @person.addresses %>
 
-  <% end %>
-
-</div>
-<div class="links">
-  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
-  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
-
-</div>
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 4: Education</strong></h2></div>
-<br>
-
-<div>
-
-  <% for qualification in @person.qualifications %>
-
-    <div class="jumbotron">
-
-      <div>
-        <strong>Name:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h qualification.name %></textarea>
-      </div>
-      <br>
-      <div>
-        <strong>School:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h qualification.school %></textarea>
-      </div>
-      <br>
-      <div>
-        <strong>From:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>    <%=h qualification.from %></textarea>
-      </div>
-      <br>
-      <div>
-        <strong>To:</strong></p><br><br>
-        <textarea rows="1" cols="80" readonly>        <%=h qualification.to %></textarea>
-      </div>
-      <br>
-
-      <div>
-        <strong>Grade:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h qualification.grade %> </textarea>
-      </div>
-      <br>
-      <div>
-        <strong>Active:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>   <%=h qualification.active.humanize %> </textarea>
-      </div>
-      <br>
-      <br>
-      <div>
-        Registered on:
-        <%=h qualification.created_at.strftime("%d %b. %Y") %>
-      </div>
-
+        <div class="jumbotron">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Address</td>
+              <td><%=h address.address %></td>
+            </tr>
+            <tr>
+              <td>Active</td>
+              <td><%=h address.active.humanize %></td>
+            </tr>
+            <tr>
+              <td>Registered on</td>
+              <td> <%=h address.created_at.strftime("%d %b. %Y") %></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
+  </div>
 </div>
-<div class="links">
+
+
+<div class="breadcrumb">
   <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
   <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
-
 </div>
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 5: Employment</strong></h2></div>
-<br>
+<hr>
 
-<div>
 
-  <% for job in @person.employments %>
+<div class="row">
+  <div class="col-sm-4">
+    <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 4: Education</strong></h2></div>
+    <br>
+    <div>
 
-    <div class="jumbotron">
+      <% for qualification in @person.qualifications %>
 
-      <div>
-        <strong>Company:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h job.company %> </textarea>
-      </div>
-      <br>
-      <div>
-        <strong>Position:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>    <%=h job.position %> </textarea>
-      </div>
-      <br>
-      <div>
-        <strong>From:</strong><br><br>
-        <textarea rows="1" cols="80" readonly><%=h job.from %> </textarea>
-      </div>
-      <br>
-      <div>
-        <strong>To:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h job.to %> </textarea>
-      </div>
-      <br>
+        <div class="jumbotron">
 
-      <div>
-        <strong>Termination Reason:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h job.terminationreason %></textarea>
-      </div>
-      <br>
-      <div>
-        <strong>Active:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>    <%=h job.actve.humanize %> </textarea>
-      </div>
-      <br>
-      <br>
-      <div>
-        Registered on:
-        <%=h job.created_at.strftime("%d %b. %Y") %>
-      </div>
-
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Qualification Name</td>
+              <td><%=h qualification.name %> </td>
+            </tr>
+            <tr>
+              <td>School</td>
+              <td><%=h qualification.school %></td>
+            </tr>
+            <tr>
+              <td>From </td>
+              <td> <%=h qualification.from %></td>
+            </tr>
+            <tr>
+              <td>To </td>
+              <td> <%=h qualification.to %></td>
+            </tr>
+            <tr>
+              <td>Grade </td>
+              <td> <%=h qualification.grade %></td>
+            </tr>
+            <tr>
+              <td>Active </td>
+              <td> <%=h qualification.active.humanize %></td>
+            </tr>
+            <tr>
+              <td>Registered on </td>
+              <td> <%=h qualification.created_at.strftime("%d %b. %Y") %></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+  <div class="col-sm-4">
+    <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 5: Employment</strong></h2></div>
+    <br>
+    <div>
 
-</div>
-<div class="links">
-  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
-  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
+      <% for job in @person.employments %>
 
-</div>
-
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 6: References</strong></h2></div>
-<br>
-
-<div>
-
-  <% for reference in @person.employmentreferences %>
-
-    <div class="jumbotron">
-
-      <div>
-        <strong>Company:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h reference.employment.company %> </textarea>
-      </div>
-      <br>
-      <div>
-        <strong>Referee:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>  <%=h reference.referee_name %> </textarea>
-      </div>
-      <br>
-      <div>
-        <strong>Telephone:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h reference.referee_telephone %></textarea>
-      </div>
-      <br>
-      <div>
-        <strong> Email:</strong>:</strong><br><br>
-        <textarea rows="1" cols="80" readonly> <%=h reference.referee_email %> </textarea>
-      </div>
-      <br>
-
-      <div>
-        <strong>Details:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>   <%=h reference.referee_details %> </textarea>
-      </div>
-      <br>
-      <div>
-        <strong>Active:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>   <%=h reference.referee_active.humanize %> </textarea>
-      </div>
-      <br>
-      <br>
-      <div>
-        Registered on:
-        <%=h reference.created_at.strftime("%d %b. %Y") %>
-      </div>
+        <div class="jumbotron">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Company</td>
+              <td><%=h job.company %>  </td>
+            </tr>
+            <tr>
+              <td>Position</td>
+              <td><%=h job.position %> </td>
+            </tr>
+            <tr>
+              <td>From </td>
+              <td> <%=h job.from %> </td>
+            </tr>
+            <tr>
+              <td>To </td>
+              <td>  <%=h job.to %> </td>
+            </tr>
+            <tr>
+              <td>Termination Reason </td>
+              <td> <%=h job.terminationreason %></td>
+            </tr>
+            <tr>
+              <td>Active </td>
+              <td>  <%=h job.actve.humanize %></td>
+            </tr>
+            <tr>
+              <td>Registered on </td>
+              <td> <%=h job.created_at.strftime("%d %b. %Y") %></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+  <div class="col-sm-4">
+    <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 6: References</strong></h2></div>
+    <br>
+    <div>
+      <% for reference in @person.employmentreferences %>
 
+        <div class="jumbotron">
+
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Company</td>
+              <td><%=h reference.employment.company %> </td>
+            </tr>
+            <tr>
+              <td>Referee</td>
+              <td><%=h reference.referee_name %> </td>
+            </tr>
+            <tr>
+              <td>Telephone </td>
+              <td> <%=h reference.referee_telephone %></td>
+            </tr>
+            <tr>
+              <td>Details </td>
+              <td>  <%=h reference.referee_details %></td>
+            </tr>
+
+            <td>Active </td>
+            <td> <%=h reference.referee_active.humanize %></td>
+            </tr>
+            <tr>
+              <td>Registered on </td>
+              <td> <%=h reference.created_at.strftime("%d %b. %Y") %></td>
+            </tr>
+            </tbody>
+          </table>
+      <% end %>
+      </div>
+  </div>
+  </div>
 </div>
-
-<div class="links">
-  <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
-  <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
-
+<div class="breadcrumb">
+      <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
+      <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
 </div>
+<hr>
 
 <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 7: General Comments</strong></h2></div>
 <br>
@@ -351,7 +346,7 @@
 
       <div>
         <strong>Comment:</strong><br><br>
-        <textarea rows="1" cols="80" readonly>      <%=h comment.commentary %></textarea>
+        <textarea rows="4" cols="80" readonly>      <%=h comment.commentary %></textarea>
       </div>
       <br>
       <br>
@@ -361,12 +356,11 @@
       </div>
     </div>
   <% end %>
-
 </div>
-
-<div class="links">
+<div class="breadcrumb">
   <%= link_to 'Edit', edit_person_path(@person), class:'fa fa-edit' %> |
   <%= link_to 'Back', people_path, class:'fa fa-arrow-left' %>
-
 </div>
+
+
 

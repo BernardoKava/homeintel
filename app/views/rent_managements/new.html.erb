@@ -1,0 +1,10 @@
+<% provide(:title, "New") %>
+<h1>New Rent Management</h1>
+
+<%= render 'form', rent_management: @rent_management %>
+
+<br>
+<div class="breadcrumb">
+  <%= link_to 'Back', rent_managements_path , class:'fa fa-arrow-left'%>
+</div>
+

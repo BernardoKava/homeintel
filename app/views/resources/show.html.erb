@@ -1,28 +1,34 @@
 <% provide(:title, "Resource") %>
 <p id="notice"><%= notice %></p>
   <div class="jumbotron">
-    <div>
-      <strong>Name:</strong><br><br>
-      <%= link_to @resource.name,@resource.link %><br><br>
-    </div>
 
-    <div>
-      <strong>Description:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>  <%= @resource.description %></textarea><br><br>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Name:</td>
+        <td><%= link_to @resource.name,@resource.link %></td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td><%= @resource.description %></td>
+      </tr>
+      <tr>
+        <td>Logged by:</td>
+        <td><%= @resource.user.fullname %></td>
+      </tr>
+      <tr>
+        <td>Link:</td>
+        <td><%= @resource.link %><</td>
+      </tr>
+      </tbody>
+    </table>
 
-    </div>
-
-    <div>
-      <strong>Logged by:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>  <%= @resource.user.fullname %></textarea><br><br>
-
-    </div>
-
-    <div>
-      <strong>Link:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>    <%= @resource.link %></textarea><br><br>
-
-    </div>
   </div>
 
 

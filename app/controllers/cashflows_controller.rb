@@ -25,6 +25,7 @@ class CashflowsController < ApplicationController
     @totalinflow = Inflow.where(cashflow_id: @ref).sum(:amount)
     @totaloutflow = Outflow.where(cashflow_id: @ref).sum(:amount)
 
+
     # inflow outflow tabels
     @inflows = Inflow.where(cashflow_id: @ref).order("date_posted DESC")
     @outflows = Outflow.where(cashflow_id: @ref).order("date_posted DESC")
@@ -32,6 +33,10 @@ class CashflowsController < ApplicationController
     # reconciliation calc
 
     @recons = CashflowRecon.where(cashflow_id: @ref).sum(:correction_amount)
+
+    # rent management
+    @month_rent = RentManagement.where(year: @year, month: @month).sum(:amount)
+
 
 
 
@@ -62,7 +67,7 @@ class CashflowsController < ApplicationController
 
     # Totals expense breakdownAmounts
 
-    @rent = @outflows.where(outflowtype_id: 1).sum(:amount)
+    @rent = @month_rent
     @telecom = @outflows.where(outflowtype_id: 2).sum(:amount)
     @eflow = @outflows.where(outflowtype_id: 3).sum(:amount)
     @food = @outflows.where(outflowtype_id: 4).sum(:amount)

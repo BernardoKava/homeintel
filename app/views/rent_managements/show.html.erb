@@ -1,0 +1,53 @@
+<% provide(:title, "View") %>
+<p id="notice"><%= notice %></p>
+
+<div class="jumbotron">
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Year:</td>
+      <td><%= @rent_management.year %></td>
+    </tr>
+    <tr>
+      <td>Month:</td>
+      <td><%= @rent_management.month %></td>
+    </tr>
+    <tr>
+      <td>Amount:</td>
+      <td><%= @rent_management.amount %></td>
+    </tr>
+    <tr>
+      <td>Date collected:</td>
+      <td><%= @rent_management.date_collected %></td>
+    </tr>
+    <tr>
+      <td>Collected by:</td>
+      <td><%= @rent_management.collected_by %></td>
+    </tr>
+    <tr>
+      <td>Details:</td>
+      <td><%= @rent_management.details %></td>
+    </tr>
+    <tr>
+      <td>Logged by:</td>
+      <td><%= @rent_management.user.fullname %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div class="breadcrumb">
+  <%= link_to 'Edit', edit_rent_management_path(@rent_management), class:'fa fa-edit'%> |
+  <%= link_to 'Back', rent_managements_path, class:'fa fa-arrow-left' %>
+</div>
+

@@ -153,12 +153,28 @@ div {
 }
 
 #dashboard{
-  margin-left: 400px;
-  font-size: 40px;
+
+  font-size: 30px;
 }
 
 .dashboard_links{
   font-size: 20px;
   padding-bottom: 2px;
 
+}
+
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 100%;
+}
+
+
+.border {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  margin: 6px;
 }

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: MyString
+  month: MyString
+  amount: 
+  date_collected: 2018-12-12
+  details: MyText
+  collected_by: MyString
+  user_id: 1
+
+two:
+  year: MyString
+  month: MyString
+  amount: 
+  date_collected: 2018-12-12
+  details: MyText
+  collected_by: MyString
+  user_id: 1

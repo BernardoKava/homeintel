@@ -1,0 +1,46 @@
+<% provide(:title, "Rents") %>
+<p id="notice"><%= notice %></p>
+
+<h1>Rent Management</h1>
+
+<div class="jumbotron">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Amount</th>
+      <th>Date collected</th>
+      <th>Details</th>
+      <th>Collected by</th>
+      <th>Logged by</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @rent_managements.each do |rent_management| %>
+      <tr>
+        <td><%= link_to rent_management.year,rent_management %></td>
+        <td><%= rent_management.month %></td>
+        <td><%= rent_management.amount %></td>
+        <td><%= rent_management.date_collected %></td>
+        <td><%= rent_management.details %></td>
+        <td><%= rent_management.collected_by %></td>
+        <td><%= rent_management.user.fullname %></td>
+        <td><%= link_to 'View', rent_management, class:'fa fa-eye' %></td>
+        <td><%= link_to 'Edit', edit_rent_management_path(rent_management) , class:'fa fa-edit'%></td>
+        <td><%= link_to 'Delete', rent_management, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-remove' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+
+<br>
+<div class="breadcrumb">
+  <%= link_to 'New Rent', new_rent_management_path, class:'fa fa-plus' %>
+</div>
+

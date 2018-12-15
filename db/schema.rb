@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_235709) do
+ActiveRecord::Schema.define(version: 2018_12_14_100413) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -383,6 +383,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_235709) do
     t.decimal "act_outflow_work_lunch"
     t.decimal "act_outflow_pharmacy"
     t.decimal "act_outflow_furniture"
+    t.text "note"
   end
 
   create_table "legacy_ulsterbanks", force: :cascade do |t|
@@ -495,6 +496,18 @@ ActiveRecord::Schema.define(version: 2018_12_11_235709) do
     t.boolean "active"
     t.integer "person_id"
     t.integer "user_id"
+  end
+
+  create_table "rent_managements", force: :cascade do |t|
+    t.string "year"
+    t.string "month"
+    t.decimal "amount"
+    t.date "date_collected"
+    t.text "details"
+    t.string "collected_by"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "resources", force: :cascade do |t|

@@ -1,189 +1,171 @@
 <% provide(:title, "View Inventory") %>
 <p id="notice"><%= notice %></p>
 
-<div class="jumbotron">
-
-    <div>
-        <strong>Department:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>   <%= @inventory.department.name %></textarea>
-
-
-    </div>
-  <br>
-    <div>
-
-
-        <strong>Period from:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>      <%= @inventory.period_from %></textarea>
-
-
-    </div>
-
-  <br>
-
-    <div>
-
-        <strong>Period to:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>   <%= @inventory.period_to %></textarea>
-
-
-    </div>
-  <br>
-  <div>
-
-    <strong> Location Inventoried:</strong><br><br>
-    <textarea rows="1" cols="80" readonly>   <%= @inventory.location %></textarea>
-
-
-  </div>
-  <br>
-
+<div class="breadcrumb">
+  <h3>Inventory</h3>
 </div>
 
-<div class="links">
 
-  <%= link_to 'Edit', edit_inventory_path(@inventory), class: 'fa fa-edit' %> |
-  <%= link_to 'Back', inventories_path , class: 'fa fa-arrow-left'%>
-
-</div>
-<div class="jumbotron">
-
-  <div><h2 style="font-size: 15px;background-color: forestgreen;color: white"><strong> Iventory Summary</strong></h2></div>
-  <br>
-
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>Item</th>
-      <th>Quantity</th>
-      <th>Value (€)</th>
-      <th>Date Registered</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.item %></td>
-        <td><%= item.quantity %></td>
-        <td><%= item.value %></td>
-        <td><%= item.created_at.strftime("%d %b. %Y") %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-
-</div>
 
 <div class="jumbotron">
-    <div>
-      Created on: <%= @inventory.created_at.strftime("%d %b. %Y") %>
+  <div class="row">
+    <div class="col-sm-4">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Department</td>
+          <td><%= @inventory.department.name %></td>
+        </tr>
+        <tr>
+          <td>Period from</td>
+          <td> <%= @inventory.period_from %></td>
+        </tr>
+        <tr>
+          <td>Period to</td>
+          <td> <%= @inventory.period_to %></td>
+        </tr>
+        <tr>
+          <td>Location Inventoried</td>
+          <td><%= @inventory.location %></td>
+        </tr>
+        <tr>
+          <td>Active</td>
+          <td><%= @inventory.active.humanize %></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
-<br>
-    <div>
-      Updated on: <%= @inventory.updated_at.strftime("%d %b. %Y") %>
+    <div class="col-sm-4">
+      <div class="jumbotron">
+        <div>
+          Created on: <%= @inventory.created_at.strftime("%d %b. %Y") %>
+        </div>
+        <br>
+        <div>
+          Updated on: <%= @inventory.updated_at.strftime("%d %b. %Y") %>
+        </div>
+        <br>
+        <div>
+          Inventory Number: HI-<%= @inventory_number %>
+        </div>
+        <br>
+        <div>
+          Active: <%= @inventory.active.humanize%>
+        </div>
+      </div>
     </div>
-  <br>
-  <div>
-    Inventory Number: HI-<%= @inventory_number %>
+    <div class="col-sm-4">
+      <div>
+
+        <div><h2 style="font-size: 15px;background-color: forestgreen;color: white"><strong> Iventory Summary</strong></h2></div>
+        <br>
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Value (€)</th>
+            <th>Date Registered</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= item.item %></td>
+              <td><%= item.quantity %></td>
+              <td><%= item.value %></td>
+              <td><%= item.created_at.strftime("%d %b. %Y") %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-  <br>
-  <div>
-    Active: <%= @inventory.active.humanize%>
-  </div>
-
-
-
 </div>
-<div class="links">
+<div class="breadcrumb">
 
   <%= link_to 'Edit', edit_inventory_path(@inventory), class: 'fa fa-edit' %> |
   <%= link_to 'Back', inventories_path , class: 'fa fa-arrow-left'%>
 
 </div>
 
-<div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Items Details</strong></h2></div>
-<br>
 
+<div class="row">
+  <div class="col-sm-6">
+    <div>
 
-<hr>
+      <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 1: Items Details</strong></h2></div>
+      <br>
+      <% for item in @inventory.items %>
 
-<div>
-  <% for item in @inventory.items %>
+        <div class="jumbotron">
 
-<div class="jumbotron">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Item</td>
+              <td><%=h item.item %></td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td> <%= item.description %></td>
+            </tr>
+            <tr>
+              <td>Quantity</td>
+              <td> <%= item.quantity %></td>
+            </tr>
+            <tr>
+              <td>Value</td>
+              <td><%= item.value %></td>
+            </tr>
+            <tr>
+              <td>Registered on</td>
+              <td><%=h item.created_at.strftime("%d %b. %Y") %></td>
+            </tr>
+            </tbody>
+          </table>
 
-  <div>
-
-    <strong>Item:</strong><br><br>
-      <textarea rows="1" cols="80" readonly>    <%=h item.item %></textarea>
+        </div>
+      <% end %>
+    </div>
   </div>
+  <div class="col-sm-6">
+    <div>
+      <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 2: Comments</strong></h2></div>
+      <br>
+      <% for comment in @inventory.comments %>
+        <div class="jumbotron">
 
-  <div>
+          <strong>Comment:</strong><br><br>
+          <textarea rows="4" cols="80" readonly>  <%= comment.commentary %></textarea>
 
-    <strong>Description:</strong><br><br>
-    <textarea rows="1" cols="80" readonly>       <%= item.description %></textarea>
+          <br>
+          <div>
+            Registered on:
+            <%=h comment.created_at.strftime("%d %b. %Y") %>
+          </div>
+        </div>
 
-  </div>
-
-
-
-
-  <div>
-
-    <strong>Quantity:</strong><br><br>
-    <textarea rows="1" cols="80" readonly>    <%= item.quantity %></textarea>
-
-  </div>
-
-
-  <div>
-
-    <strong>Value:</strong><br><br>
-    <textarea rows="1" cols="80" readonly>   <%= item.value %>
-    </textarea>
-
-  </div>
-
-
-<br>
-  <div>
-    Registered on:
-    <%=h item.created_at.strftime("%d %b. %Y") %>
-  </div>
-
-
-</div>
-
-
-
-
- <% end %>
-</div>
-<hr/>
-<div>
-
-
-  <div><h2 style="font-size: 15px;background-color: navy;color: white"><strong>Section 2: Comments</strong></h2></div>
-  <br>
-  <% for comment in @inventory.comments %>
-<div class="jumbotron">
-
-  <strong>Comment:</strong><br><br>
-  <textarea rows="1" cols="80" readonly>  <%= comment.commentary %></textarea>
-
-  <br>
-  <div>
-    Registered on:
-    <%=h comment.created_at.strftime("%d %b. %Y") %>
+      <% end %>
+    </div>
   </div>
 </div>
 
-  <% end %>
-</div>
-<br>
-<hr/>
-<div class="links">
+<div class="breadcrumb">
 
   <%= link_to 'Edit', edit_inventory_path(@inventory), class: 'fa fa-edit' %> |
   <%= link_to 'Back', inventories_path , class: 'fa fa-arrow-left'%>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rent_managements
   resources :service_providers
   resources :rules
   resources :resources

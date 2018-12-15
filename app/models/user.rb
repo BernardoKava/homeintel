@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :saving_recons
   has_many :cashflow_recons
   has_many :resources
+  has_many :rent_managements
   has_many :service_providers
   has_many :rules
 end

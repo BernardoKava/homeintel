@@ -13,14 +13,15 @@
 <body>
 <%= render 'layouts/header' %>
 
-<div class="container">
+<div class="container-fluid" style="background-color: #d1d9e0">
   <% if current_user %>
     <%= render 'user/gravatar'%>
   <% else %>
 
   <% end %>
   <%= yield %>
-  <%=image_tag("front.png", alt: "Brain image", :size => "1140x400") %>
+
+
   <%= render 'layouts/footer' %>
 </div>
 </body>
