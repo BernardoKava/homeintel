@@ -5,4 +5,6 @@ class Comment < ApplicationRecord
   belongs_to :saving, optional: true
   belongs_to :delivery,optional: true
   belongs_to :budget,optional: true
+  belongs_to :issue_management,optional: true
+  belongs_to :saving,optional: true
 end

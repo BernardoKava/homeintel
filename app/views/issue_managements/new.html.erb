@@ -1,0 +1,14 @@
+<% provide(:title, "New") %>
+
+<div class="breadcrumb">
+  <h3>New Issue </h3>
+</div>
+
+
+<%= render 'form', issue_management: @issue_management %>
+
+
+<div class="breadcrumb">
+  <%= link_to 'Back', issue_managements_path , class:'fa fa-arrow-left' %>
+</div>
+

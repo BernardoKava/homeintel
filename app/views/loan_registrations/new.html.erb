@@ -1,0 +1,13 @@
+<% provide(:title, "New") %>
+
+<div class="breadcrumb">
+  <h3>New Loan Registration</h3>
+</div>
+
+
+<%= render 'form', loan_registration: @loan_registration %>
+
+<div class="breadcrumb">
+  <%= link_to 'Back', loan_registrations_path, class:'fa fa-arrow-left' %>
+</div>
+

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  issue_management_id: 1
+  target_completion_date: 2018-12-16
+  actual_completion_date: 2018-12-16
+  description: MyString
+  person_id: 1
+  user_id: 
+
+two:
+  title: MyString
+  issue_management_id: 1
+  target_completion_date: 2018-12-16
+  actual_completion_date: 2018-12-16
+  description: MyString
+  person_id: 1
+  user_id: 

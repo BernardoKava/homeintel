@@ -43,19 +43,18 @@
       </div>
     </div>
     <div class="col-sm-6">
+        <div class="jumbotron">
+          <h2 style="font-size: 15px;background-color: navy;color: white"><strong> Cashflow Financial Summary</strong></h2>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Title</th>
+              <th>Amount(€)</th>
+              <th>Literal</th>
+            </tr>
+            </thead>
 
-      <div class="jumbotron">
-        <h2 style="font-size: 15px;background-color: navy;color: white"><strong> Cashflow Financial Summary</strong></h2>
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th>Title</th>
-            <th>Amount(€)</th>
-            <th>Literal</th>
-          </tr>
-          </thead>
-
-          <tbody>
+            <tbody>
             <tr>
               <td>Total Income (€)</td>
               <td>€ <%= @totalinflow %> </td>
@@ -95,13 +94,13 @@
               <td>€ <%= @recons %></td>
               <td><%= @recons.humanize %></td>
             </tr>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
   </div>
 </div>
-<div class="links">
+<div class="breadcrumb">
   <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
   <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
 
@@ -123,6 +122,7 @@
             <th>Owner</th>
             <th>Origination</th>
             <th>Amount(€)</th>
+            <th>Follow_up</th>
           </tr>
           </thead>
 
@@ -136,6 +136,7 @@
               <td><%= income.person.fullname %></td>
               <td><%= income.bankaccount.account_code %></td>
               <td><%= income.amount %></td>
+              <td><%= income.follow_up.humanize %></td>
             </tr>
           <% end %>
           </tbody>
@@ -156,6 +157,7 @@
             <th>Owner</th>
             <th>Origination</th>
             <th>Amount(€)</th>
+            <th>Follow_up</th>
           </tr>
           </thead>
 
@@ -169,6 +171,7 @@
               <td><%= expense.person.fullname %></td>
               <td><%= expense.bankaccount.account_code %></td>
               <td><%= expense.amount %></td>
+              <td><%= expense.follow_up.humanize %></td>
             </tr>
           <% end %>
           </tbody>
@@ -177,7 +180,7 @@
     </div>
   </div>
 </div>
-<div class="links">
+<div class="breadcrumb">
   <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
   <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
 </div>
@@ -380,7 +383,7 @@
 </div>
 
 
-<div class="links">
+<div class="breadcrumb">
   <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
   <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
 
@@ -421,7 +424,7 @@
 
 <br>
 
-<div class="links">
+<div class="breadcrumb">
   <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
   <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
 

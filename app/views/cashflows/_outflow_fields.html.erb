@@ -4,40 +4,58 @@
 <div class="nested-fields">
 
 
-  <div class="form-inputs">
 
-    <div class="control-group">
-      <%= f.label :outflowtype_id, "Type",class: 'control-label' %>
-      <div class ="controls">
-        <%= f.collection_select :outflowtype_id, Outflowtype.order(:name), :id, :name, include_blank: true %>
-      </div>
-    </div>
-    <br>
-    <div class="control-group">
-      <%= f.label :person_id,"Owner" %>
-      <div class ="controls">
-        <%= f.collection_select :person_id, Person.order(:fullname), :id, :fullname, include_blank: true %>
-      </div>
-    </div>
-    <br>
-    <div class="control-group">
-      <%= f.label :bankaccount_id,"Origination" %>
-      <div class ="controls">
-        <%= f.collection_select :bankaccount_id, Bankaccount.order(:account_code), :id, :account_code, include_blank: true %>
-      </div>
-    </div>
-    <br>
-    <br>
-    <%= f.input :year,:input_html => { :value => Date.today.year} %>
-    <%= f.input :month,:input_html => { :value => Date.today.month} %>
-    <%= f.input :date_posted %>
-    <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
 
-    <%= f.input :amount,placeholder:'Amount...' %>
-    <%= f.input :details,placeholder:'Details...' %>
-    <%= f.input :rationale ,placeholder:'Add Rationale...'%>
 
+
+  <div class="row">
+    <div class="col-sm-4">
+
+        <div class="control-group">
+          <%= f.label :outflowtype_id, "Type",class: 'control-label' %>
+          <div class ="controls">
+            <%= f.collection_select :outflowtype_id, Outflowtype.order(:name), :id, :name, include_blank: true %>
+          </div>
+        </div>
+        <br>
+        <div class="control-group">
+          <%= f.label :person_id,"Owner" %>
+          <div class ="controls">
+            <%= f.collection_select :person_id, Person.order(:fullname), :id, :fullname, include_blank: true %>
+          </div>
+        </div>
+        <br>
+        <div class="control-group">
+          <%= f.label :bankaccount_id,"Origination" %>
+          <div class ="controls">
+            <%= f.collection_select :bankaccount_id, Bankaccount.order(:account_code), :id, :account_code, include_blank: true %>
+          </div>
+        </div>
+        <br>
+        <br>
+
+    </div>
+    <div class="col-sm-8">
+
+      <div class="form-inputs">
+
+        <%= f.input :year,:input_html => { :value => Date.today.year} %>
+        <%= f.input :month,:input_html => { :value => Date.today.month} %>
+        <%= f.input :date_posted %>
+        <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
+
+        <%= f.input :amount,placeholder:'Amount...' %>
+        <%= f.input :details,placeholder:'Details...' %>
+        <%= f.input :rationale ,placeholder:'Add Rationale...'%>
+        <%= f.input :follow_up %>
+
+      </div>
+
+    </div>
   </div>
+
+
+
 
 
   <%= link_to_remove_association 'Remove', f ,class: 'fa fa-close', style:"font-size:15px;color:red"%>

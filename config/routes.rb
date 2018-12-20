@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :issue_managements
+  resources :loan_managements
+  resources :loan_registrations
   resources :rent_managements
   resources :service_providers
   resources :rules

@@ -9,6 +9,7 @@
     <%= f.input :position %>
     <%= f.input :from,:start_year =>2000, :end_year => 2030 %>
     <%= f.input :to,:start_year =>2000, :end_year => 2030 %>
+    <%= f.input :role %>
     <%= f.input :terminationreason, label: 'Termination Reason' %>
     <%= f.input :actve,label: 'Active' %>
     <%= f.input :user_id ,:as => :hidden, :input_html => { :value => current_user.id}%>

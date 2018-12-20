@@ -3,51 +3,74 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :accounting_date %>
-    <%= f.input :name ,placeholder:'Cashflow Name...'%>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-inputs">
+        <%= f.input :accounting_date %>
+      </div>
+
+    </div>
+    <div class="col-sm-6">
+      <div class="form-inputs">
+        <%= f.input :name ,placeholder:'Cashflow Name...'%>
+      </div>
+    </div>
+  </div>
+
+
     <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
-  </div>
+
 
 
   <hr/>
   <hr/>
 
-  <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Inflows</h2></strong>
+  <div class="row">
+    <div class="col-sm-6">
+      <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Inflows</h2></strong>
 
-  <div class="nested_fields">
-    <div class="form-actions">
-      <%= f.button :submit, "Save" %>
-    </div>
-    <%= link_to_add_association 'Add', f, :inflows, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
-    <%= f.simple_fields_for :inflows do |cash| %>
-      <div class="jumbotron">
-        <%= render 'inflow_fields', :f =>  cash %>
+      <div class="nested_fields">
+        <div class="form-actions">
+          <%= f.button :submit, "Save" %>
+        </div>
+        <%= link_to_add_association 'Add', f, :inflows, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        <%= f.simple_fields_for :inflows do |cash| %>
+          <div class="jumbotron">
+            <%= render 'inflow_fields', :f =>  cash %>
+          </div>
+        <% end %>
+        <div class="form-actions">
+          <%= f.button :submit, "Save" %>
+        </div>
       </div>
-    <% end %>
-    <div class="form-actions">
-      <%= f.button :submit, "Save" %>
-    </div>
-  </div>
-  <hr/>
-  <hr/>
+      <hr/>
+      <hr/>
 
-  <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">outflows</h2></strong>
-  <div class="form-actions">
-    <%= f.button :submit, "Save" %>
-  </div>
-  <div class="nested_fields">
-    <%= link_to_add_association 'Add', f, :outflows, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
-    <%= f.simple_fields_for :outflows do |cash| %>
-      <div class="jumbotron">
-        <%= render 'outflow_fields', :f =>  cash %>
+    </div>
+    <div class="col-sm-6">
+
+      <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">outflows</h2></strong>
+      <div class="form-actions">
+        <%= f.button :submit, "Save" %>
       </div>
-    <% end %>
-    <div class="form-actions">
-      <%= f.button :submit, "Save" %>
+      <div class="nested_fields">
+        <%= link_to_add_association 'Add', f, :outflows, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        <%= f.simple_fields_for :outflows do |cash| %>
+          <div class="jumbotron">
+            <%= render 'outflow_fields', :f =>  cash %>
+          </div>
+        <% end %>
+        <div class="form-actions">
+          <%= f.button :submit, "Save" %>
+        </div>
+      </div>
+      <hr/>
+
     </div>
   </div>
-  <hr/>
+
+
   <hr/>
 
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Comments</h2></strong>

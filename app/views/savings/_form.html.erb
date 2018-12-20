@@ -3,70 +3,92 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-inputs">
+        <%= f.input :saving_date %>
+      </div>
+
+    </div>
+    <div class="col-sm-6">
+      <div class="form-inputs">
+        <%= f.input :name ,placeholder:'Saving Name...'%>
+      </div>
+    </div>
+  </div>
+
     <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id} %>
-    <%= f.input :saving_date %>
-    <%= f.input :name ,placeholder:'Saving Name...'%>
-  </div>
-
 
   <hr/>
   <hr/>
 
-  <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Lodgements</h2></strong>
-  <div class="form-actions">
-    <%= f.button :submit,"Save" %>
-  </div>
-  <div class="nested_fields">
-    <%= link_to_add_association 'Add', f, :lodgements, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
-    <%= f.simple_fields_for :lodgements do |cash| %>
-      <div class="jumbotron">
-        <%= render 'lodgement_fields', :f =>  cash %>
+  <div class="row">
+    <div class="col-sm-6">
+      <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Lodgements</h2></strong>
+      <div class="form-actions">
+        <%= f.button :submit,"Save" %>
       </div>
-    <% end %>
+      <div class="nested_fields">
+        <%= link_to_add_association 'Add', f, :lodgements, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        <%= f.simple_fields_for :lodgements do |cash| %>
+          <div class="jumbotron">
+            <%= render 'lodgement_fields', :f =>  cash %>
+          </div>
+        <% end %>
+        <div class="form-actions">
+          <%= f.button :submit,"Save" %>
+        </div>
+      </div>
+      <hr/>
+      <hr/>
+    </div>
+    <div class="col-sm-6">
+      <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Withdrawals</h2></strong>
+      <div class="form-actions">
+        <%= f.button :submit,"Save" %>
+      </div>
+      <div class="nested_fields">
+        <%= link_to_add_association 'Add', f, :withdrawals, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        <%= f.simple_fields_for :withdrawals do |cash| %>
+          <div class="jumbotron">
+            <%= render 'withdrawal_fields', :f =>  cash %>
+          </div>
+        <% end %>
+        <div class="form-actions">
+          <%= f.button :submit,"Save" %>
+        </div>
+      </div>
+      <hr/>
+      <hr/>
+
+    </div>
+  </div>
+
+
+
+
+
+
+    <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Comments</h2></strong>
     <div class="form-actions">
       <%= f.button :submit,"Save" %>
     </div>
-  </div>
-  <hr/>
-  <hr/>
-
-  <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Withdrawals</h2></strong>
-  <div class="form-actions">
-    <%= f.button :submit,"Save" %>
-  </div>
-  <div class="nested_fields">
-    <%= link_to_add_association 'Add', f, :withdrawals, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
-    <%= f.simple_fields_for :withdrawals do |cash| %>
-      <div class="jumbotron">
-        <%= render 'withdrawal_fields', :f =>  cash %>
+    <div class="nested_fields">
+      <%= link_to_add_association 'Add', f, :comments, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+      <%= f.simple_fields_for :comments do |cash| %>
+        <div class="jumbotron">
+          <%= render 'comment_fields', :f =>  cash %>
+        </div>
+      <% end %>
+      <div class="form-actions">
+        <%= f.button :submit,"Save" %>
       </div>
-    <% end %>
-    <div class="form-actions">
-      <%= f.button :submit,"Save" %>
-    </div>
-  </div>
-  <hr/>
-  <hr/>
 
-  <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Comments</h2></strong>
-  <div class="form-actions">
-    <%= f.button :submit,"Save" %>
-  </div>
-  <div class="nested_fields">
-    <%= link_to_add_association 'Add', f, :comments, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
-    <%= f.simple_fields_for :comments do |cash| %>
-      <div class="jumbotron">
-        <%= render 'comment_fields', :f =>  cash %>
-      </div>
-    <% end %>
-    <div class="form-actions">
-      <%= f.button :submit,"Save" %>
     </div>
+    <hr/>
+    <hr/>
 
-  </div>
-  <hr/>
-  <hr/>
+
 
 
 

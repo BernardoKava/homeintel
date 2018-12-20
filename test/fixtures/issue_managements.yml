@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  issue_title: MyString
+  description: MyText
+  completion_rate: MyString
+  issue_owner: MyString
+  completion_target_date: 2018-12-16
+  completion_actual_date: 2018-12-16
+
+two:
+  issue_title: MyString
+  description: MyText
+  completion_rate: MyString
+  issue_owner: MyString
+  completion_target_date: 2018-12-16
+  completion_actual_date: 2018-12-16

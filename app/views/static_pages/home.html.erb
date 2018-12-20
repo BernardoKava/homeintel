@@ -1,4 +1,6 @@
 <% provide(:title, "Home") %>
+<br><br>
+<br><br>
 
 <div class="center jumbotron">
   <h1>Home Intelligence</h1>
@@ -8,5 +10,9 @@
   </h2>
 
   <%= link_to "Request Access!", new_user_registration_path, class: "btn btn-lg btn-default" %>
+
 </div>
 
+<div class="jumbotron">
+  <%= image_tag("atom.png", alt: "atom logo", :size => "200x200") %>
+</div>

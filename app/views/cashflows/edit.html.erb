@@ -1,10 +1,13 @@
 <% provide(:title, "Edit Cashflow") %>
 
-<h1>Editing Cashflow</h1>
+<div class="breadcrumb">
+  <h3>Editing Cashflow</h3>
+</div>
+<hr>
 
 <%= render 'form', cashflow: @cashflow %>
 
-<div class="links">
+<div class="breadcrumb">
 <%= link_to 'View', @cashflow, class:'fa fa-eye' %> |
 <%= link_to 'Back', cashflows_path ,class:'fa fa-arrow-left'%>
 </div>

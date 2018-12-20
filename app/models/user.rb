@@ -12,4 +12,7 @@ class User < ApplicationRecord
   has_many :rent_managements
   has_many :service_providers
   has_many :rules
+  has_many :loan_registrations
+  has_many :loan_managements
+  has_many :issue_managements
 end

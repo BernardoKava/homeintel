@@ -1,0 +1,109 @@
+<% provide(:title, "View ") %>
+<p id="notice"><%= notice %></p>
+
+<div class="breadcrumb">
+  <h3>Loan Repayment</h3>
+</div>
+
+
+<div class="jumbotron">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+
+      <th></th>
+      <th></th>
+
+      <th></th>
+      <th></th>
+
+      <th></th>
+      <th></th>
+
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+
+      <th></th>
+      <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Year</td>
+      <td><%= @loan_management.year %></td>
+    </tr>
+    <tr>
+      <td>Month</td>
+      <td><%= @loan_management.month %></td>
+    </tr>
+    <tr>
+      <td>Loan</td>
+      <td><%= @loan_management.loan_registration.loan_reference %></td>
+    </tr>
+    <tr>
+      <td>Payment date</td>
+      <td><%=@loan_management.payment_date.strftime("%d %b. %Y") %></td>
+    </tr>
+    <tr>
+      <td>Amount</td>
+      <td><%= @loan_management.amount %></td>
+    </tr>
+    <tr>
+      <td>Note</td>
+      <td><%= @loan_management.note%></td>
+    </tr>
+    <tr>
+      <td>logged by</td>
+      <td><%= @loan_management.user.fullname %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="breadcrumb">
+  <%= link_to 'Edit', edit_loan_management_path(@loan_management) %> |
+  <%= link_to 'Back', loan_managements_path %>
+</div>
+
+
+<div class="breadcrumb">
+  <h3>Loan Repayment Summary</h3>
+</div>
+
+<div class="jumbotron">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Year</th>
+        <th>Month</th>
+        <th>Loan</th>
+        <th>Payment date</th>
+        <th>Amount</th>
+        <th>Logged by</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @loan_managements.each do |loan| %>
+        <tr>
+          <td><%= loan.year %></td>
+          <td><%= loan.month %></td>
+          <td><%= loan.loan_registration.loan_reference %></td>
+          <td><%= loan.payment_date.strftime("%d %b. %Y") %></td>
+          <td><%= loan.amount %></td>
+          <td><%= loan.user.fullname %></td>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<div class="breadcrumb">
+  <%= link_to 'Edit', edit_loan_management_path(@loan_management) %> |
+  <%= link_to 'Back', loan_managements_path %>
+</div>

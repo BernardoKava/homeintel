@@ -20,7 +20,7 @@
     <% @rules.each do |rule| %>
       <tr>
         <td><%= link_to rule.policy_code,rule %></td>
-        <td><%= rule.category %></td>
+        <td><%= rule.rules_category_id %></td>
         <td><%= rule.title %></td>
         <td><%= rule.definition %></td>
         <td><%= rule.active.humanize %></td>

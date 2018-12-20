@@ -5,8 +5,14 @@
 
   <div class="form-inputs">
     <div class="jumbotron">
+
+      <div class="control-group">
+        <%= f.label :rules_category_id, "Category",class: 'control-label' %>
+        <div class ="controls">
+          <%= f.collection_select :rules_category_id, RulesCategory.order(:name), :id, :name, include_blank: true %>
+        </div>
+      </div>
       <%= f.input :policy_code, value: @policy_code %>
-      <%= f.input :category %>
       <%= f.input :title %>
       <%= f.input :definition %>
       <%= f.input :active %>

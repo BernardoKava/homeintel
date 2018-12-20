@@ -3,11 +3,19 @@
 
 <% if current_user.access_granted == true %>
 
-
-<div class="fa fa-dashboard", id="dashboard">
-  My Dashboard
+<div class="breadcrumb">
+  <div class="fa fa-dashboard", id="dashboard">
+    My Dashboard
+  </div>
 </div>
+
 <br/><br/>
+
+
+  <div class="breadcrumb">
+    Budget | Cashflow | Ledger
+  </div>
+
 
   <div class="row">
     <div class="col-sm-4">
@@ -45,7 +53,11 @@
         <%= link_to "Financial Modules", dashboard_financial_path, class:'fa fa-money' %>
       </div>
     </div>
+
+
+
     <div class="col-sm-4">
+
       <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Cashflows:</strong></h2></div>
       <div class="jumbotron">
 
@@ -79,7 +91,10 @@
         <%= link_to "Financial Modules", dashboard_financial_path, class:'fa fa-money' %>
       </div>
     </div>
+
+
     <div class="col-sm-4">
+
       <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Ledgers:</strong></h2></div>
       <div class="jumbotron">
 
@@ -119,8 +134,13 @@
   <hr>
   <hr>
 
+  <div class="breadcrumb">
+    Savings | Incoming Posts
+  </div>
+
   <div class="row">
     <div class="col-sm-6">
+
       <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Savings:</strong></h2></div>
       <div class="jumbotron">
 
@@ -156,7 +176,9 @@
       </div>
 
     </div>
+
     <div class="col-sm-6">
+
       <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Incoming Posts:</strong></h2></div>
       <div class="jumbotron">
         <table class="table table-striped">
@@ -188,8 +210,14 @@
 <hr>
   <hr>
 
+  <div class="breadcrumb">
+    Inventory | People
+  </div>
+
+
   <div class="row">
     <div class="col-sm-6">
+
       <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Possession Inventories:</strong></h2></div>
       <div class="jumbotron">
 
@@ -220,10 +248,10 @@
         <%= will_paginate @inventories %>
         <hr>
       </div>
-
-
     </div>
+
     <div class="col-sm-6">
+
       <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>House Occupants Personal Information Record:</strong></h2></div>
       <div class="jumbotron">
         <table class="table table-striped">
@@ -254,6 +282,7 @@
 
     </div>
   </div>
+
   <hr>
   <%= will_paginate @people %>
 <% else %>

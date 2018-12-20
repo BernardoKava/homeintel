@@ -3,53 +3,69 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :user_id ,:as => :hidden, :input_html => { :value => current_user.id} %>
-    <%= f.input :budget_date %>
-    <%= f.input :name ,placeholder:'Budget Name...'%>
-  </div>
 
-  <hr/>
-  <hr/>
-  <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Income(s)</h2></strong>
-  <div class="form-actions">
-    <%= f.button :submit,"Save" %>
-  </div>
-  <div class="nested_fields">
-    <%= link_to_add_association 'Add', f, :incomes, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
-    <%= f.simple_fields_for :incomes do |income| %>
-      <div class="jumbotron">
-        <%= render 'income_fields', :f => income %>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-inputs">
+        <%= f.input :budget_date %>
       </div>
-    <% end %>
-    <div class="form-actions">
-      <%= f.button :submit,"Save" %>
+
+    </div>
+    <div class="col-sm-6">
+      <div class="form-inputs">
+        <%= f.input :name ,placeholder:'Budget Name...'%>
+      </div>
     </div>
   </div>
+
+    <%= f.input :user_id ,:as => :hidden, :input_html => { :value => current_user.id} %>
+
+
   <hr/>
   <hr/>
 
+  <div class="row">
+    <div class="col-sm-6">
 
-  <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add expense(s)</h2></strong>
+      <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Income(s)</h2></strong>
+      <div class="form-actions">
+        <%= f.button :submit,"Save" %>
+      </div>
+      <div class="nested_fields">
+        <%= link_to_add_association 'Add', f, :incomes, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        <%= f.simple_fields_for :incomes do |income| %>
+          <div class="jumbotron">
+            <%= render 'income_fields', :f => income %>
+          </div>
+        <% end %>
         <div class="form-actions">
           <%= f.button :submit,"Save" %>
         </div>
-        <div class="nested_fields">
-              <%= link_to_add_association 'Add', f, :expenses, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
-              <%= f.simple_fields_for :expenses do |expense| %>
-        <div class="jumbotron">
-              <%= render 'expense_fields', :f => expense %>
-        </div>
-              <% end %>
-          <div class="form-actions">
-            <%= f.button :submit,"Save" %>
+      </div>
+      <hr/>
+      <hr/>
+    </div>
+    <div class="col-sm-6">
+      <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add expense(s)</h2></strong>
+      <div class="form-actions">
+        <%= f.button :submit,"Save" %>
+      </div>
+      <div class="nested_fields">
+        <%= link_to_add_association 'Add', f, :expenses, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        <%= f.simple_fields_for :expenses do |expense| %>
+          <div class="jumbotron">
+            <%= render 'expense_fields', :f => expense %>
           </div>
+        <% end %>
+        <div class="form-actions">
+          <%= f.button :submit,"Save" %>
         </div>
+      </div>
 
-  <hr/>
-  <hr/>
-
-
+      <hr/>
+      <hr/>
+    </div>
+  </div>
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Comment(s)</h2></strong>
   <div class="form-actions">
     <%= f.button :submit,"Save" %>
@@ -68,9 +84,6 @@
   </div>
   <hr/>
   <hr/>
-
-
-
   <div class="form-actions">
     <%= f.button :submit,"Save" %>
   </div>

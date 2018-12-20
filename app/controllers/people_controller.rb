@@ -96,7 +96,7 @@ class PeopleController < ApplicationController
                                                                 :school,:from, :to, :grade, :user_id,:_destroy],
                                      employments_attributes:[:id, :company,:company_address,:company_telephone,:company_email,
                                                              :company_details,:position, :from, :to,
-                                                             :terminationreason,:actve,:user_id,:_destroy],
+                                                             :terminationreason,:actve,:role,:user_id,:_destroy],
                                      employmentreferences_attributes:
                                      [:id,:referee_active, :employment_id,:referee_name,:referee_telephone,:referee_email,
                                       :referee_details,:user_id,

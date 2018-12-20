@@ -1,0 +1,72 @@
+<% provide(:title, "Loan") %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="breadcrumb">
+  <h3>Loan</h3>
+</div>
+
+
+<div class="jumbotron">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Financial institution:</td>
+      <td><%= @loan_registration.financialinstitution.name %> </td>
+    </tr>
+    <tr>
+      <td>Loan type:</td>
+      <td><%= @loan_registration.loan_type %> </td>
+    </tr>
+    <tr>
+      <td>Loan term:</td>
+      <td><%= @loan_registration.loan_term %></td>
+    </tr>
+    <tr>
+      <td>Rationale:</td>
+      <td><%= @loan_registration.rationale %></td>
+    </tr>
+    <tr>
+      <td>Amount:</td>
+      <td><%= @loan_registration.amount %></td>
+    </tr>
+    <tr>
+      <td>Loan reference:</td>
+      <td><%= @loan_registration.loan_reference %></td>
+    </tr>
+    <tr>
+      <td>Drawdown date:</td>
+      <td><%= @loan_registration.drawdown_date.strftime("%d %b. %Y") %></td>
+    </tr>
+    <tr>
+      <td>Repayment date:</td>
+      <td><%= @loan_registration.final_payment_date.strftime("%d %b. %Y") %></td>
+    </tr>
+    <tr>
+      <td>Logged by:</td>
+      <td><%= @loan_registration.user.fullname %></td>
+    </tr>
+    <tr>
+      <td>booked for:</td>
+      <td> <%= @loan_registration.person.fullname %></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div class="breadcrumb">
+  <%= link_to 'Edit', edit_loan_registration_path(@loan_registration) , class:'fa fa-edit'%> |
+  <%= link_to 'Back', loan_registrations_path  , class:'fa fa-arrow-left'%>
+</div>
+

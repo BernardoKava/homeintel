@@ -4,31 +4,45 @@
 <div class="nested-fields">
 
 
-  <div class="form-inputs">
 
-    <div class="control-group">
-      <%= f.label :person_id, "Owner" %>
-      <div class ="controls">
-        <%= f.collection_select :person_id, Person.order(:fullname), :id, :fullname, include_blank: true %>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="control-group">
+        <%= f.label :person_id, "Owner" %>
+        <div class ="controls">
+          <%= f.collection_select :person_id, Person.order(:fullname), :id, :fullname, include_blank: true %>
+        </div>
       </div>
-    </div>
-<br>
-    <div class="control-group">
-      <%= f.label :financialinstitution_id, "Institution",class: 'control-label' %>
-      <div class ="controls">
-        <%= f.collection_select :financialinstitution_id, Financialinstitution.order(:name), :id, :name, include_blank: true %>
+      <br>
+      <div class="control-group">
+        <%= f.label :financialinstitution_id, "Institution",class: 'control-label' %>
+        <div class ="controls">
+          <%= f.collection_select :financialinstitution_id, Financialinstitution.order(:name), :id, :name, include_blank: true %>
+        </div>
       </div>
+      <br>
     </div>
-    <br>
+    <div class="col-sm-8">
+      <div class="form-inputs">
 
-    <%= f.input :date_posted %>
-    <%= f.input :year,:input_html => { :value => Date.today.year} %>
-    <%= f.input :month,:input_html => { :value => Date.today.month} %>
-    <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
 
-    <%= f.input :amount,placeholder:'Amount...' %>
-    <%= f.input :details ,placeholder:'Details...'%>
+
+        <%= f.input :date_posted %>
+        <%= f.input :year,:input_html => { :value => Date.today.year} %>
+        <%= f.input :month,:input_html => { :value => Date.today.month} %>
+        <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
+
+        <%= f.input :amount,placeholder:'Amount...' %>
+        <%= f.input :details ,placeholder:'Details...'%>
+      </div>
+
+    </div>
   </div>
+
+
+
+
+
 
 
   <%= link_to_remove_association 'Remove', f ,class: 'fa fa-close', style:"font-size:15px;color:red"%>

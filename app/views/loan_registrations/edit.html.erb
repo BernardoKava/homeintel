@@ -1,0 +1,16 @@
+<% provide(:title, "Edit") %>
+
+
+<div class="breadcrumb">
+  <h3>Editing Loan Registration</h3>
+</div>
+
+
+<%= render 'form', loan_registration: @loan_registration %>
+
+<div class="breadcrumb">
+  <%= link_to 'View', @loan_registration, class:'fa fa-eye' %> |
+  <%= link_to 'Back', loan_registrations_path, class:'fa fa-arrow-left' %>
+
+</div>
+

@@ -1,0 +1,42 @@
+<% provide(:title, "Issues") %>
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Issue Managements</h1>
+
+<div class="jumbotron">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Issue title</th>
+      <th>Completion rate</th>
+      <th>Issue owner</th>
+      <th>Logged by</th>
+      <th>Completion actual date</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @issue_managements.each do |issue_management| %>
+      <tr>
+        <td><%= link_to issue_management.issue_title,issue_management %></td>
+        <td><%= issue_management.completion_rate %></td>
+        <td><%= issue_management.person.fullname %></td>
+        <td><%= issue_management.user.fullname %></td>
+        <td><%= issue_management.completion_target_date %></td>
+        <td><%= link_to 'View', issue_management, class:'fa fa-eye' %></td>
+        <td><%= link_to 'Edit', edit_issue_management_path(issue_management) , class:'fa fa-edit' %></td>
+        <td><%= link_to 'Delete', issue_management, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-remove' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+<div class="breadcrumb">
+  <%= link_to 'New Issue ', new_issue_management_path, class:'fa fa-plus' %>
+</div>
+

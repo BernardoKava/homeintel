@@ -11,7 +11,7 @@
       <%= f.input :date_collected %>
       <%= f.input :details %>
       <%= f.input :collected_by %>
-      <%= f.input :user_id %>
+      <%= f.input :user_id ,:as => :hidden, :input_html => { :value => current_user.id} %>
     </div>
 
   </div>

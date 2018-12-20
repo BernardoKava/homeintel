@@ -1,0 +1,140 @@
+<% provide(:title, "Issue") %>
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="breadcrumb">
+  <h3>Issue Viewer</h3>
+</div>
+
+
+<div class="breadcrumb">
+  Issue
+</div>
+
+<div class="jumbotron">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Issue title</td>
+      <td><%= @issue_management.issue_title %></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td><%= @issue_management.description %> </td>
+    </tr>
+    <tr>
+      <td>Completion rate</td>
+      <td><%= @issue_management.completion_rate %></td>
+    </tr>
+    <tr>
+      <td>Issue owner </td>
+      <td><%= @issue_management.person.fullname %></td>
+    </tr>
+    <tr>
+      <td>Logged by</td>
+      <td><%= @issue_management.user.fullname %></td>
+    </tr>
+    <tr>
+      <td>Completion target date</td>
+      <td><%= @issue_management.completion_target_date.strftime("%d %b. %Y")  %></td>
+    </tr>
+    <tr>
+      <td>Completion actual date</td>
+      <td><%= @issue_management.completion_actual_date.strftime("%d %b. %Y")  %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="breadcrumb">
+      Correction Actions
+    </div>
+    <div class="jumbotron">
+
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description </th>
+          <th>Target Completion Date</th>
+          <th>Actual Completion Date</th>
+          <th>Corrective Action Owner</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @corrective_actions.each do |action| %>
+          <tr>
+            <td><%= link_to action.title %>
+            <td><%= action.description %>
+            <td><%= action.target_completion_date.strftime("%d %b. %Y")%>
+            <td><%= action.actual_completion_date.strftime("%d %b. %Y")%>
+            <td><%= action.person.fullname %></td>
+
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+  <div class="col-sm-4">
+    <div class="breadcrumb">
+      Comments
+    </div>
+
+    <% for comment in @issue_management.comments %>
+
+      <div class="jumbotron">
+
+        <div>
+          <strong>Comments:</strong><br><br>
+          <textarea rows="4" cols="80" readonly> <%=h comment.commentary %> </textarea>
+        </div>
+        <br>
+        <div>
+          Registered on:
+          <%=h comment.created_at.strftime("%d %b. %Y") %>
+        </div>
+        <div>
+          ID:
+          <%=h comment.id %>
+        </div>
+
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="breadcrumb">
+  <%= link_to 'Edit', edit_issue_management_path(@issue_management), class:'fa fa-edit' %> |
+  <%= link_to 'Back', issue_managements_path, class:'fa fa-arrow-left'  %>
+</div>
+
+

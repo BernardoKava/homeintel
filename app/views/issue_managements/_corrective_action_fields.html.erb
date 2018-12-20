@@ -1,0 +1,29 @@
+
+<div class="nested-fields">
+
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :target_completion_date %>
+    <%= f.input :actual_completion_date %>
+    <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
+
+
+    <div class="control-group">
+      <%= f.label :person_id, "Issue Owner",class: 'control-label' %>
+      <div class ="controls">
+        <%= f.collection_select :person_id, Person.order(:fullname), :id, :fullname, include_blank: true %>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <br>
+  <%= link_to_remove_association 'Remove', f ,class: 'fa fa-close', style:"font-size:15px;color:red"%>
+
+</div>
+
+<br>

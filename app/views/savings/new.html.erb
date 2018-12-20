@@ -1,7 +1,10 @@
 <% provide(:title, "New Saving") %>
-<h1>New Saving</h1>
+<div class="breadcrumb">
+  <h3>New Saving</h3>
+</div>
+<hr>
 
 <%= render 'form', saving: @saving %>
-<div class="links">
+<div class="breadcrumb">
 <%= link_to 'Back', savings_path,class:'fa fa-arrow-left' %>
 </div>

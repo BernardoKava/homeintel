@@ -1,10 +1,14 @@
 <% provide(:title, "New Person") %>
-<h1>New Person</h1>
+
+<div class="breadcrumb">
+  <h3>New Person</h3>
+</div>
+
 
 <%= render 'form', person: @person %>
 
 <br>
-<div class="links">
+<div class="breadcrumb">
   <%= link_to 'Back', people_path, class:' 	fa fa-arrow-left' %>
 </div>
 

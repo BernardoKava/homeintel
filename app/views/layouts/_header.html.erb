@@ -23,6 +23,8 @@
               <li class="alert-info"><%= link_to "Savings", savings_path , class: 'fa fa-database'%></li>
               <li class="divider"></li>
               <li class="alert-info"><%= link_to "Rent Management", rent_managements_path , class: 'fa fa-database'%></li>
+              <li class="divider"></li>
+              <li class="alert-info"><%= link_to "Loan Management", loan_managements_path , class: 'fa fa-database'%></li>
               <% if current_user.admin == true %>
                 <li class="divider"></li>
                 <li class="alert-danger"><%= link_to "Bank Accounts", bankaccounts_path , class: 'fa fa-database'%></li>
@@ -30,6 +32,8 @@
                 <li class="alert-danger"><%= link_to "Cashflow Recons", cashflow_recons_path , class: 'fa fa-database'%></li>
                 <li class="divider"></li>
                 <li class="alert-danger"><%= link_to "Savings Recons", saving_recons_path , class: 'fa fa-database'%></li>
+                <li class="divider"></li>
+                <li class="alert-danger"><%= link_to "Loan Register", loan_registrations_path , class: 'fa fa-database'%></li>
               <% end %>
             </ul>
           </li>
@@ -74,6 +78,8 @@
               <li class="alert-info"><%= link_to "Inventory", inventories_path, class: 'fa fa-database'%></li>
               <li class="divider"></li>
               <li class="alert-info"><%= link_to "People", people_path , class: 'fa fa-database'%></li>
+              <li class="divider"></li>
+              <li class="alert-info"><%= link_to "Issue Management", issue_managements_path , class: 'fa fa-database'%></li>
               <% if current_user.admin == true %>
               <li class="divider"></li>
               <li class="alert-danger"><%= link_to "Backend System", rails_admin_path , class: 'fa fa-database'%></li>

@@ -1,9 +1,11 @@
-<% provide(:title, "Person") %>
-<h1>Editing Person</h1>
+<% provide(:title, "Edit") %>
+<div class="breadcrumb">
+  <h3>Editing Person</h3>
+</div>
 
 <%= render 'form', person: @person %>
 
-<div class="links">
+<div class="breadcrumb">
   <%= link_to 'View', @person , class: 'fa fa-eye'%> |
   <%= link_to 'Back', people_path ,class:'fa fa-arrow-left'%>
 </div>

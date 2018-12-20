@@ -1,0 +1,15 @@
+
+<% provide(:title, "Edit") %>
+
+<div class="breadcrumb">
+  <h3>Editing Issue </h3>
+</div>
+
+
+<%= render 'form', issue_management: @issue_management %>
+
+<div class="breadcrumb">
+  <%= link_to 'View', @issue_management, class:'fa fa-eye' %> |
+  <%= link_to 'Back', issue_managements_path, class:'fa fa-arrow-left' %>
+
+</div>

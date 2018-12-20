@@ -1,0 +1,47 @@
+
+<%= simple_form_for(@loan_registration) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="control-group">
+        <%= f.label :financialinstitution_id, "Financial Institution" %>
+        <div class ="controls">
+          <%= f.collection_select :financialinstitution_id, Financialinstitution.order(:name), :id, :name, include_blank: true %>
+        </div>
+      </div>
+      <br>
+      <div class="control-group">
+        <%= f.label :person_id, "Booked for" %>
+        <div class ="controls">
+          <%= f.collection_select :person_id, Person.order(:fullname), :id, :fullname, include_blank: true %>
+        </div>
+      </div>
+      <br>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-inputs">
+        <%= f.input :loan_type %>
+        <%= f.input :loan_term %>
+        <%= f.input :rationale %>
+        <%= f.input :amount %>
+        <%= f.input :loan_reference %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-inputs">
+        <%= f.input :drawdown_date %>
+        <%= f.input :final_payment_date %>
+        <%= f.input :user_id ,:as => :hidden, :input_html => { :value => current_user.id} %>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="form-actions">
+    <%= f.button :submit,"Save" %>
+  </div>
+<% end %>
+<br>

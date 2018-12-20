@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_14_100413) do
+ActiveRecord::Schema.define(version: 2018_12_17_014635) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address"
@@ -145,7 +145,20 @@ ActiveRecord::Schema.define(version: 2018_12_14_100413) do
     t.integer "saving_id"
     t.integer "delivery_id"
     t.integer "budget_id"
+    t.integer "issue_management_id"
     t.index ["inventory_id"], name: "index_comments_on_inventory_id"
+  end
+
+  create_table "corrective_actions", force: :cascade do |t|
+    t.string "title"
+    t.integer "issue_management_id"
+    t.date "target_completion_date"
+    t.date "actual_completion_date"
+    t.string "description"
+    t.integer "person_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "deliveries", force: :cascade do |t|
@@ -204,6 +217,7 @@ ActiveRecord::Schema.define(version: 2018_12_14_100413) do
     t.string "company_telephone"
     t.string "company_email"
     t.text "company_details"
+    t.text "role"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -273,6 +287,7 @@ ActiveRecord::Schema.define(version: 2018_12_14_100413) do
     t.string "origination"
     t.text "rationale"
     t.integer "bankaccount_id"
+    t.boolean "follow_up"
   end
 
   create_table "inflowtypes", force: :cascade do |t|
@@ -295,6 +310,18 @@ ActiveRecord::Schema.define(version: 2018_12_14_100413) do
     t.string "inventory_number"
   end
 
+  create_table "issue_managements", force: :cascade do |t|
+    t.string "issue_title"
+    t.text "description"
+    t.string "completion_rate"
+    t.integer "person_id"
+    t.integer "user_id"
+    t.date "completion_target_date"
+    t.date "completion_actual_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.integer "inventory_id"
     t.string "item"
@@ -303,6 +330,7 @@ ActiveRecord::Schema.define(version: 2018_12_14_100413) do
     t.decimal "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "virtual"
     t.index ["inventory_id"], name: "index_items_on_inventory_id"
   end
 
@@ -397,6 +425,33 @@ ActiveRecord::Schema.define(version: 2018_12_14_100413) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "loan_managements", force: :cascade do |t|
+    t.string "year"
+    t.string "month"
+    t.integer "loan_registration_id"
+    t.date "payment_date"
+    t.decimal "amount"
+    t.text "note"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "loan_registrations", force: :cascade do |t|
+    t.integer "financialinstitution_id"
+    t.string "loan_type"
+    t.string "loan_term"
+    t.text "rationale"
+    t.decimal "amount"
+    t.string "loan_reference"
+    t.date "drawdown_date"
+    t.date "final_payment_date"
+    t.integer "user_id"
+    t.integer "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "lodgements", force: :cascade do |t|
     t.string "owner"
     t.decimal "amount"
@@ -443,6 +498,7 @@ ActiveRecord::Schema.define(version: 2018_12_14_100413) do
     t.string "origination"
     t.text "rationale"
     t.integer "bankaccount_id"
+    t.boolean "follow_up"
   end
 
   create_table "outflowtypes", force: :cascade do |t|
@@ -529,6 +585,14 @@ ActiveRecord::Schema.define(version: 2018_12_14_100413) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "policy_code"
+    t.integer "rules_category_id"
+  end
+
+  create_table "rules_categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "saving_recons", force: :cascade do |t|

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  financialinstitution_id: 1
+  loan_type: MyString
+  loan_term: MyString
+  rationale: MyText
+  amount: 
+  loan_reference: MyString
+  drawdown_date: 2018-12-16
+  final_payment_date: 2018-12-16
+  user_id: 1
+  person_id: 1
+
+two:
+  financialinstitution_id: 1
+  loan_type: MyString
+  loan_term: MyString
+  rationale: MyText
+  amount: 
+  loan_reference: MyString
+  drawdown_date: 2018-12-16
+  final_payment_date: 2018-12-16
+  user_id: 1
+  person_id: 1

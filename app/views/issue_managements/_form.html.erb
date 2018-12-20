@@ -1,0 +1,89 @@
+
+<%= simple_form_for(@issue_management) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class="breadcrumb">
+  Issue
+</div>
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-inputs">
+          <%= f.input :issue_title %>
+          <%= f.input :description %>
+          <%= f.input :completion_rate, label: "Completion Rate %" %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-inputs">
+
+          <div class="control-group">
+            <%= f.label :person_id, "Issue Owner",class: 'control-label' %>
+            <div class ="controls">
+              <%= f.collection_select :person_id, Person.order(:fullname), :id, :fullname, include_blank: true %>
+
+            </div>
+          </div>
+          <br>
+          <%= f.input :completion_target_date %>
+          <%= f.input :completion_actual_date %>
+          <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id} %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="breadcrumb">
+    Corrective Action(s) & Comments
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Corrective Actions</h2></strong>
+
+      <div class="nested_fields">
+        <%= link_to_add_association 'Add', f, :corrective_actions, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        <%= f.fields_for :corrective_actions do |action| %>
+          <div class="jumbotron">
+            <%= render 'corrective_action_fields', :f => action %>
+          </div>
+        <% end %>
+
+      </div>
+      <hr/>
+      <hr/>
+
+    </div>
+    <div class="col-sm-6">
+      <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add a Comment</h2></strong>
+
+      <div class="nested_fields">
+        <%= link_to_add_association 'Add', f, :comments, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        <%= f.fields_for :comments do |comment| %>
+          <div class="jumbotron">
+            <%= render 'comment_fields', :f => comment %>
+          </div>
+        <% end %>
+
+      </div>
+      <hr/>
+      <hr/>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save" %>
+  </div>
+<% end %>
+<br>
