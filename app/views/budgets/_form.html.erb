@@ -4,6 +4,10 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
 
+  <div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+    <h4>A. Enter Budget Details:</h4>
+  </div>
+
   <div class="row">
     <div class="col-sm-4">
       <div class="form-inputs">
@@ -24,6 +28,12 @@
   <hr/>
   <hr/>
 
+  <div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+    <h4>B. Enter Incomes and Expenditures:</h4>
+  </div>
+
+
+
   <div class="row">
     <div class="col-sm-6">
 
@@ -31,8 +41,12 @@
       <div class="form-actions">
         <%= f.button :submit,"Save" %>
       </div>
+      <br>
       <div class="nested_fields">
-        <%= link_to_add_association 'Add', f, :incomes, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        <div class="breadcrumb">
+          <%= link_to_add_association 'Add', f, :incomes, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        </div>
+
         <%= f.simple_fields_for :incomes do |income| %>
           <div class="jumbotron">
             <%= render 'income_fields', :f => income %>
@@ -50,8 +64,12 @@
       <div class="form-actions">
         <%= f.button :submit,"Save" %>
       </div>
+      <br>
       <div class="nested_fields">
-        <%= link_to_add_association 'Add', f, :expenses, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        <div class = "breadcrumb">
+          <%= link_to_add_association 'Add', f, :expenses, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+        </div>
+
         <%= f.simple_fields_for :expenses do |expense| %>
           <div class="jumbotron">
             <%= render 'expense_fields', :f => expense %>
@@ -66,12 +84,22 @@
       <hr/>
     </div>
   </div>
+
+
+  <div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+    <h4>C. Enter Comments:</h4>
+  </div>
+
   <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Add Comment(s)</h2></strong>
   <div class="form-actions">
     <%= f.button :submit,"Save" %>
   </div>
+  <br>
   <div class="nested_fields">
-    <%= link_to_add_association 'Add', f, :comments, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+    <div class=" breadcrumb">
+      <%= link_to_add_association 'Add', f, :comments, class: 'fa fa-plus',style:"font-size:15px;color:green"%>
+    </div>
+
     <%= f.simple_fields_for :comments do |comment| %>
       <div class="jumbotron">
         <%= render 'comment_fields', :f => comment %>

@@ -3,7 +3,16 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Issue Managements</h1>
+
+<div class="breadcrumb">
+  <h3>Issue Managements</h3>
+</div>
+
+
+
+
+
+
 
 <div class="jumbotron">
   <table class="table table-striped">
@@ -34,7 +43,7 @@
     </tbody>
   </table>
 </div>
-
+<%= will_paginate @issue_managements %>
 <br>
 <div class="breadcrumb">
   <%= link_to 'New Issue ', new_issue_management_path, class:'fa fa-plus' %>

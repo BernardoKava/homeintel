@@ -5,6 +5,23 @@
   <h3>Monthly Cashflow</h3>
 </div>
 
+<% if @inflow_fu_count == 0 && @outflow_fu_count == 0 %>
+  <div class="breadcrumb">
+    <h5>Great - <%= @inflow_fu_count %> income record(s) and <%= @outflow_fu_count %> expense record(s) to follow-up!</h5>
+  </div>
+<% else %>
+  <div class="breadcrumb">
+    <h5 class="alert-danger">Warning - <%= @inflow_fu_count %> income record(s) and <%= @outflow_fu_count %> expense record(s) to follow-up! </h5>
+  </div>
+<% end %>
+
+<hr>
+
+
+<div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+  <h4>A. Cashflow Details:</h4>
+</div>
+
 
 <div>
   <div class="row">
@@ -106,6 +123,109 @@
 
 </div>
 <hr>
+
+<div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+  <h4>B. Follow-Up Transactions:</h4>
+</div>
+
+
+<div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="jumbotron">
+        <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Follow-up Income:</strong></h2></div>
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Reg. Date</th>
+            <th>Date Posted</th>
+            <th>Details </th>
+            <th>Flow Type </th>
+            <th>Owner</th>
+            <th>Origination</th>
+            <th>Amount(€)</th>
+            <th>Follow_up</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @inflow_follow_up.each do |income| %>
+            <tr>
+
+              <td><%= income.created_at.strftime("%d %b. %Y")%>
+              <td><%= income.date_posted.strftime("%d %b. %Y")%></td>
+              <td><%= income.details %></td>
+              <td><%= income.inflowtype.name %></td>
+              <td><%= income.person.fullname %></td>
+              <td><%= income.bankaccount.account_code %></td>
+              <td><%= income.amount %></td>
+              <% if income.follow_up == true %>
+                <td class="alert-danger"><%= income.follow_up.humanize %></td>
+              <% else %>
+                <td><%= income.follow_up.humanize %></td>
+              <% end %>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="jumbotron">
+        <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Follow-up Expenses:</strong></h2></div>
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Reg. Date</th>
+            <th>Date Posted</th>
+            <th>Details </th>
+            <th>Flow Type </th>
+            <th>Owner</th>
+            <th>Origination</th>
+            <th>Amount(€)</th>
+            <th>Follow_up</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @outflow_follow_up.each do |expense| %>
+            <tr>
+              <td><%= expense.created_at.strftime("%d %b. %Y")%>
+              <td><%= expense.date_posted.strftime("%d %b. %Y")%></td>
+              <td><%= expense.details %></td>
+              <td><%= expense.outflowtype.name %></td>
+              <td><%= expense.person.fullname %></td>
+              <td><%= expense.bankaccount.account_code %></td>
+              <td><%= expense.amount %></td>
+              <% if expense.follow_up == true %>
+                <td class="alert-danger"><%= expense.follow_up.humanize %></td>
+              <% else %>
+                <td><%= expense.follow_up.humanize %></td>
+              <% end %>
+
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <%= link_to 'Edit', edit_cashflow_path(@cashflow), class:' fa fa-edit' %> |
+  <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
+
+</div>
+<hr>
+
+<div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+  <h4>C. Income and Expenditure:</h4>
+</div>
+
+
 <div>
   <div class="row">
     <div class="col-sm-6">
@@ -129,6 +249,7 @@
           <tbody>
           <% @inflows.each do |income| %>
             <tr>
+
               <td><%= income.created_at.strftime("%d %b. %Y")%>
               <td><%= income.date_posted.strftime("%d %b. %Y")%></td>
               <td><%= income.details %></td>
@@ -136,7 +257,11 @@
               <td><%= income.person.fullname %></td>
               <td><%= income.bankaccount.account_code %></td>
               <td><%= income.amount %></td>
-              <td><%= income.follow_up.humanize %></td>
+              <% if income.follow_up == true %>
+                <td class="alert-danger"><%= income.follow_up.humanize %></td>
+              <% else %>
+                <td><%= income.follow_up.humanize %></td>
+              <% end %>
             </tr>
           <% end %>
           </tbody>
@@ -171,7 +296,12 @@
               <td><%= expense.person.fullname %></td>
               <td><%= expense.bankaccount.account_code %></td>
               <td><%= expense.amount %></td>
-              <td><%= expense.follow_up.humanize %></td>
+              <% if expense.follow_up == true %>
+                <td class="alert-danger"><%= expense.follow_up.humanize %></td>
+              <% else %>
+                <td><%= expense.follow_up.humanize %></td>
+              <% end %>
+
             </tr>
           <% end %>
           </tbody>
@@ -185,7 +315,12 @@
   <%= link_to 'Back', cashflows_path, class:' fa fa-arrow-left' %>
 </div>
 <hr>
-<br>
+
+<div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+  <h4>D. Income and Expenditure Classification:</h4>
+</div>
+
+
 <div class="row">
   <div class="col-sm-6">
     <div class="jumbotron">
@@ -219,6 +354,11 @@
           <td>Other (€)</td>
           <td>€ <%= @others %></td>
           <td><%= @others.humanize %></td>
+        </tr>
+        <tr>
+          <td class="alert-info">Total Income </td>
+          <td class="alert-info" >€ <%= @totalinflow %></td>
+          <td class="alert-info"><%= @totalinflow.humanize %></td>
         </tr>
         </tbody>
       </table>
@@ -390,6 +530,10 @@
 </div>
 <hr>
 
+<div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+  <h4>C. Cashflow Comments:</h4>
+</div>
+
 <div>
   <h2 style="font-size: 15px;background-color: navy;color: white"><strong> Comments</strong></h2>
 
@@ -430,6 +574,7 @@
 
 </div>
 <hr>
+
 
 <div class="breadcrumb">
   <div>

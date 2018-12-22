@@ -31,8 +31,11 @@
     <%= f.input :amount ,placeholder:'Amount...'%>
     <%= f.input :details ,placeholder:'Details...'%>
   </div>
+<hr>
 
+  <div class="breadcrumb">
+    <%= link_to_remove_association 'Remove', f ,class: 'fa fa-close', style:"font-size:15px;color:red"%>
+  </div>
 
-  <%= link_to_remove_association 'Remove', f ,class: 'fa fa-close', style:"font-size:15px;color:red"%>
 
 </div>

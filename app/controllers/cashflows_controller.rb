@@ -132,13 +132,13 @@ class CashflowsController < ApplicationController
 
     @cashflow.save
 
+    @inflow_fu_count    = Inflow.where(cashflow_id: @ref, follow_up: true).count
+    @outflow_fu_count   = Outflow.where(cashflow_id: @ref,follow_up: true).count
 
-
-
-
+    @inflow_follow_up   = Inflow.where(cashflow_id: @ref,follow_up: true).order("date_posted DESC")
+    @outflow_follow_up  = Outflow.where(cashflow_id: @ref,follow_up: true).order("date_posted DESC")
 
   end
-
 
 
   # GET /cashflows/new

@@ -9,6 +9,9 @@ class DashboardController < ApplicationController
     @inventories =  Inventory.all.paginate(page: params[:page], :per_page => 4).order("created_at DESC")
     @people      =  Person.all.paginate(page: params[:page], :per_page => 4).order("created_at DESC")
 
+    @inflow_fu_count    = Inflow.where(follow_up: true).count
+    @outflow_fu_count   = Outflow.where(follow_up: true).count
+
   end
 
 

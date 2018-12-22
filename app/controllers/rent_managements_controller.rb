@@ -4,7 +4,7 @@ class RentManagementsController < ApplicationController
   # GET /rent_managements
   # GET /rent_managements.json
   def index
-    @rent_managements = RentManagement.all
+    @rent_managements = RentManagement.all.paginate(page: params[:page], :per_page => 10).order("created_at DESC")
   end
 
   # GET /rent_managements/1

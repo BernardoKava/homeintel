@@ -3,6 +3,11 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+
+  <div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+    <h4>A. Savings Details:</h4>
+  </div>
+
   <div class="row">
     <div class="col-sm-4">
       <div class="form-inputs">
@@ -21,6 +26,10 @@
 
   <hr/>
   <hr/>
+
+  <div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+    <h4>B. Lodgements and Withdrawals:</h4>
+  </div>
 
   <div class="row">
     <div class="col-sm-6">
@@ -66,7 +75,9 @@
 
 
 
-
+  <div class="breadcrumb" style="background-color: rgba(22,151,168,0.6); color: whitesmoke">
+    <h4>C. Comments:</h4>
+  </div>
 
 
     <strong><h2 style="font-size: 20px;background-color: midnightblue;color: white">Comments</h2></strong>

@@ -40,7 +40,7 @@
       <td><%= expense.created_at.strftime("%d %b. %Y")%></td>
       <td><%= expense.date_posted.strftime("%d %b. %Y")%></td>
       <td><%= expense.details %></td>
-      <td><%= expense.owner %></td>
+      <td><%= expense.person.fullname %></td>
       <td><%= expense.amount %></td>
     </tr>
   <% end %>

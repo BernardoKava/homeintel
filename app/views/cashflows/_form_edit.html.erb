@@ -22,7 +22,7 @@
   </div>
 
 
-    <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
+  <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
 
 
 
@@ -47,9 +47,15 @@
         </div>
 
         <%= f.simple_fields_for :inflows do |cash| %>
+          <% if @inflow.follow_up == true %>
+            <div class="jumbotron" style="background-color: gold">
+              <%= render 'inflow_fields', :f =>  cash %>
+            </div>
+          <% else %>
             <div class="jumbotron">
               <%= render 'inflow_fields', :f =>  cash %>
             </div>
+          <% end %>
         <% end %>
         <div class="form-actions">
           <%= f.button :submit, "Save" %>

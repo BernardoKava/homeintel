@@ -1,8 +1,10 @@
 <% provide(:title, "Loan") %>
 
 <p id="notice"><%= notice %></p>
+<div class="breadcrumb">
+  <h3>Loan Repayment Management</h3>
+</div>
 
-<h1>Loan Repayment Management</h1>
 
 <div class="jumbotron">
   <table class="table table-striped">
@@ -36,6 +38,9 @@
   </table>
 </div>
 <br>
+
+<%= will_paginate @loan_managements %>
+
 <div class="breadcrumb">
   <%= link_to 'New Payment', new_loan_management_path, class:'fa fa-plus' %>
 </div>

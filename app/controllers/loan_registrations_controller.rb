@@ -4,7 +4,7 @@ class LoanRegistrationsController < ApplicationController
   # GET /loan_registrations
   # GET /loan_registrations.json
   def index
-    @loan_registrations = LoanRegistration.all
+    @loan_registrations = LoanRegistration.all.paginate(page: params[:page], :per_page => 10).order("created_at DESC")
   end
 
   # GET /loan_registrations/1
@@ -69,6 +69,6 @@ class LoanRegistrationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_registration_params
-      params.require(:loan_registration).permit(:financialinstitution_id, :loan_type, :loan_term, :rationale, :amount, :loan_reference, :drawdown_date, :final_payment_date, :user_id, :person_id)
+      params.require(:loan_registration).permit(:financialinstitution_id, :loan_type, :internal_loan,:loan_term, :rationale, :amount, :loan_reference, :drawdown_date, :final_payment_date, :user_id, :person_id)
     end
 end

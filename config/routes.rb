@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'follow_up/index'
   resources :issue_managements
   resources :loan_managements
   resources :loan_registrations
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   resources :cashflow_recons
   resources :saving_recons
   resources :bankaccounts
+  resources :inflows
   get 'passwordrepositories/index'
   get 'passwordrepo/index'
   get 'withdrawals/index'
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
   get 'expenses/index'
   get 'outflows/index'
   get 'incomes/index'
+
+
   resources :deliveries
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'inflows/index'

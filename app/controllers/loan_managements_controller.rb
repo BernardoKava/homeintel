@@ -4,7 +4,7 @@ class LoanManagementsController < ApplicationController
   # GET /loan_managements
   # GET /loan_managements.json
   def index
-    @loan_managements = LoanManagement.all
+    @loan_managements = LoanManagement.all.paginate(page: params[:page], :per_page => 10).order("created_at DESC")
   end
 
   # GET /loan_managements/1

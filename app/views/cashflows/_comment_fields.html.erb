@@ -6,8 +6,10 @@
     <%= f.input :commentary,placeholder:'Add Comment...' %>
     <%= f.input :user_id,:as => :hidden, :input_html => { :value => current_user.id}%>
   </div>
-
-
+<hr>
+<div class="breadcrumb">
   <%= link_to_remove_association 'Remove', f ,class: 'fa fa-close', style:"font-size:15px;color:red"%>
+</div>
+
 
 </div>

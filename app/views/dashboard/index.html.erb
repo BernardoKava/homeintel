@@ -10,9 +10,17 @@
 </div>
 
 <br/><br/>
+  <% if @inflow_fu_count == 0 && @outflow_fu_count == 0 %>
+    <div class="breadcrumb">
+      <h5>Great - <%= @inflow_fu_count %> income record(s) and <%= @outflow_fu_count %> expense record(s) to follow-up!</h5>
+    </div>
+  <% else %>
+    <div class="breadcrumb">
+      <h5 class="alert-danger">Warning - <%= @inflow_fu_count %> income record(s) and <%= @outflow_fu_count %> expense record(s) to follow-up! Please check all cashflow. </h5>
+    </div>
+  <% end %>
 
-
-  <div class="breadcrumb">
+  <div class="breadcrumb" style="background-color: cadetblue; color: white">
     Budget | Cashflow | Ledger
   </div>
 
@@ -134,7 +142,7 @@
   <hr>
   <hr>
 
-  <div class="breadcrumb">
+  <div class="breadcrumb"style="background-color: cadetblue; color: white">
     Savings | Incoming Posts
   </div>
 
@@ -210,7 +218,7 @@
 <hr>
   <hr>
 
-  <div class="breadcrumb">
+  <div class="breadcrumb"style="background-color: cadetblue; color: white">
     Inventory | People
   </div>
 

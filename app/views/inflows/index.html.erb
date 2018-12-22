@@ -1,5 +1,12 @@
 <% provide(:title, "Search Inflows") %>
-<h1>Inflows Summary</h1>
+
+
+<div class="breadcrumb">
+  <h3>Inflows Summary</h3>
+</div>
+
+
+<h1></h1>
 
 <div class="jumbotron">
 
@@ -9,7 +16,8 @@
         <%= f.text_field :date_posted_gteq, placeholder:'Start Date...' , class:'form-control'%>
         <%= f.text_field :date_posted_lteq, placeholder:'End Date...' , class:'form-control'%>
         <%= f.text_field :details_cont, placeholder:'Details...', class:'form-control' %>
-        <%= f.text_field :owner_or_person_fullname_cont, placeholder:'Owner...' , class:'form-control'%><br><br>
+        <%= f.text_field :follow_up_cont, placeholder:'True or False...', class:'form-control' %>
+        <%= f.text_field :owner_or_person_fullname_cont, placeholder:'Owner...' , class:'form-control'%>
         <%= f.text_field :amount_gteq, placeholder:' Start Amount...', class:'form-control' %>
         <%= f.text_field :amount_lteq, placeholder:'End Amount... ' , class:'form-control'%>
         <br>  <br>
@@ -25,26 +33,31 @@
 
 
   <div><h2 style="font-size: 15px;background-color: goldenrod;color: white"><strong>Income Summary:</strong></h2></div>
-
-  <table class="table table-hover">
+  <table class="table table-striped">
     <thead>
     <tr>
       <th>Reg. Date</th>
       <th>Date Posted</th>
       <th>Details </th>
+      <th>Flow Type </th>
       <th>Owner</th>
+      <th>Origination</th>
       <th>Amount(€)</th>
+      <th>Follow_up</th>
     </tr>
     </thead>
 
     <tbody>
     <% @transactions.each do |income| %>
       <tr>
-        <td><%= income.created_at.strftime("%d %b. %Y")%>
+        <td><%= income.created_at.strftime("%d %b. %Y")%></td>
         <td><%= income.date_posted.strftime("%d %b. %Y")%></td>
         <td><%= income.details %></td>
+        <td><%= income.inflowtype.name %></td>
         <td><%= income.person.fullname %></td>
+        <td><%= income.bankaccount.account_code %></td>
         <td><%= income.amount %></td>
+        <td><%= income.follow_up.humanize %></td>
       </tr>
     <% end %>
     </tbody>
@@ -52,4 +65,5 @@
   <%= will_paginate @transactions %>
 
 </div>
+
 

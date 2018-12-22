@@ -4,7 +4,7 @@ class IssueManagementsController < ApplicationController
   # GET /issue_managements
   # GET /issue_managements.json
   def index
-    @issue_managements = IssueManagement.all
+    @issue_managements = IssueManagement.all.paginate(page: params[:page], :per_page => 10).order("created_at DESC")
   end
 
   # GET /issue_managements/1

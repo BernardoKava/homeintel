@@ -2,7 +2,11 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Loan Registrations</h1>
+
+
+<div class="breadcrumb">
+  <h3>Loan Register</h3>
+</div>
 
 <div class="jumbotron">
   <table class="table table-striped">
@@ -35,6 +39,9 @@
   </table>
 </div>
 <br>
+
+<%= will_paginate @loan_registrations %>
+
 <div class="breadcrumb">
   <%= link_to 'New Loan', new_loan_registration_path, class:'fa fa-plus' %>
 </div>

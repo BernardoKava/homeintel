@@ -22,6 +22,11 @@
       <td><%= @loan_registration.financialinstitution.name %> </td>
     </tr>
     <tr>
+      <td>Internal Loan:</td>
+      <td> <%= @loan_registration.internal_loan.humanize %></td>
+    </tr>
+
+    <tr>
       <td>Loan type:</td>
       <td><%= @loan_registration.loan_type %> </td>
     </tr>
