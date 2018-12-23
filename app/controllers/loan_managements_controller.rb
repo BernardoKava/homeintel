@@ -10,7 +10,23 @@ class LoanManagementsController < ApplicationController
   # GET /loan_managements/1
   # GET /loan_managements/1.json
   def show
+    @ref = @loan_management.loan_registration.id
+    @year= @loan_management.payment_date.year
+    @month = @loan_management.payment_date.month
+
+
+    @loan_management.year = @year
+    @loan_management.month = @month
+
+
+    @borrowed_amount = LoanRegistration.where(id: @ref).sum(:amount)
     @loan_managements = LoanManagement.all
+    @repayment_aggregate = LoanManagement.where(loan_registration_id: @ref).sum(:amount)
+    @outstanding = (@loan_management.loan_registration.amount)-(@repayment_aggregate)
+
+
+    @loan_management.save
+
   end
 
   # GET /loan_managements/new

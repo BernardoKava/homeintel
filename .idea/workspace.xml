@@ -2,68 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df494c92-2ec7-4b7b-b5f5-b8edd6bfb02f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/cashflows/_form_edit.html.erb" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/cashflows_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/cashflows_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/dashboard_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/inflows_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/inflows_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/issue_managements_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/issue_managements_controller.rb" />
       <change beforePath="$PROJECT_DIR$/app/controllers/loan_managements_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/loan_managements_controller.rb" />
       <change beforePath="$PROJECT_DIR$/app/controllers/loan_registrations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/loan_registrations_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/rent_managements_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/rent_managements_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/cashflows_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/cashflows_helper.rb" />
-      <change beforePath="$PROJECT_DIR$/app/views/addresses/index.html.erb" afterPath="$PROJECT_DIR$/app/views/addresses/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/bankaccounts/index.html.erb" afterPath="$PROJECT_DIR$/app/views/bankaccounts/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/budgets/_comment_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/budgets/_comment_fields.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/budgets/_expense_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/budgets/_expense_fields.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/budgets/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/budgets/_form.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/budgets/_income_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/budgets/_income_fields.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/budgets/index.html.erb" afterPath="$PROJECT_DIR$/app/views/budgets/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/budgets/show.html.erb" afterPath="$PROJECT_DIR$/app/views/budgets/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/cashflows/_comment_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/cashflows/_comment_fields.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/cashflows/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/cashflows/_form.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/cashflows/_inflow_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/cashflows/_inflow_fields.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/cashflows/_outflow_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/cashflows/_outflow_fields.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/cashflows/index.html.erb" afterPath="$PROJECT_DIR$/app/views/cashflows/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/cashflows/show.html.erb" afterPath="$PROJECT_DIR$/app/views/cashflows/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/dashboard/index.html.erb" afterPath="$PROJECT_DIR$/app/views/dashboard/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/deliveries/index.html.erb" afterPath="$PROJECT_DIR$/app/views/deliveries/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/departments/index.html.erb" afterPath="$PROJECT_DIR$/app/views/departments/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/employments/index.html.erb" afterPath="$PROJECT_DIR$/app/views/employments/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/expenses/index.html.erb" afterPath="$PROJECT_DIR$/app/views/expenses/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/incomes/index.html.erb" afterPath="$PROJECT_DIR$/app/views/incomes/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/inflows/index.html.erb" afterPath="$PROJECT_DIR$/app/views/inflows/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/inventories/index.html.erb" afterPath="$PROJECT_DIR$/app/views/inventories/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/issue_managements/index.html.erb" afterPath="$PROJECT_DIR$/app/views/issue_managements/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/ledgers/index.html.erb" afterPath="$PROJECT_DIR$/app/views/ledgers/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/legacy_ulsterbanks/index.html.erb" afterPath="$PROJECT_DIR$/app/views/legacy_ulsterbanks/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/loan_managements/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/loan_managements/edit.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/loan_managements/index.html.erb" afterPath="$PROJECT_DIR$/app/views/loan_managements/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/loan_managements/new.html.erb" afterPath="$PROJECT_DIR$/app/views/loan_managements/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/loan_registrations/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/loan_registrations/_form.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/loan_registrations/index.html.erb" afterPath="$PROJECT_DIR$/app/views/loan_registrations/index.html.erb" />
+      <change beforePath="$PROJECT_DIR$/app/views/loan_managements/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/loan_managements/_form.html.erb" />
+      <change beforePath="$PROJECT_DIR$/app/views/loan_managements/show.html.erb" afterPath="$PROJECT_DIR$/app/views/loan_managements/show.html.erb" />
       <change beforePath="$PROJECT_DIR$/app/views/loan_registrations/show.html.erb" afterPath="$PROJECT_DIR$/app/views/loan_registrations/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/outflows/index.html.erb" afterPath="$PROJECT_DIR$/app/views/outflows/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/people/index.html.erb" afterPath="$PROJECT_DIR$/app/views/people/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/qualifications/index.html.erb" afterPath="$PROJECT_DIR$/app/views/qualifications/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/rent_managements/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/rent_managements/edit.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/rent_managements/index.html.erb" afterPath="$PROJECT_DIR$/app/views/rent_managements/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/rent_managements/new.html.erb" afterPath="$PROJECT_DIR$/app/views/rent_managements/new.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/resources/index.html.erb" afterPath="$PROJECT_DIR$/app/views/resources/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/rules/index.html.erb" afterPath="$PROJECT_DIR$/app/views/rules/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/saving_recons/index.html.erb" afterPath="$PROJECT_DIR$/app/views/saving_recons/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/savings/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/savings/_form.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/savings/index.html.erb" afterPath="$PROJECT_DIR$/app/views/savings/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/savings/show.html.erb" afterPath="$PROJECT_DIR$/app/views/savings/show.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/service_providers/index.html.erb" afterPath="$PROJECT_DIR$/app/views/service_providers/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/withdrawals/index.html.erb" afterPath="$PROJECT_DIR$/app/views/withdrawals/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change beforePath="$PROJECT_DIR$/lib/seeds/RentBook.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/lib/seeds/resource.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/lib/seeds/rule.csv" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/lib/seeds/service_provider.csv" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -97,41 +41,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="schema.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="schema.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/schema.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2178">
+            <state relative-caret-position="3528">
               <caret line="449" column="25" lean-forward="false" selection-start-line="449" selection-start-column="25" selection-end-line="449" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loan_management.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/loan_management.rb">
+      <file leaf-file-name="loan_registrations_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/loan_registrations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="378">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loan_registration.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/loan_registration.rb">
+      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/loan_registrations/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+            <state relative-caret-position="396">
+              <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="seeds.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/loan_managements/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="50" lean-forward="false" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+            <state relative-caret-position="324">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -153,8 +97,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/cashflows_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/cashflows/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/budgets/_comment_fields.html.erb" />
         <option value="$PROJECT_DIR$/app/views/budgets/_expense_fields.html.erb" />
         <option value="$PROJECT_DIR$/app/views/budgets/_income_fields.html.erb" />
@@ -164,7 +106,6 @@
         <option value="$PROJECT_DIR$/app/views/savings/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/loan_registrations/_form.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20181222201611_add_internal_to_loan_registrations.rb" />
-        <option value="$PROJECT_DIR$/app/views/loan_registrations/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/loan_managements/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/loan_managements/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/rent_managements/edit.html.erb" />
@@ -193,8 +134,6 @@
         <option value="$PROJECT_DIR$/app/views/dashboard/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/rent_managements_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/issue_managements_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/loan_managements_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/loan_registrations_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/loan_managements/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/loan_registrations/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/rent_managements/index.html.erb" />
@@ -204,6 +143,11 @@
         <option value="$PROJECT_DIR$/app/models/loan_management.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/lib/seeds/ChillLoan.csv" />
+        <option value="$PROJECT_DIR$/app/views/loan_managements/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/loan_managements/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/loan_managements_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/loan_registrations_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/loan_registrations/show.html.erb" />
       </list>
     </option>
   </component>
@@ -697,17 +641,18 @@
       <workItem from="1544748051248" duration="43347000" />
       <workItem from="1544892574484" duration="535000" />
       <workItem from="1544893279047" duration="39727000" />
-      <workItem from="1545343287880" duration="38322000" />
+      <workItem from="1545343287880" duration="45838000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="733603000" />
+    <option name="totallyTimeSpent" value="741119000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1204" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2636816" sideWeight="0.49503547" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2636816" sideWeight="0.49503547" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.721223" sideWeight="0.50193477" order="7" side_tool="true" content_ui="tabs" />
@@ -716,7 +661,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32966024" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32966024" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2708907" sideWeight="0.49806523" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2708907" sideWeight="0.49806523" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.159132" sideWeight="0.50496453" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -762,42 +707,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/loan_managements/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="36" lean-forward="true" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/loan_managements/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/savings/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2724">
-          <caret line="232" column="0" lean-forward="false" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#7;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/loan_registrations/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/rent_managements/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -1044,14 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/loan_managements_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/loan_managements/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="654">
@@ -1080,14 +981,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/loan_registrations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1160,14 +1053,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/loan_management.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/loan_registration.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1186,8 +1071,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2178">
+        <state relative-caret-position="3528">
           <caret line="449" column="25" lean-forward="false" selection-start-line="449" selection-start-column="25" selection-end-line="449" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/loan_management.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/loan_managements/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/loan_managements/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="73" column="16" lean-forward="false" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#3;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/loan_managements_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20181223025258_add_outstanding_to_loan_registrations.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/loan_registrations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/loan_registrations/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
           <folding />
         </state>
       </provider>
