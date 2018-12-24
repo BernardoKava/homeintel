@@ -32,10 +32,8 @@ gem 'humanize'
 
 
 
-group :development, :test do
-  gem 'sqlite3', '1.3.13'
-  gem 'byebug',  '9.0.6', platform: :mri
-end
+
+gem 'byebug',  '9.0.6'
 
 group :development do
   gem 'web-console',           '3.5.1'
@@ -52,10 +50,10 @@ group :test do
   gem 'guard-minitest',           '2.4.6'
 end
 
-group :production do
+
   gem 'pg',  '0.20.0'
   gem 'fog', '1.42'
-end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 #gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]gem "bootsnap", require: false
